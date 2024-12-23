@@ -31,11 +31,21 @@
 /* *{
   border: 5px solid red;
 } */
+html{
+  /** Esta parte de aquí mejora el manejo del REM */
+  font-size: 62.5%;
+ }
+
 *{
+  padding: 0px;
+  margin: 0px;
   text-decoration: none;
 }
+
 body {
-  margin: 0px;
+  /** Con estos dos valores de html y body facilitamos el uso de los rems */
+  /** 1rem = 10px */
+  font-size: 16px;
   font-family: Helvetica, Arial, sans-serif;
 }
 *,*::before,*::after{

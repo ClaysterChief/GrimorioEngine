@@ -1,208 +1,1953 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="images/logo_VAFBF.svg" type="image/x-icon" />
-    <title>Framework ESC Studios</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="images/logo_VAFBF.svg" type="image/x-icon" />
+  <title>Grimorio Engine · ESC Labs</title>
 </head>
 
 <body>
-    <header class="cabecera bg-negro">
-        <nav class="navegar">
-            <a href="index.html" rel="noopener noreferrer"><img src="images/Logo Extended VFISF.svg" alt="Logo"
-                    class="imagen-redonda logo-cabecera" width="100px" /></a>
-            <ul class="menu-principal">
-                <li class="menu-principal__item--active"><a class="menu-principal__link" href="">Inicio</a></li>
-                <li class="menu-principal__item"><a class="menu-principal__link" href="html/contacto.html">Contacto</a></li>
-                <li class="menu-principal__item"><a class="menu-principal__link" href="html/servicios.html">Servicios</a></li>
-                <li class="menu-principal__item"><a class="menu-principal__link" href="html/login.html">Iniciar sesion</a></li>
-            </ul>
-        </nav>
-    </header>
-    <br />
 
-    <input type="button" class="btn btn-azul" value="Inicio" />
-    <input type="button" class="btn btn-rojo" value="Contacto" />
-    <input type="button" class="btn btn-verde" value="Servicios" />
-    <input type="button" class="btn" value="Iniciar sesion" />
+  <!-- ── NAVEGACIÓN ──────────────────────────────── -->
+  <header class="cabecera">
+    <nav class="navegar">
+      <a href="index.html">
+        <img src="images/Logo Extended VFISF.svg" alt="ESC Labs" class="logo-cabecera" />
+      </a>
+      <ul class="menu-principal">
+        <li class="menu-principal__item--active">
+          <a class="menu-principal__link" href="">Inicio</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="html/contacto.html">Contacto</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="html/servicios.html">Servicios</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="html/login.html">Acceso</a>
+        </li>
+      </ul>
+      <!-- Selector de tema compacto en navbar -->
+      <div class="nav-temas">
+        <button class="nav-temas__btn nav-temas__btn--activa" data-tema="default"
+          title="Dual Signal" aria-label="Tema Dual Signal">
+          <span class="nav-temas__diamante" style="background:#b44fff; box-shadow: 0 0 8px #b44fff88;"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="cosmos"
+          title="Cosmos Blue" aria-label="Tema Cosmos Blue">
+          <span class="nav-temas__diamante" style="background:#1a6fd8; box-shadow: 0 0 8px #1a6fd888;"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="crimson"
+          title="Crimson Signal" aria-label="Tema Crimson Signal">
+          <span class="nav-temas__diamante" style="background:#e53935; box-shadow: 0 0 8px #e5393588;"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── SELECTOR DE TEMA (TOP) ───────────────────── -->
+  <div style="border-bottom: 1px solid var(--border); background: var(--void-surface); padding: 0.75rem 0;">
+    <div class="contenedor" style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
+      <span style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);">Paleta:</span>
+      <div class="selector-tema" style="gap: 0.75rem;">
+        <button type="button" class="selector-tema__opcion selector-tema__opcion--activa" data-tema="default" style="min-width: 0; flex: none; padding: 0;">
+          <div class="selector-tema__preview" style="background: linear-gradient(135deg, #1a0840 0%, #060412 100%); width: 48px; height: 48px;">
+            <div class="selector-tema__acento-muestra" style="background:#b44fff; color:#b44fff; box-shadow:0 0 12px #b44fff88; width:14px; height:14px;"></div>
+          </div>
+          <div class="selector-tema__info" style="padding: 0.45rem 0.65rem;">
+            <div class="selector-tema__nombre" style="color:#b44fff; font-size: 0.72rem;">Dual Signal</div>
+          </div>
+          <span class="selector-tema__insignia" style="color:#b44fff;">ACTIVA</span>
+        </button>
+        <button type="button" class="selector-tema__opcion" data-tema="cosmos" style="min-width: 0; flex: none; padding: 0;">
+          <div class="selector-tema__preview" style="background: linear-gradient(135deg, #0a1a40 0%, #040c18 100%); width: 48px; height: 48px;">
+            <div class="selector-tema__acento-muestra" style="background:#1a6fd8; color:#1a6fd8; box-shadow:0 0 12px #1a6fd888; width:14px; height:14px;"></div>
+          </div>
+          <div class="selector-tema__info" style="padding: 0.45rem 0.65rem;">
+            <div class="selector-tema__nombre" style="color:#1a6fd8; font-size: 0.72rem;">Cosmos</div>
+          </div>
+          <span class="selector-tema__insignia" style="color:#1a6fd8;">ACTIVA</span>
+        </button>
+        <button type="button" class="selector-tema__opcion" data-tema="crimson" style="min-width: 0; flex: none; padding: 0;">
+          <div class="selector-tema__preview" style="background: linear-gradient(135deg, #2d0808 0%, #110202 100%); width: 48px; height: 48px;">
+            <div class="selector-tema__acento-muestra" style="background:#e53935; color:#e53935; box-shadow:0 0 12px #e5393588; width:14px; height:14px;"></div>
+          </div>
+          <div class="selector-tema__info" style="padding: 0.45rem 0.65rem;">
+            <div class="selector-tema__nombre" style="color:#e53935; font-size: 0.72rem;">Crimson</div>
+          </div>
+          <span class="selector-tema__insignia" style="color:#e53935;">ACTIVA</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── HERO ────────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <h6>grimorio-engine · v2.0 · dual-signal</h6>
+    <h1>ESC Labs</h1>
+    <span class="logo-labs">LABS</span>
+    <div class="logo-divisor">
+      <span class="logo-divisor__linea"></span>
+      <span class="logo-divisor__diamante"></span>
+      <span class="logo-divisor__linea"></span>
+    </div>
+    <p>
+      <span class="cursor-ps1"></span>
+      Framework de componentes CSS · Build. Evolve. Compute.
+    </p>
+  </section>
+
+  <!-- ── BOTONES ─────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Botones · Base</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+      <button class="btn">Base</button>
+      <button class="btn btn-primario">Primario</button>
+      <button class="btn btn-accion">Acción CTA</button>
+      <button class="btn btn-secundario">Secundario</button>
+    </div>
+
+    <p class="separador">Botones · Animados</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+      <button class="btn btn-fantasma">Fantasma</button>
+      <button class="btn btn-scan">Scan</button>
+      <button class="btn btn-glitch">Glitch</button>
+      <button class="btn btn-pulso">Pulso</button>
+      <button class="btn btn-alerta">Alerta</button>
+    </div>
+
+    <p class="separador">Botones · Tamaños</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+      <button class="btn btn--sm">Pequeño</button>
+      <button class="btn btn-primario">Normal</button>
+      <button class="btn btn-primario btn--lg">Grande</button>
+      <button class="btn btn-primario btn--xl">Extra grande</button>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+      <button class="btn btn-accion btn--xl">Acción XL</button>
+      <button class="btn btn-fantasma btn--xl">Fantasma XL</button>
+      <button class="btn btn-pulso btn--xl">Pulso XL</button>
+    </div>
+
+    <p class="separador">Botones · Bloque</p>
+    <div style="max-width: 400px;">
+      <button class="btn btn-primario btn--bloque" style="margin-bottom: 0.75rem;">Bloque Primario</button>
+      <button class="btn btn-accion btn--bloque" style="margin-bottom: 0.75rem;">Bloque Acción</button>
+      <button class="btn btn-secundario btn--bloque">Bloque Secundario</button>
+    </div>
+  </section>
+
+  <!-- ── SURFACE / PANEL ─────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Surface · Panel base</p>
+    <div class="superficie">
+      <h6>Panel de sistema · ESC-LABS-001</h6>
+      <p>Superficie base para contenido estructurado. Úsala en dashboards, bloques de información y formularios destacados.</p>
+      <div class="barra-hp" style="margin-top: 1rem;">
+        <span class="barra-hp__label">HP</span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque"></span>
+        <span class="barra-hp__bloque"></span>
+        <span class="barra-hp__bloque"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TARJETAS ────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Tarjetas</p>
+    <div class="grupo-tarjeta">
+
+      <div class="tarjeta">
+        <img src="images/creacion_web.png" alt="Creación Web" class="tarjeta__imagen" />
+        <div class="tarjeta__cuerpo">
+          <span class="tarjeta__titulo">Creación Web</span>
+          <p class="tarjeta__texto">Páginas construidas para durar, no para impresionar en demo.</p>
+        </div>
+        <div class="tarjeta__footer">
+          <div class="diamante"></div>
+          <div class="barra-hp" style="flex: 1;">
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+          </div>
+          <span style="font-size: 0.85rem;">ESC-001</span>
+        </div>
+        <button class="btn btn-primario btn-tarjeta">Más información</button>
+      </div>
+
+      <div class="tarjeta">
+        <img src="images/creacion_sistemas.png" alt="Sistemas" class="tarjeta__imagen" />
+        <div class="tarjeta__cuerpo">
+          <span class="tarjeta__titulo">Sistemas y Móvil</span>
+          <p class="tarjeta__texto">Sistemas a la medida para llevar tu empresa al siguiente nivel.</p>
+        </div>
+        <div class="tarjeta__footer">
+          <div class="diamante"></div>
+          <div class="barra-hp" style="flex: 1;">
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque"></span>
+          </div>
+          <span style="font-size: 0.85rem;">ESC-002</span>
+        </div>
+        <button class="btn btn-primario btn-tarjeta">Más información</button>
+      </div>
+
+      <!-- Tarjeta con variante de acción (red-strike) -->
+      <div class="tarjeta tarjeta--accion">
+        <img src="images/asesoria.png" alt="Asesoría" class="tarjeta__imagen" />
+        <div class="tarjeta__cuerpo">
+          <span class="tarjeta__titulo">Asesoría</span>
+          <p class="tarjeta__texto">Resolvemos tus dudas y mejoramos tus habilidades oscuras en código.</p>
+        </div>
+        <div class="tarjeta__footer">
+          <div class="diamante"></div>
+          <div class="barra-hp" style="flex: 1;">
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+          </div>
+          <span style="font-size: 0.85rem;">ESC-003</span>
+        </div>
+        <button class="btn btn-accion btn-tarjeta">Contactar</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TAGLINES ────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Taglines · Voz de marca</p>
+    <div style="max-width: 560px;">
+      <div class="tagline-item">
+        <span class="tagline-item__arrow">>></span>
+        <div>
+          <span class="tagline-item__texto">Systems that evolve.</span>
+          <span class="tagline-item__contexto">inglés · uso global</span>
+        </div>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-item__arrow">>></span>
+        <div>
+          <span class="tagline-item__texto">Build. Evolve. Compute.</span>
+          <span class="tagline-item__contexto">tres verbos = E·S·C</span>
+        </div>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-item__arrow">>></span>
+        <div>
+          <span class="tagline-item__texto">Tecnología con alma propia.</span>
+          <span class="tagline-item__contexto">español · propuestas LATAM</span>
+        </div>
+      </div>
+      <div class="tagline-item">
+        <span class="tagline-item__arrow">>></span>
+        <div>
+          <span class="tagline-item__texto">From science to system.</span>
+          <span class="tagline-item__contexto">neutral · laboratorios y negocios</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ELEMENTOS DE CARGA ───────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Elementos de carga · PS1 themed</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 3.5rem; align-items: flex-end;">
+
+      <div>
+        <h6 style="margin-bottom: 1rem;">.cargando-bloques · HP secuencial</h6>
+        <div class="cargando-bloques">
+          <span class="cargando-bloques__label">Cargando sistema</span>
+          <div class="cargando-bloques__pista">
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+            <span class="cargando-bloques__bloque"></span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 1rem;">.cargando-diamante · Anillos contra-rotantes</h6>
+        <div class="cargando-diamante">
+          <div class="cargando-diamante__anillo-ext"></div>
+          <div class="cargando-diamante__anillo-int"></div>
+          <div class="cargando-diamante__nucleo"></div>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 1rem;">.cargando-scan · Barrido CRT</h6>
+        <div class="cargando-scan">
+          <span class="cargando-scan__ruta">esc-labs://boot/sistema</span>
+          <span class="cargando-scan__label">Scanning</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FORMULARIO ──────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Formulario · Campos animados con focus</p>
+    <form class="grupo-formulario" action="#" method="post" novalidate>
+      <div class="campo-formulario" style="margin-top: 0;">
+        <label for="nombre">Nombre:</label>
+        <input class="formulario-estandar" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
+      </div>
+      <div class="campo-formulario">
+        <label for="correo">Correo:</label>
+        <input class="formulario-estandar" type="email" name="correo" id="correo" placeholder="correo@esclabs.io" />
+      </div>
+      <div class="campo-formulario">
+        <label for="busqueda">Búsqueda:</label>
+        <input class="formulario-estandar" type="search" name="busqueda" id="busqueda" placeholder="Barra de búsqueda" />
+      </div>
+      <div class="campo-formulario">
+        <label for="contrasena">Contraseña:</label>
+        <input class="formulario-estandar" type="password" name="contrasena" id="contrasena" placeholder="••••••••" />
+      </div>
+      <div class="campo-formulario">
+        <label>Archivo:</label>
+        <div class="formulario-archivo-contenedor">
+          <label class="formulario-archivo-btn" for="archivo-tematizado">
+            <span>◆</span> Elegir archivo
+          </label>
+          <input type="file" id="archivo-tematizado" class="formulario-archivo-input" data-nombre-id="archivo-nombre-display" />
+          <span class="formulario-archivo-nombre" id="archivo-nombre-display">Ningún archivo seleccionado</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 1rem; margin-top: 1.75rem;">
+        <button class="btn btn-primario" type="submit">Enviar datos</button>
+        <button class="btn btn-secundario" type="reset">Limpiar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ── COMPONENTES EXTRAS DE FORMULARIO ─────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Formulario · Checkbox · Radio · Toggle · Textarea</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: flex-start;">
+
+      <div style="min-width: 200px;">
+        <h6 style="margin-bottom: 1rem;">Checkboxes</h6>
+        <label class="formulario-checkbox">
+          <input type="checkbox" class="formulario-checkbox__input" />
+          <span class="formulario-checkbox__marca"></span>
+          Módulo activo
+        </label>
+        <label class="formulario-checkbox">
+          <input type="checkbox" class="formulario-checkbox__input" checked />
+          <span class="formulario-checkbox__marca"></span>
+          Modo debug
+        </label>
+        <label class="formulario-checkbox">
+          <input type="checkbox" class="formulario-checkbox__input" />
+          <span class="formulario-checkbox__marca"></span>
+          Sincronizar datos
+        </label>
+      </div>
+
+      <div style="min-width: 200px;">
+        <h6 style="margin-bottom: 1rem;">Radio · Diamante PS1</h6>
+        <label class="formulario-radio">
+          <input type="radio" name="paleta-radio" class="formulario-radio__input" checked />
+          <span class="formulario-radio__marca"></span>
+          Dual Signal
+        </label>
+        <label class="formulario-radio">
+          <input type="radio" name="paleta-radio" class="formulario-radio__input" />
+          <span class="formulario-radio__marca"></span>
+          Cosmos Blue
+        </label>
+        <label class="formulario-radio">
+          <input type="radio" name="paleta-radio" class="formulario-radio__input" />
+          <span class="formulario-radio__marca"></span>
+          Sin tema
+        </label>
+      </div>
+
+      <div style="min-width: 220px;">
+        <h6 style="margin-bottom: 1rem;">Toggles · Encendido / Apagado</h6>
+        <label class="formulario-toggle">
+          <input type="checkbox" class="formulario-toggle__input" />
+          <span class="formulario-toggle__slider"></span>
+          <span class="formulario-toggle__etiqueta">Modo oscuro</span>
+        </label>
+        <label class="formulario-toggle" style="margin-top: 0.85rem;">
+          <input type="checkbox" class="formulario-toggle__input" checked />
+          <span class="formulario-toggle__slider"></span>
+          <span class="formulario-toggle__etiqueta">Señal activa</span>
+        </label>
+        <label class="formulario-toggle" style="margin-top: 0.85rem;">
+          <input type="checkbox" class="formulario-toggle__input" />
+          <span class="formulario-toggle__slider"></span>
+          <span class="formulario-toggle__etiqueta">Acceso remoto</span>
+        </label>
+      </div>
+
+      <div style="flex: 1; min-width: 240px;">
+        <h6 style="margin-bottom: 1rem;">Textarea</h6>
+        <label style="margin-top: 0;">Mensaje del sistema:</label>
+        <textarea class="formulario-textarea" placeholder="Ingresa el log o mensaje aquí..."></textarea>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FORMULARIO MULTI-PASO ──────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Formulario · Multi-paso con transición deslizante</p>
+    <div id="form-registro" class="formulario-pasos" style="max-width: 580px;">
+      <div class="formulario-pasos__barra">
+        <span class="formulario-pasos__paso-ind formulario-pasos__paso-ind--activo">01 · Datos</span>
+        <span class="formulario-pasos__conector"></span>
+        <span class="formulario-pasos__paso-ind">02 · Confirmar</span>
+      </div>
+      <div class="formulario-pasos__pista">
+
+        <!-- Panel 1 -->
+        <div class="formulario-pasos__panel">
+          <h6 style="color: var(--acento); margin-bottom: 1.25rem;">Datos de acceso</h6>
+          <div class="campo-formulario" style="margin-top: 0;">
+            <label for="fp-usuario">Usuario:</label>
+            <input class="formulario-estandar" type="text" id="fp-usuario" placeholder="esc_usuario" />
+          </div>
+          <div class="campo-formulario">
+            <label for="fp-pass">Contraseña:</label>
+            <input class="formulario-estandar" type="password" id="fp-pass" placeholder="••••••••" />
+          </div>
+          <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+            <button class="btn btn-primario" data-paso-sig>Siguiente &#8594;</button>
+          </div>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="formulario-pasos__panel">
+          <h6 style="color: var(--acento); margin-bottom: 1.25rem;">Confirmar registro</h6>
+          <div class="campo-formulario" style="margin-top: 0;">
+            <label for="fp-correo2">Correo de confirmación:</label>
+            <input class="formulario-estandar" type="email" id="fp-correo2" placeholder="correo@esclabs.io" />
+          </div>
+          <label class="formulario-checkbox" style="margin-top: 1rem;">
+            <input type="checkbox" class="formulario-checkbox__input" />
+            <span class="formulario-checkbox__marca"></span>
+            Acepto los términos del sistema
+          </label>
+          <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+            <button class="btn btn-secundario" data-paso-ant>&#8592; Volver</button>
+            <button class="btn btn-accion">Confirmar acceso ◆</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BARRA HP ────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Barra HP · Progreso</p>
+    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+      <div class="barra-hp">
+        <span class="barra-hp__label">Completo</span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+      </div>
+      <div class="barra-hp">
+        <span class="barra-hp__label">Parcial &nbsp;</span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque"></span>
+        <span class="barra-hp__bloque"></span>
+        <span class="barra-hp__bloque"></span>
+        <span class="barra-hp__bloque"></span>
+        <span class="barra-hp__bloque"></span>
+      </div>
+      <div class="barra-hp">
+        <span class="barra-hp__label">Crítico &nbsp;</span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+        <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── IMÁGENES ────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Imágenes · Base</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; margin-bottom: 2.5rem;">
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-redonda</h6>
+        <img src="images/imagen2.jpg" alt="Redonda" class="imagen-redonda" width="200" />
+      </div>
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-circular</h6>
+        <img src="images/imagen2.jpg" alt="Circular" class="imagen-circular" width="200" />
+      </div>
+    </div>
+
+    <p class="separador">Imágenes · Efectos hover · pasa el mouse sobre cada imagen</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-zoom</h6>
+        <div class="imagen-efecto imagen-zoom" style="width: 200px; height: 150px;">
+          <img src="images/imagen1.jpg" alt="Zoom" />
+          <span class="imagen-efecto__label">ZOOM</span>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-scan</h6>
+        <div class="imagen-efecto imagen-scan" style="width: 200px; height: 150px;">
+          <img src="images/imagen2.jpg" alt="Scan" />
+          <span class="imagen-efecto__label">SCAN</span>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-glitch</h6>
+        <div class="imagen-efecto imagen-glitch" style="width: 200px; height: 150px;">
+          <img src="images/imagen3.jpg" alt="Glitch" />
+          <span class="imagen-efecto__label">GLITCH</span>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-vhs</h6>
+        <div class="imagen-efecto imagen-vhs" style="width: 200px; height: 150px;">
+          <img src="images/imagen4.png" alt="VHS" />
+          <span class="imagen-efecto__label">VHS</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── TEXTO MÁQUINA ────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Texto máquina · Efecto de escritura</p>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">.texto-maquina · Orbitron display</h6>
+        <h2 class="texto-maquina text-acento">Build. Evolve. Compute.</h2>
+      </div>
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">.texto-maquina--lento · VT323</h6>
+        <p class="texto-maquina texto-maquina--lento" style="font-size: 2.2rem; line-height: 1.2;">Sistema listo. Iniciando secuencia de arranque...</p>
+      </div>
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">.texto-maquina--sin-cursor</h6>
+        <h3 class="texto-maquina texto-maquina--sin-cursor text-apagado">ESC Labs · v2.0 · Dual Signal</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VENTANA PS1 ───────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Ventana · Contenedor PS1</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+
+      <div class="ventana ventana--entrada" style="flex: 1; min-width: 260px;">
+        <div class="ventana__scanlines"></div>
+        <div class="ventana__barra">
+          <div class="ventana__dots">
+            <span class="ventana__dot ventana__dot--rojo"></span>
+            <span class="ventana__dot ventana__dot--amarillo"></span>
+            <span class="ventana__dot ventana__dot--verde"></span>
+          </div>
+          <span class="ventana__titulo">ESC-LABS-001 · MODO NORMAL</span>
+          <span class="ventana__version">v2.0</span>
+        </div>
+        <div class="ventana__contenido">
+          <h6 style="color: var(--acento); margin-bottom: 0.75rem;">SISTEMA ACTIVO</h6>
+          <p>Contenedor de ventana PS1. Úsalo para dashboards, mensajes del sistema y bloques de información relevante.</p>
+          <div class="barra-hp" style="margin-top: 0.75rem;">
+            <span class="barra-hp__label">HP</span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ventana" style="flex: 1; min-width: 260px;">
+        <div class="ventana__scanlines"></div>
+        <div class="ventana__barra">
+          <div class="ventana__dots">
+            <span class="ventana__dot ventana__dot--rojo"></span>
+            <span class="ventana__dot"></span>
+            <span class="ventana__dot"></span>
+          </div>
+          <span class="ventana__titulo">ADVERTENCIA // ESC-LABS-002</span>
+          <span class="ventana__version">alerta</span>
+        </div>
+        <div class="ventana__contenido">
+          <h6 style="color: var(--red-strike); margin-bottom: 0.75rem;">MEMORIA CRÍTICA</h6>
+          <p>Módulo de gestión en estado crítico. Libera recursos antes de continuar.</p>
+          <div class="barra-hp" style="margin-top: 0.75rem;">
+            <span class="barra-hp__label">MEM</span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CONSOLA TERMINAL ──────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Consola · Terminal interactiva · escribe "help" para empezar</p>
+    <div id="esc-consola" class="consola">
+      <div class="consola__barra">
+        <div class="ventana__dots">
+          <span class="ventana__dot ventana__dot--rojo"></span>
+          <span class="ventana__dot ventana__dot--amarillo"></span>
+          <span class="ventana__dot ventana__dot--verde"></span>
+        </div>
+        <span class="consola__titulo">ESC LABS · TERMINAL</span>
+        <span class="consola__version">v2.0.0</span>
+      </div>
+      <div class="consola__pantalla" aria-label="Salida de consola" aria-live="polite"></div>
+      <form class="consola__form" autocomplete="off">
+        <span class="consola__prompt">esc@labs:~$</span>
+        <input
+          class="consola__input"
+          type="text"
+          placeholder="escribe un comando..."
+          spellcheck="false"
+          aria-label="Entrada de comando"
+        />
+      </form>
+    </div>
+  </section>
+
+  <!-- ── STAT HUD ──────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Stat HUD · Panel de métricas</p>
+    <div class="stat-hud">
+      <div class="stat-hud__item">
+        <span class="stat-hud__label">Componentes</span>
+        <span class="stat-hud__valor">18<span class="stat-hud__unidad"> mods</span></span>
+        <div class="stat-hud__barra barra-hp">
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque"></span>
+        </div>
+      </div>
+      <div class="stat-hud__item">
+        <span class="stat-hud__label">Animaciones</span>
+        <span class="stat-hud__valor">14<span class="stat-hud__unidad"> fx</span></span>
+        <div class="stat-hud__barra barra-hp">
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque"></span>
+          <span class="barra-hp__bloque"></span>
+        </div>
+      </div>
+      <div class="stat-hud__item">
+        <span class="stat-hud__label">Variables CSS</span>
+        <span class="stat-hud__valor">12<span class="stat-hud__unidad"> vars</span></span>
+        <div class="stat-hud__barra barra-hp">
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        </div>
+      </div>
+      <div class="stat-hud__item">
+        <span class="stat-hud__label">Paletas</span>
+        <span class="stat-hud__valor">2<span class="stat-hud__unidad"> temas</span></span>
+        <div class="stat-hud__barra barra-hp">
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        </div>
+      </div>
+      <div class="stat-hud__item">
+        <span class="stat-hud__label">Build size</span>
+        <span class="stat-hud__valor">~32<span class="stat-hud__unidad"> kb</span></span>
+        <div class="stat-hud__barra barra-hp">
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque"></span>
+          <span class="barra-hp__bloque"></span>
+          <span class="barra-hp__bloque"></span>
+        </div>
+      </div>
+      <div class="stat-hud__item">
+        <span class="stat-hud__label">Dependencias</span>
+        <span class="stat-hud__valor">0<span class="stat-hud__unidad"> libs</span></span>
+        <div class="stat-hud__barra barra-hp">
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VHS CONTAINERS ────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">VHS · Overlay en contenedores</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+
+      <div class="superficie" style="flex: 1; min-width: 260px; position: relative;">
+        <div class="vhs-overlay"></div>
+        <h6>Surface + .vhs-overlay</h6>
+        <p style="margin-top: 0.75rem;">Agrega <code>.vhs-overlay</code> como primer hijo de cualquier contenedor con <code>position: relative</code>.</p>
+        <div class="barra-hp" style="margin-top: 1rem;">
+          <span class="barra-hp__label">SIG</span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+          <span class="barra-hp__bloque"></span>
+          <span class="barra-hp__bloque"></span>
+        </div>
+      </div>
+
+      <div class="tarjeta" style="width: 280px; position: relative;">
+        <div class="vhs-overlay"></div>
+        <img src="images/creacion_web.png" alt="Web" class="tarjeta__imagen" />
+        <div class="tarjeta__cuerpo">
+          <span class="tarjeta__titulo">Tarjeta + VHS</span>
+          <p class="tarjeta__texto">El overlay funciona en tarjetas, superficies, ventanas o cualquier contenedor relativo.</p>
+        </div>
+        <div class="tarjeta__footer">
+          <div class="diamante"></div>
+          <span style="font-size: 0.85rem; margin-left: auto;">VHS-DEMO</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FORMULARIOS ESPECIALES ─────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Formularios especiales · Correo y Tarjeta de crédito</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+
+      <!-- Formulario correo -->
+      <div style="flex: 1; min-width: 280px; max-width: 420px;">
+        <h6 style="margin-bottom: 1rem;">Input de correo</h6>
+        <form onsubmit="return false;">
+          <div class="campo-formulario" style="margin-top: 0;">
+            <label>Correo electrónico:</label>
+            <div class="formulario-correo" id="correo-input-1">
+              <input type="text" class="formulario-correo__usuario"
+                placeholder="usuario" autocomplete="off" />
+              <span class="formulario-correo__arroba">@</span>
+              <div class="formulario-correo__dominio-wrap">
+                <button type="button" class="formulario-correo__dominio-btn"
+                  aria-expanded="false" aria-haspopup="listbox">
+                  <span class="formulario-correo__dominio-texto">gmail.com</span>
+                  <span class="formulario-correo__flecha">&#9660;</span>
+                </button>
+                <div class="formulario-correo__dropdown" role="listbox">
+                  <button type="button" class="formulario-correo__opcion" data-dominio="gmail.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> gmail.com
+                  </button>
+                  <button type="button" class="formulario-correo__opcion" data-dominio="hotmail.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> hotmail.com
+                  </button>
+                  <button type="button" class="formulario-correo__opcion" data-dominio="yahoo.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> yahoo.com
+                  </button>
+                  <button type="button" class="formulario-correo__opcion" data-dominio="outlook.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> outlook.com
+                  </button>
+                  <button type="button" class="formulario-correo__opcion" data-dominio="icloud.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> icloud.com
+                  </button>
+                  <button type="button" class="formulario-correo__opcion" data-dominio="proton.me">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> proton.me
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <button class="btn btn-primario" type="submit">Enviar correo</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulario tarjeta de crédito -->
+      <div style="flex: 1; min-width: 320px; max-width: 500px;">
+        <h6 style="margin-bottom: 1rem;">Tarjeta de crédito · Flip CVV</h6>
+        <form onsubmit="return false;">
+          <!-- Preview 3D -->
+          <div class="tarjeta-credito-escena">
+            <div class="tarjeta-credito" id="tc-preview">
+              <div class="tarjeta-credito__cara">
+                <div class="tarjeta-credito__frente-contenido">
+                  <div class="tarjeta-credito__header">
+                    <div class="tarjeta-credito__marca">ESC LABS<small>SIGNAL CARD</small></div>
+                    <div class="tarjeta-credito__chip"></div>
+                  </div>
+                  <div class="tarjeta-credito__numero" id="tc-num-preview">
+                    ◆◆◆◆ &nbsp; ◆◆◆◆ &nbsp; ◆◆◆◆ &nbsp; ◆◆◆◆
+                  </div>
+                  <div class="tarjeta-credito__footer">
+                    <div class="tarjeta-credito__meta-grupo">
+                      <span class="tarjeta-credito__meta-label">Titular</span>
+                      <span class="tarjeta-credito__meta-valor" id="tc-nombre-preview">NOMBRE APELLIDO</span>
+                    </div>
+                    <div class="tarjeta-credito__meta-grupo" style="text-align:right;">
+                      <span class="tarjeta-credito__meta-label">Expira</span>
+                      <span class="tarjeta-credito__meta-valor" id="tc-exp-preview">MM/AA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tarjeta-credito__cara tarjeta-credito__reverso-cara">
+                <div class="tarjeta-credito__reverso-contenido">
+                  <div class="tarjeta-credito__banda"></div>
+                  <div class="tarjeta-credito__firma-row">
+                    <div class="tarjeta-credito__firma">
+                      <span class="tarjeta-credito__firma-texto" id="tc-firma-preview">NOMBRE APELLIDO</span>
+                    </div>
+                    <div class="tarjeta-credito__cvv-bloque">
+                      <div class="tarjeta-credito__cvv-valor" id="tc-cvv-preview">◆◆◆</div>
+                      <div class="tarjeta-credito__cvv-etiqueta">CVV</div>
+                    </div>
+                  </div>
+                  <div class="tarjeta-credito__logo-reverso">ESC LABS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Inputs -->
+          <div class="campo-formulario" style="margin-top: 0;">
+            <label for="tc-numero">Número:</label>
+            <input class="formulario-estandar" type="text" id="tc-numero"
+              placeholder="◆◆◆◆  ◆◆◆◆  ◆◆◆◆  ◆◆◆◆" maxlength="19" />
+          </div>
+          <div class="campo-formulario">
+            <label for="tc-nombre">Titular:</label>
+            <input class="formulario-estandar" type="text" id="tc-nombre"
+              placeholder="NOMBRE APELLIDO" />
+          </div>
+          <div style="display: flex; gap: 1rem;">
+            <div class="campo-formulario" style="flex:1;">
+              <label for="tc-exp">Expiración:</label>
+              <input class="formulario-estandar" type="text" id="tc-exp"
+                placeholder="MM/AA" maxlength="5" />
+            </div>
+            <div class="campo-formulario" style="flex:1;">
+              <label for="tc-cvv">CVV <small>(reverso)</small>:</label>
+              <input class="formulario-estandar" type="text" id="tc-cvv"
+                placeholder="◆◆◆" maxlength="4" />
+            </div>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <button class="btn btn-accion" type="submit">Pagar ◆</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── CARRUSELES ───────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Carrusel · Imágenes con descripción</p>
+    <div id="carrusel-imagenes" class="carrusel" style="max-width: 680px;">
+      <div class="carrusel__pista">
+
+        <div class="carrusel__item">
+          <img src="images/imagen1.jpg" alt="Slide 1" class="imagen-total" style="height: 280px; object-fit: cover;" />
+          <div style="padding: 1rem; background: var(--void-surface); border-top: 1px solid var(--border);">
+            <h6 style="color: var(--acento); margin-bottom: 0.35rem;">Grimorio Engine · v2.0</h6>
+            <p style="margin: 0; font-size: 1.7rem;">Framework de componentes CSS con estética PS1 para proyectos de alto impacto.</p>
+          </div>
+        </div>
+
+        <div class="carrusel__item">
+          <img src="images/imagen2.jpg" alt="Slide 2" class="imagen-total" style="height: 280px; object-fit: cover;" />
+          <div style="padding: 1rem; background: var(--void-surface); border-top: 1px solid var(--border);">
+            <h6 style="color: var(--acento); margin-bottom: 0.35rem;">Paleta Dual Signal</h6>
+            <p style="margin: 0; font-size: 1.7rem;">Morado profundo con señales de acento. La paleta por defecto del sistema.</p>
+          </div>
+        </div>
+
+        <div class="carrusel__item">
+          <img src="images/imagen3.jpg" alt="Slide 3" class="imagen-total" style="height: 280px; object-fit: cover;" />
+          <div style="padding: 1rem; background: var(--void-surface); border-top: 1px solid var(--border);">
+            <h6 style="color: var(--acento); margin-bottom: 0.35rem;">Paleta Cosmos Blue</h6>
+            <p style="margin: 0; font-size: 1.7rem;">Azul oscuro institucional. Activa con <code>.cosmos</code> en cualquier contenedor.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="carrusel__nav carrusel__nav--izq">
+        <button class="carrusel__btn" data-dir="-1">&#9664;</button>
+      </div>
+      <div class="carrusel__nav carrusel__nav--der">
+        <button class="carrusel__btn" data-dir="1">&#9654;</button>
+      </div>
+      <div class="carrusel__puntos"></div>
+    </div>
+
     <br /><br />
 
-    <h1 class="text-azul">ESC Studios</h1>
-    <h1 class="text-rojo">ESC Studios</h1>
-    <h1 class="text-naranja">ESC Studios</h1>
-    <h1 class="text-advertencia">ESC Studios</h1>
-    <h1 class="text-exitoso">ESC Studios</h1>
-    <h1 class="text-indigo">ESC Studios</h1>
-    <h1 class="text-morado">ESC Studios</h1>
-    <h1 class="text-rosa">ESC Studios</h1>
-    <br />
+    <p class="separador">Carrusel · Tarjetas de servicio</p>
+    <div id="carrusel-tarjetas" class="carrusel" style="max-width: 680px;">
+      <div class="carrusel__pista">
 
-    <h3>Formulario</h3>
-    <form action="entrada.php" method="post" enctype="multipart/form-data" class="grupo-formulario" novalidate>
-        <label for="nombre">Nombre:</label>
-        <input class="formulario-estandar" type="text" name="nombre" id="nombre" placeholder="Texto"><br>
-        <label for="tel">Telefono:</label>
-        <input class="formulario-estandar" type="tel" name="tel" id="tel" placeholder="Número de telefono"><br>
-        <label for="date">Fecha:</label>
-        <input class="formulario-estandar" type="date" name="date" id="date"><br>
-        <label for="datetime">Fecha-tiempo:</label>
-        <input class="formulario-estandar" type="datetime" name="datetime" id="datetime" placeholder="Fecha escrita"><br>
-        <label for="datetimelocal">Fecha con tiempo actual:</label>
-        <input class="formulario-estandar" type="datetime-local" name="datetimelocal" id="datetimelocal"><br>
-        <label for="email">Correo:</label>
-        <input class="formulario-estandar" type="email" name="email" id="email" placeholder="Correo electronico"><br>
-        <label for="file">Archivo:</label>
-        <input class="formulario-archivo" type="file" name="file" id="file"><br>
-        <label for="hidden">Oculto:</label>
-        <input class="formulario-estandar" type="hidden" name="hidden"><br>
-        <label for="imagen">Imagen para aceptar:</label><br>
-        <input type="image" src="images/logo_VAFBF.svg" alt="logo_VAFBF" width="50px"><br>
-        <label for="mes">Mes:</label>
-        <input class="formulario-estandar" type="month" name="mounth" id="mounth"><br>
-        <label for="number">Numero:</label>
-        <input class="formulario-estandar" type="number" name="number" id="number" placeholder="Solo números"><br>
-        <label for="password">Contraseña:</label>
-        <input class="formulario-estandar" type="password" name="password" id="password" placeholder="Contraseña"><br>
-        <label for="radio">Radio:</label>
-        <input type="radio" name="radio" id="radio"><br>
-        <label for="range">Rango:</label>
-        <input type="range" name="range" id="range"><br>
-        <label for="reset">Borrar:</label>
-        <input class="btn" type="reset" value="reset"><br>
-        <label for="search">Buscar:</label>
-        <input class="formulario-estandar" type="search" name="search" id="search" placeholder="Barra de busqueda"><br>
-        <label for="time">Tiempo:</label>
-        <input class="formulario-estandar" type="time" name="time" id="time"><br>
-        <label for="url">URL:</label>
-        <input class="formulario-estandar" type="url" name="url" id="url" placeholder="Dirreccion url"><br>
-        <label for="week">Semana:</label>
-        <input class="formulario-estandar" type="week" name="week" id="week"><br>
-        <label for="submit">Enviar:</label>
-        <input class="btn" type="submit" value="Enviar"><br>
-    </form>
-    <br>
-    <h3>Formulario en dos columnas</h3>
-    <form action="entrada.php" method="post" enctype="multipart/form-data" class="grupo-formulario-columnas__2" novalidate>
-        <div class="formulario-columna">
-            <label for="nombre">Nombre:</label>
-            <input class="formulario-estandar" type="text" name="nombre" id="nombre"  placeholder="Texto"><br>
-            <label for="tel">Telefono:</label>
-            <input class="formulario-estandar" type="tel" name="tel" id="tel" placeholder="Número de telefono"><br>
-            <label for="date">Fecha:</label>
-            <input class="formulario-estandar" type="date" name="date" id="date"><br>
-            <label for="datetime">Fecha-tiempo:</label>
-            <input class="formulario-estandar" type="datetime" name="datetime" id="datetime" placeholder="Fecha escrita"><br>
-            <label for="datetimelocal">Fecha con tiempo actual:</label>
-            <input class="formulario-estandar" type="datetime-local" name="datetimelocal" id="datetimelocal"><br>
-            <label for="email">Correo:</label>
-            <input class="formulario-estandar" type="email" name="email" id="email" placeholder="Correo electronico"><br>
-            <label for="file">Archivo:</label>
-            <input class="formulario-archivo" type="file" name="file" id="file"><br>
-            <label for="hidden">Oculto:</label>
-            <input class="formulario-estandar" type="hidden" name="hidden"><br>
-            <label for="imagen">Imagen para aceptar:</label><br>
-            <input type="image" src="images/logo_VAFBF.svg" alt="logo_VAFBF" width="50px"><br>
-        </div>
-        <div class="formulario-columna">
-            <label for="mes">Mes:</label>
-            <input class="formulario-estandar" type="month" name="mounth" id="mounth"><br>
-            <label for="number">Numero:</label>
-            <input class="formulario-estandar" type="number" name="number" id="number" placeholder="Solo números"><br>
-            <label for="password">Contraseña:</label>
-            <input class="formulario-estandar" type="password" name="password" id="password" placeholder="Contraseña"><br>
-            <label for="radio">Radio:</label>
-            <input type="radio" name="radio" id="radio"><br>
-            <label for="range">Rango:</label>
-            <input type="range" name="range" id="range"><br>
-            <label for="reset">Borrar:</label>
-            <input class="btn" type="reset" value="reset"><br>
-            <label for="search">Buscar:</label>
-            <input class="formulario-estandar" type="search" name="search" id="search" placeholder="Barra de busqueda"><br>
-            <label for="time">Tiempo:</label>
-            <input class="formulario-estandar" type="time" name="time" id="time"><br>
-            <label for="url">URL:</label>
-            <input class="formulario-estandar" type="url" name="url" id="url" placeholder="Dirreccion url"><br>
-            <label for="week">Semana:</label>
-            <input class="formulario-estandar" type="week" name="week" id="week"><br>
-            <label for="submit">Enviar:</label>
-            <input class="btn" type="submit" value="Enviar"><br>
-        </div>
-    </form>
-    <br>
-
-    <section class="contenedor">
-        <h3>Contenedor</h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum voluptate soluta tempore blanditiis, ad architecto repellendus amet ipsa aspernatur ipsam corrupti, eos quae cumque inventore harum delectus ducimus ut velit?
-            Unde libero dolore eos eius, esse at sequi ullam, iusto animi veniam asperiores itaque commodi quidem similique nam adipisci, inventore quasi illo expedita laboriosam dicta eveniet omnis. Veritatis, quos obcaecati.
-            Recusandae minima pariatur veritatis culpa quis facilis quod at magnam excepturi, tempora, fugiat dolor quia eveniet iure maiores illo amet incidunt libero provident fugit alias neque! Sequi odio quos vero?
-            Sed officia sunt sequi accusamus voluptatem commodi quos temporibus ad totam. Atque voluptates, consequatur rerum totam ut at ratione esse, libero accusantium vitae asperiores. A optio ipsa necessitatibus tempore nisi?
-            Aspernatur culpa voluptates autem, sint corporis asperiores amet, ipsa illum quis natus dolore blanditiis, expedita deserunt repudiandae necessitatibus libero ut atque facilis eligendi tenetur! Quibusdam asperiores laudantium explicabo soluta similique!
-            Voluptate culpa quibusdam excepturi sit ratione saepe sapiente ipsam dignissimos, nihil cum neque laudantium omnis fugit facere quos minima labore porro corporis aut. Expedita minus neque reprehenderit accusamus magni exercitationem!
-        </p>
-    </section>
-    <section class="contenedor">
-        <h3>Imagenes</h3>
-        <p>Imagen redonda:</p>
-        <img src="images/imagen2.jpg" alt="imagen-redonda" class="imagen-redonda" width="300px"><br>
-        <p>Imagen Total:</p>
-        <img src="images/imagen2.jpg" alt="imagen Total" class="imagen-total"><br>
-        <p>Imagen circular:</p>
-        <img src="images/imagen2.jpg" alt="imagen circular" class="imagen-circular" width="300px"><br>
-        <br>
-        <div class="imagen-grupo">
-            <p>Grupo de Imagenes</p>
-            <div class="grupo-imagen">
-                <img src="images/imagen1.jpg" alt="img" class="imagen-grupo imagen-redonda" width="200px">
-                <img src="images/imagen2.jpg" alt="img" class="imagen-grupo imagen-redonda" width="200px">
-                <img src="images/imagen3.jpg" alt="img" class="imagen-grupo imagen-redonda" width="200px">
-                <img src="images/imagen4.png" alt="img" class="imagen-grupo imagen-redonda" width="200px">
+        <div class="carrusel__item" style="padding: 1.25rem;">
+          <div class="tarjeta" style="width: 100%;">
+            <img src="images/creacion_web.png" alt="Web" class="tarjeta__imagen" />
+            <div class="tarjeta__cuerpo">
+              <span class="tarjeta__titulo">Creación Web</span>
+              <p class="tarjeta__texto">Páginas construidas para durar, no para impresionar en demo.</p>
             </div>
+            <div class="tarjeta__footer">
+              <div class="diamante"></div>
+              <span style="font-size: 0.85rem; margin-left: auto;">ESC-001</span>
+            </div>
+          </div>
         </div>
+
+        <div class="carrusel__item" style="padding: 1.25rem;">
+          <div class="tarjeta" style="width: 100%;">
+            <img src="images/creacion_sistemas.png" alt="Sistemas" class="tarjeta__imagen" />
+            <div class="tarjeta__cuerpo">
+              <span class="tarjeta__titulo">Sistemas y Móvil</span>
+              <p class="tarjeta__texto">Sistemas a la medida para llevar tu empresa al siguiente nivel.</p>
+            </div>
+            <div class="tarjeta__footer">
+              <div class="diamante"></div>
+              <span style="font-size: 0.85rem; margin-left: auto;">ESC-002</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="carrusel__item" style="padding: 1.25rem;">
+          <div class="tarjeta tarjeta--accion" style="width: 100%;">
+            <img src="images/asesoria.png" alt="Asesoría" class="tarjeta__imagen" />
+            <div class="tarjeta__cuerpo">
+              <span class="tarjeta__titulo">Asesoría</span>
+              <p class="tarjeta__texto">Resolvemos tus dudas y mejoramos tus habilidades en código.</p>
+            </div>
+            <div class="tarjeta__footer">
+              <div class="diamante"></div>
+              <span style="font-size: 0.85rem; margin-left: auto;">ESC-003</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="carrusel__nav carrusel__nav--izq">
+        <button class="carrusel__btn" data-dir="-1">&#9664;</button>
+      </div>
+      <div class="carrusel__nav carrusel__nav--der">
+        <button class="carrusel__btn" data-dir="1">&#9654;</button>
+      </div>
+      <div class="carrusel__puntos"></div>
+    </div>
+  </section>
+
+  <!-- ── PAGINACIÓN ────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Paginación</p>
+    <nav class="paginacion" aria-label="Paginación" id="paginacion-demo">
+      <button class="paginacion__btn" id="pag-ant" disabled>&#8592; Ant</button>
+      <div class="paginacion__paginas" id="pag-paginas"></div>
+      <button class="paginacion__btn" id="pag-sig">Sig &#8594;</button>
+    </nav>
+  </section>
+
+  <!-- ── UTILIDADES DE TEXTO ─────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Utilidades de texto</p>
+    <p class="text-acento">text-acento · señal principal</p>
+    <p class="text-acento-light">text-acento-light · highlight y glow</p>
+    <p class="text-accion">text-accion · solo para acciones y alertas</p>
+    <p class="text-primario">text-primario · texto base del sistema</p>
+    <p class="text-apagado">text-apagado · labels y metadatos</p>
+    <p><span class="text-mono">text-mono · Share Tech Mono · labels y rutas</span></p>
+  </section>
+
+  <!-- ── GRID / COLUMNAS ──────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Grid · Sistema de columnas</p>
+    <h6 style="margin-bottom: 0.75rem;">.grid--3</h6>
+    <div class="grid grid--3">
+      <div class="superficie" style="padding: 1rem; text-align: center;">
+        <span class="text-mono" style="font-size: 0.75rem;">col · 1</span>
+      </div>
+      <div class="superficie" style="padding: 1rem; text-align: center;">
+        <span class="text-mono" style="font-size: 0.75rem;">col · 2</span>
+      </div>
+      <div class="superficie" style="padding: 1rem; text-align: center;">
+        <span class="text-mono" style="font-size: 0.75rem;">col · 3</span>
+      </div>
+    </div>
+    <h6 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">.grid--4</h6>
+    <div class="grid grid--4">
+      <div class="superficie" style="padding: 1rem; text-align: center;">
+        <span class="text-mono" style="font-size: 0.75rem;">1</span>
+      </div>
+      <div class="superficie col-2" style="padding: 1rem; text-align: center;">
+        <span class="text-mono" style="font-size: 0.75rem;">2–3 (.col-2)</span>
+      </div>
+      <div class="superficie" style="padding: 1rem; text-align: center;">
+        <span class="text-mono" style="font-size: 0.75rem;">4</span>
+      </div>
+    </div>
+    <h6 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">.grid--auto (minmax 220px)</h6>
+    <div class="grid grid--auto">
+      <div class="tarjeta" style="width: 100%;">
+        <div class="tarjeta__cuerpo">
+          <span class="tarjeta__titulo">Módulo A</span>
+          <p class="tarjeta__texto">Grid auto-fit con tarjetas responsivas.</p>
+        </div>
+        <div class="tarjeta__footer"><div class="diamante"></div></div>
+      </div>
+      <div class="tarjeta" style="width: 100%;">
+        <div class="tarjeta__cuerpo">
+          <span class="tarjeta__titulo">Módulo B</span>
+          <p class="tarjeta__texto">Se adapta al ancho disponible automáticamente.</p>
+        </div>
+        <div class="tarjeta__footer"><div class="diamante"></div></div>
+      </div>
+      <div class="tarjeta" style="width: 100%;">
+        <div class="tarjeta__cuerpo">
+          <span class="tarjeta__titulo">Módulo C</span>
+          <p class="tarjeta__texto">Sin necesidad de breakpoints manuales.</p>
+        </div>
+        <div class="tarjeta__footer"><div class="diamante"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ALERTAS ───────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Alertas · Notificaciones del sistema</p>
+    <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+
+      <div class="alerta">
+        <span class="alerta__prefijo">INFO</span>
+        <div class="alerta__cuerpo">
+          <span class="alerta__titulo">Módulo inicializado</span>
+          <p class="alerta__texto">El sistema se ha cargado correctamente. Todos los módulos están en línea.</p>
+        </div>
+        <button class="alerta__cerrar" onclick="this.closest('.alerta').remove()">&#10005;</button>
+      </div>
+
+      <div class="alerta alerta--ok">
+        <span class="alerta__prefijo">OK</span>
+        <div class="alerta__cuerpo">
+          <span class="alerta__titulo">Build completado</span>
+          <p class="alerta__texto">Todos los archivos se compilaron sin errores. Deploy listo.</p>
+        </div>
+        <button class="alerta__cerrar" onclick="this.closest('.alerta').remove()">&#10005;</button>
+      </div>
+
+      <div class="alerta alerta--advertencia">
+        <span class="alerta__prefijo">WARN</span>
+        <div class="alerta__cuerpo">
+          <span class="alerta__titulo">Memoria al 80%</span>
+          <p class="alerta__texto">El módulo de caché está usando más recursos de lo esperado. Considera liberarlos.</p>
+        </div>
+        <button class="alerta__cerrar" onclick="this.closest('.alerta').remove()">&#10005;</button>
+      </div>
+
+      <div class="alerta alerta--error">
+        <span class="alerta__prefijo">ERR</span>
+        <div class="alerta__cuerpo">
+          <span class="alerta__titulo">Conexión perdida</span>
+          <p class="alerta__texto">No se puede establecer conexión con el servidor. Verifica tu red e intenta nuevamente.</p>
+        </div>
+        <button class="alerta__cerrar" onclick="this.closest('.alerta').remove()">&#10005;</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── MODAL ─────────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Modal · Ventana de diálogo PS1</p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <button class="btn btn-primario" onclick="document.getElementById('modal-demo').classList.add('modal-overlay--visible')">
+        Abrir modal ◆
+      </button>
+      <button class="btn btn-secundario" onclick="document.getElementById('modal-confirm').classList.add('modal-overlay--visible')">
+        Modal de confirmación
+      </button>
+    </div>
+
+    <!-- Modal demo -->
+    <div class="modal-overlay" id="modal-demo"
+      onclick="if(event.target===this) this.classList.remove('modal-overlay--visible')">
+      <div class="modal">
+        <div class="modal__barra">
+          <div class="ventana__dots">
+            <span class="ventana__dot ventana__dot--rojo"></span>
+            <span class="ventana__dot ventana__dot--amarillo"></span>
+            <span class="ventana__dot ventana__dot--verde"></span>
+          </div>
+          <h6 class="modal__titulo-barra">SISTEMA // ESC-LABS-MODAL</h6>
+          <button class="modal__cerrar" onclick="document.getElementById('modal-demo').classList.remove('modal-overlay--visible')">&#10005;</button>
+        </div>
+        <div class="modal__contenido">
+          <h3 style="margin-bottom: 0.75rem;">Actualización disponible</h3>
+          <p>Se ha detectado una nueva versión del sistema <code>v2.1.0</code>. Esta actualización incluye mejoras de rendimiento y correcciones de seguridad.</p>
+          <div class="barra-hp" style="margin-top: 1rem;">
+            <span class="barra-hp__label">PROG</span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+            <span class="barra-hp__bloque"></span>
+          </div>
+        </div>
+        <div class="modal__footer">
+          <button class="btn btn-secundario" onclick="document.getElementById('modal-demo').classList.remove('modal-overlay--visible')">Cancelar</button>
+          <button class="btn btn-primario">Actualizar ahora</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal confirmación -->
+    <div class="modal-overlay" id="modal-confirm"
+      onclick="if(event.target===this) this.classList.remove('modal-overlay--visible')">
+      <div class="modal" style="width: min(400px, 90vw);">
+        <div class="modal__barra">
+          <h6 class="modal__titulo-barra" style="color: var(--red-strike);">ALERTA // ACCIÓN IRREVERSIBLE</h6>
+          <button class="modal__cerrar" onclick="document.getElementById('modal-confirm').classList.remove('modal-overlay--visible')">&#10005;</button>
+        </div>
+        <div class="modal__contenido">
+          <p>Esta acción eliminará todos los datos del módulo. <strong style="color: var(--red-strike);">No se puede deshacer.</strong> ¿Deseas continuar?</p>
+        </div>
+        <div class="modal__footer">
+          <button class="btn btn-secundario" onclick="document.getElementById('modal-confirm').classList.remove('modal-overlay--visible')">Cancelar</button>
+          <button class="btn btn-fantasma" style="border-color: var(--red-strike); color: var(--red-strike);">Sí, eliminar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TABLAS ────────────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Tablas · Sistema PS1</p>
+
+    <h6 style="margin-bottom: 0.75rem;">.tabla · Tabla estándar</h6>
+    <div class="tabla-contenedor" style="margin-bottom: 2rem;">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Módulo</th>
+            <th>Versión</th>
+            <th>Estado</th>
+            <th>Última actualización</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>grimorio-core</td>
+            <td><code>v2.0.0</code></td>
+            <td><span class="tabla-badge tabla-badge--ok">Activo</span></td>
+            <td>2026-06-17</td>
+          </tr>
+          <tr>
+            <td>esc-consola</td>
+            <td><code>v1.4.2</code></td>
+            <td><span class="tabla-badge tabla-badge--ok">Activo</span></td>
+            <td>2026-05-30</td>
+          </tr>
+          <tr>
+            <td>carrusel-engine</td>
+            <td><code>v0.9.1</code></td>
+            <td><span class="tabla-badge tabla-badge--pendiente">Beta</span></td>
+            <td>2026-06-01</td>
+          </tr>
+          <tr>
+            <td>modal-sys</td>
+            <td><code>v1.0.0</code></td>
+            <td><span class="tabla-badge tabla-badge--inactivo">Inactivo</span></td>
+            <td>2026-04-12</td>
+          </tr>
+          <tr>
+            <td>auth-module</td>
+            <td><code>v0.2.0</code></td>
+            <td><span class="tabla-badge tabla-badge--error">Error</span></td>
+            <td>2026-03-28</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h6 style="margin-bottom: 0.75rem;">.tabla--rayada · Tabla con filas alternadas</h6>
+    <div class="tabla-contenedor">
+      <table class="tabla tabla--rayada">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Componente</th>
+            <th>Clase base</th>
+            <th>Modificadores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>Botón</td><td><code>.btn</code></td><td>primario · secundario · fantasma · accion</td></tr>
+          <tr><td>02</td><td>Tarjeta</td><td><code>.tarjeta</code></td><td>accion · destacada</td></tr>
+          <tr><td>03</td><td>Alerta</td><td><code>.alerta</code></td><td>ok · advertencia · error</td></tr>
+          <tr><td>04</td><td>Formulario</td><td><code>.formulario-estandar</code></td><td>checkbox · radio · toggle</td></tr>
+          <tr><td>05</td><td>Grid</td><td><code>.grid</code></td><td>2 · 3 · 4 · auto</td></tr>
+          <tr><td>06</td><td>Modal</td><td><code>.modal-overlay</code></td><td>visible</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Flash overlay para transición de tema -->
+  <div id="tema-flash" class="tema-flash"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       PALETA A — COSMOS BLUE (referencia)
+       ═══════════════════════════════════════════════ -->
+  <div class="cosmos" style="display: none;">
+
+    <!-- HERO cosmos -->
+    <section class="contenedor seccion">
+      <h6>paleta-a · cosmos-blue · institucional</h6>
+      <h1>ESC Labs</h1>
+      <span class="logo-labs">LABS</span>
+      <div class="logo-divisor">
+        <span class="logo-divisor__linea"></span>
+        <span class="logo-divisor__diamante"></span>
+        <span class="logo-divisor__linea"></span>
+      </div>
+      <p>
+        <span class="cursor-ps1"></span>
+        Activa con <code>.cosmos</code> en cualquier contenedor.
+      </p>
     </section>
-    <seccion class="grupo-tarjeta">
-        <p>Grupo de tarjetas</p>
-        <div class="tarjeta tarjeta-blanca">
-            <img src="images/creacion_web.png" alt="web" class="imagen-tarjeta">
-            <h4>Creación de Páginas Web</h4>
-            <p>
-                Estamos contentos de poder ayudarte a emprender y desarrollar las ideas que tienes en tu cabeza, que esperas para hacerlas realidad con un equipo dispuesto a asesorarte y apoyarte en todo el proceso.
-            </p>
-            <br><br>
-            <input type="button" value="Más información" class="btn btn-azul btn-tarjeta">
-        </div>
-        <div class="tarjeta tarjeta-blanca">
-            <img src="images/creacion_sistemas.png" alt="sistemas" class="imagen-tarjeta">
-            <br><br><br>
-            <h4>Creación de Sistemas o Aplicaciones moviles</h4>
-            <p>
-                Si eres miembro o dueño de una corporación y estas interesado en llevar a tu empresa al siguiente nivel, contactanos para crear un sistema a la medida de tus necesidades.
-            </p>
-            <br><br>
-            <input type="button" value="Más información" class="btn btn-azul btn-tarjeta">
-        </div>
-        <div class="tarjeta tarjeta-blanca">
-            <img src="images/asesoria.png" alt="asesoria" class="imagen-tarjeta">
-            <h4>Asesoria de Programación</h4>
-            <p>
-                Has venido al lugar correcto en ESC Studios estaremos felices de poder ayudarte a resolver tus dudas, además te ofrecemos algunos cursos básicos para mejorar tus habilidades oscuras en el mundo de la programación.
-            </p>
-            <br><br>
-            <input type="button" value="Más información" class="btn btn-azul btn-tarjeta">
-        </div>
-    </seccion>
 
-    <footer class="bg-negro footer-centrar">
-        <div>
-            <img src="images/logo_VAFBF.svg" width="200" alt="ESC Studios">
-            <p class="text-brillante">systemescsts@gmail.com<p>
+    <!-- Botones cosmos -->
+    <section class="contenedor seccion" style="padding-top: 0;">
+      <p class="separador">Botones · Cosmos Blue</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+        <button class="btn">Base</button>
+        <button class="btn btn-primario">Primario</button>
+        <button class="btn btn-accion">Acción CTA</button>
+        <button class="btn btn-secundario">Secundario</button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+        <button class="btn btn-fantasma">Fantasma</button>
+        <button class="btn btn-scan">Scan</button>
+        <button class="btn btn-glitch">Glitch</button>
+        <button class="btn btn-pulso">Pulso</button>
+        <button class="btn btn-alerta">Alerta</button>
+      </div>
+    </section>
+
+    <!-- Tarjetas cosmos -->
+    <section class="contenedor seccion" style="padding-top: 0;">
+      <p class="separador">Tarjetas · Cosmos Blue</p>
+      <div class="grupo-tarjeta">
+
+        <div class="tarjeta">
+          <img src="images/creacion_web.png" alt="Web" class="tarjeta__imagen" />
+          <div class="tarjeta__cuerpo">
+            <span class="tarjeta__titulo">Creación Web</span>
+            <p class="tarjeta__texto">Páginas construidas para durar, no para impresionar en demo.</p>
+          </div>
+          <div class="tarjeta__footer">
+            <div class="diamante"></div>
+            <div class="barra-hp" style="flex: 1;">
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque"></span>
+              <span class="barra-hp__bloque"></span>
+            </div>
+            <span style="font-size: 0.85rem;">ESC-001</span>
+          </div>
+          <button class="btn btn-primario btn-tarjeta">Más información</button>
         </div>
-        <hr class="text-brillante">
-        <p class="text-brillante">©2020 ESC Sudios. Todos los derechos reservados</p>
-    </footer>
+
+        <div class="tarjeta">
+          <img src="images/creacion_sistemas.png" alt="Sistemas" class="tarjeta__imagen" />
+          <div class="tarjeta__cuerpo">
+            <span class="tarjeta__titulo">Sistemas y Móvil</span>
+            <p class="tarjeta__texto">Sistemas a la medida para llevar tu empresa al siguiente nivel.</p>
+          </div>
+          <div class="tarjeta__footer">
+            <div class="diamante"></div>
+            <div class="barra-hp" style="flex: 1;">
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque"></span>
+            </div>
+            <span style="font-size: 0.85rem;">ESC-002</span>
+          </div>
+          <button class="btn btn-primario btn-tarjeta">Más información</button>
+        </div>
+
+        <div class="tarjeta tarjeta--accion">
+          <img src="images/asesoria.png" alt="Asesoría" class="tarjeta__imagen" />
+          <div class="tarjeta__cuerpo">
+            <span class="tarjeta__titulo">Asesoría</span>
+            <p class="tarjeta__texto">Resolvemos tus dudas y mejoramos tus habilidades en código.</p>
+          </div>
+          <div class="tarjeta__footer">
+            <div class="diamante"></div>
+            <div class="barra-hp" style="flex: 1;">
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+              <span class="barra-hp__bloque"></span>
+              <span class="barra-hp__bloque"></span>
+              <span class="barra-hp__bloque"></span>
+            </div>
+            <span style="font-size: 0.85rem;">ESC-003</span>
+          </div>
+          <button class="btn btn-accion btn-tarjeta">Contactar</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Taglines + Surface cosmos -->
+    <section class="contenedor seccion" style="padding-top: 0;">
+      <p class="separador">Taglines + Surface · Cosmos Blue</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+
+        <div style="flex: 1; min-width: 260px;">
+          <div class="tagline-item">
+            <span class="tagline-item__arrow">>></span>
+            <div>
+              <span class="tagline-item__texto">Systems that evolve.</span>
+              <span class="tagline-item__contexto">cosmos · uso global</span>
+            </div>
+          </div>
+          <div class="tagline-item">
+            <span class="tagline-item__arrow">>></span>
+            <div>
+              <span class="tagline-item__texto">Build. Evolve. Compute.</span>
+              <span class="tagline-item__contexto">cosmos · identidad E·S·C</span>
+            </div>
+          </div>
+          <div class="tagline-item">
+            <span class="tagline-item__arrow">>></span>
+            <div>
+              <span class="tagline-item__texto">From science to system.</span>
+              <span class="tagline-item__contexto">cosmos · laboratorios</span>
+            </div>
+          </div>
+          <div class="tagline-item">
+            <span class="tagline-item__arrow">>></span>
+            <div>
+              <span class="tagline-item__texto">Tecnología con alma propia.</span>
+              <span class="tagline-item__contexto">cosmos · propuestas LATAM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="superficie" style="flex: 1; min-width: 260px;">
+          <h6>Surface · Cosmos Blue · ESC-LABS-002</h6>
+          <p style="margin-top: 0.75rem;">Panel institucional para sistemas técnicos y entornos de laboratorio.</p>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+            <div class="barra-hp">
+              <span class="barra-hp__label">CPU</span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque"></span>
+              <span class="barra-hp__bloque"></span>
+              <span class="barra-hp__bloque"></span>
+            </div>
+            <div class="barra-hp">
+              <span class="barra-hp__label">MEM</span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
+              <span class="barra-hp__bloque"></span>
+              <span class="barra-hp__bloque"></span>
+            </div>
+            <div class="barra-hp">
+              <span class="barra-hp__label">NET</span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+              <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+  <!-- ═══════════════════════════ FIN COSMOS ══════ -->
+
+  <!-- ── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <img src="images/logo_VAFBF.svg" width="100" alt="ESC Studios" />
+    <br /><br />
+    <p>systemescsts@gmail.com</p>
+    <hr style="border: none; border-top: 1px solid var(--border); margin: 1rem auto; max-width: 400px;" />
+    <p>©2025 ESC Studios · Evolution in Science &amp; Computing · v2.0</p>
+  </footer>
+
+  <script>
+    /* ================================================
+       ESCCarrusel — Carrusel de slides
+       ================================================ */
+    class ESCCarrusel {
+      constructor(id) {
+        this.el = document.getElementById(id);
+        if (!this.el) return;
+        this.pista   = this.el.querySelector('.carrusel__pista');
+        this.items   = this.el.querySelectorAll('.carrusel__item');
+        this.puntosEl = this.el.querySelector('.carrusel__puntos');
+        this.total   = this.items.length;
+        this.actual  = 0;
+        this.puntos  = [];
+        this._generarPuntos();
+        this.el.querySelectorAll('.carrusel__btn').forEach(btn => {
+          btn.addEventListener('click', () => this.ir(this.actual + parseInt(btn.dataset.dir)));
+        });
+        this._actualizar();
+      }
+      _generarPuntos() {
+        if (!this.puntosEl) return;
+        for (let i = 0; i < this.total; i++) {
+          const p = document.createElement('button');
+          p.className = 'carrusel__punto';
+          p.setAttribute('aria-label', 'Slide ' + (i + 1));
+          p.addEventListener('click', () => this.ir(i));
+          this.puntosEl.appendChild(p);
+          this.puntos.push(p);
+        }
+      }
+      ir(idx) {
+        this.actual = Math.max(0, Math.min(this.total - 1, idx));
+        this._actualizar();
+      }
+      _actualizar() {
+        const w = this.items[0]?.offsetWidth || 0;
+        this.pista.style.transform = `translateX(-${this.actual * w}px)`;
+        this.items.forEach((item, i) => {
+          const wasActive = item.classList.contains('carrusel__item--activo');
+          const isActive  = i === this.actual;
+          item.classList.toggle('carrusel__item--activo', isActive);
+          // Re-trigger entrance animation on newly-active item
+          if (isActive && !wasActive) {
+            item.querySelectorAll(':scope > *').forEach(child => {
+              child.style.animation = 'none';
+              void child.offsetWidth;
+              child.style.animation = '';
+            });
+          }
+        });
+        this.puntos.forEach((p, i) => p.classList.toggle('carrusel__punto--activo', i === this.actual));
+        this.el.querySelectorAll('.carrusel__btn').forEach(btn => {
+          const dir = parseInt(btn.dataset.dir);
+          btn.disabled = (dir < 0 && this.actual === 0) || (dir > 0 && this.actual === this.total - 1);
+        });
+      }
+    }
+
+    /* ================================================
+       Formulario multi-paso — lógica dinámica (N pasos)
+       ================================================ */
+    function iniciarFormPasos() {
+      document.querySelectorAll('.formulario-pasos').forEach(form => {
+        const pista    = form.querySelector('.formulario-pasos__pista');
+        const panels   = form.querySelectorAll('.formulario-pasos__panel');
+        const inds     = form.querySelectorAll('.formulario-pasos__paso-ind');
+        const conectors = form.querySelectorAll('.formulario-pasos__conector');
+        const total    = panels.length;
+        if (!pista || total < 2) return;
+
+        // Set widths dynamically
+        pista.style.width = (total * 100) + '%';
+        panels.forEach(p => { p.style.width = (100 / total) + '%'; });
+
+        function irA(n) {
+          const stepPct = 100 / total;
+          pista.style.transform = `translateX(-${n * stepPct}%)`;
+          inds.forEach((ind, i) => ind.classList.toggle('formulario-pasos__paso-ind--activo', i === n));
+          conectors.forEach((c, i) => c.classList.toggle('formulario-pasos__conector--activo', i < n));
+        }
+
+        let paso = 0;
+        form.querySelectorAll('[data-paso-sig]').forEach(btn =>
+          btn.addEventListener('click', () => { if (paso < total - 1) irA(++paso); })
+        );
+        form.querySelectorAll('[data-paso-ant]').forEach(btn =>
+          btn.addEventListener('click', () => { if (paso > 0) irA(--paso); })
+        );
+      });
+    }
+
+    /* ================================================
+       Tarjeta de crédito — flip + preview en vivo
+       ================================================ */
+    function iniciarTarjetaCredito() {
+      const preview   = document.getElementById('tc-preview');
+      const numInput  = document.getElementById('tc-numero');
+      const nomInput  = document.getElementById('tc-nombre');
+      const expInput  = document.getElementById('tc-exp');
+      const cvvInput  = document.getElementById('tc-cvv');
+      if (!preview) return;
+
+      const numPrev   = document.getElementById('tc-num-preview');
+      const nomPrev   = document.getElementById('tc-nombre-preview');
+      const expPrev   = document.getElementById('tc-exp-preview');
+      const firmaPrev = document.getElementById('tc-firma-preview');
+      const cvvPrev   = document.getElementById('tc-cvv-preview');
+
+      function fmtNumero(v) {
+        return v.replace(/\D/g, '').substring(0, 16)
+          .replace(/(.{4})/g, '$1 ').trim();
+      }
+      function numMask(v) {
+        const d = v.replace(/\D/g,'');
+        const shown = d.substring(0,4);
+        const masked = d.substring(4,12).replace(/\d/g,'◆');
+        const last   = d.substring(12,16);
+        const raw = (shown + masked + last).padEnd(16,'◆');
+        return raw.replace(/(.{4})/g,'$1 ').trim();
+      }
+
+      numInput?.addEventListener('input', e => {
+        e.target.value = fmtNumero(e.target.value);
+        if (numPrev) numPrev.innerHTML = numMask(e.target.value);
+      });
+      nomInput?.addEventListener('input', e => {
+        const v = e.target.value.toUpperCase() || 'NOMBRE APELLIDO';
+        if (nomPrev)   nomPrev.textContent   = v;
+        if (firmaPrev) firmaPrev.textContent = v.toLowerCase();
+      });
+      expInput?.addEventListener('input', e => {
+        let v = e.target.value.replace(/\D/g,'');
+        if (v.length > 2) v = v.substring(0,2) + '/' + v.substring(2,4);
+        e.target.value = v;
+        if (expPrev) expPrev.textContent = v || 'MM/AA';
+      });
+      cvvInput?.addEventListener('input', e => {
+        if (cvvPrev) cvvPrev.textContent = e.target.value || '◆◆◆';
+      });
+
+      // Flip on CVV focus/blur
+      cvvInput?.addEventListener('focus', () => preview.classList.add('tarjeta-credito--volteada'));
+      cvvInput?.addEventListener('blur',  () => preview.classList.remove('tarjeta-credito--volteada'));
+    }
+
+    /* ================================================
+       Input de correo — dropdown de dominios
+       ================================================ */
+    function iniciarCorreoInputs() {
+      document.querySelectorAll('.formulario-correo').forEach(comp => {
+        const btn      = comp.querySelector('.formulario-correo__dominio-btn');
+        const dropdown = comp.querySelector('.formulario-correo__dropdown');
+        const domTxt   = comp.querySelector('.formulario-correo__dominio-texto');
+        if (!btn || !dropdown) return;
+
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!open));
+          dropdown.classList.toggle('formulario-correo__dropdown--visible', !open);
+        });
+
+        comp.querySelectorAll('.formulario-correo__opcion').forEach(op => {
+          op.addEventListener('click', () => {
+            if (domTxt) domTxt.textContent = op.dataset.dominio;
+            btn.setAttribute('aria-expanded', 'false');
+            dropdown.classList.remove('formulario-correo__dropdown--visible');
+          });
+        });
+      });
+
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.formulario-correo__dropdown--visible').forEach(d => {
+          d.classList.remove('formulario-correo__dropdown--visible');
+          const btn = d.previousElementSibling;
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    /* ================================================
+       Selector de tema — CRT flash + cambio de paleta
+       ================================================ */
+    function iniciarSelectorTema() {
+      const flash    = document.getElementById('tema-flash');
+      const body     = document.body;
+      const TEMAS    = ['cosmos', 'crimson'];
+
+      function setTema(tema) {
+        // CRT flash
+        if (flash) {
+          flash.classList.remove('tema-flash--activo');
+          void flash.offsetWidth;
+          flash.classList.add('tema-flash--activo');
+        }
+
+        setTimeout(() => {
+          TEMAS.forEach(t => body.classList.remove(t));
+          if (tema !== 'default') body.classList.add(tema);
+
+          // Sync active state on ALL [data-tema] buttons (nav + section cards)
+          document.querySelectorAll('[data-tema]').forEach(b => {
+            const isNav  = b.classList.contains('nav-temas__btn');
+            const isCard = b.classList.contains('selector-tema__opcion');
+            if (isNav)  b.classList.toggle('nav-temas__btn--activa', b.dataset.tema === tema);
+            if (isCard) b.classList.toggle('selector-tema__opcion--activa', b.dataset.tema === tema);
+          });
+        }, 100);
+
+        if (flash) {
+          flash.addEventListener('animationend', () =>
+            flash.classList.remove('tema-flash--activo'), { once: true }
+          );
+        }
+      }
+
+      document.querySelectorAll('[data-tema]').forEach(btn => {
+        btn.addEventListener('click', () => setTema(btn.dataset.tema));
+      });
+    }
+
+    /* ================================================
+       Archivo tematizado — mostrar nombre de archivo
+       ================================================ */
+    function iniciarArchivos() {
+      document.querySelectorAll('.formulario-archivo-input').forEach(input => {
+        input.addEventListener('change', e => {
+          const id = input.dataset.nombreId;
+          if (id) {
+            const display = document.getElementById(id);
+            if (display) display.textContent = e.target.files[0]?.name || 'Ningún archivo seleccionado';
+          }
+        });
+      });
+    }
+
+    /* ================================================
+       Paginación demo interactiva
+       ================================================ */
+    function iniciarPaginacion() {
+      const total    = 7;
+      let pagActual  = 1;
+      const paginasEl = document.getElementById('pag-paginas');
+      const antBtn   = document.getElementById('pag-ant');
+      const sigBtn   = document.getElementById('pag-sig');
+      if (!paginasEl) return;
+
+      function render() {
+        paginasEl.innerHTML = '';
+        for (let i = 1; i <= total; i++) {
+          const btn = document.createElement('button');
+          btn.className = 'paginacion__pagina' + (i === pagActual ? ' paginacion__pagina--activa' : '');
+          btn.textContent = i;
+          btn.addEventListener('click', () => { pagActual = i; render(); });
+          paginasEl.appendChild(btn);
+        }
+        antBtn.disabled = pagActual === 1;
+        sigBtn.disabled = pagActual === total;
+      }
+
+      antBtn.addEventListener('click', () => { if (pagActual > 1)     { pagActual--; render(); } });
+      sigBtn.addEventListener('click', () => { if (pagActual < total) { pagActual++; render(); } });
+      render();
+    }
+
+    /* ================================================
+       ESCConsola — Terminal interactiva del framework
+       ================================================ */
+    class ESCConsola {
+      constructor(id) {
+        this.el       = document.getElementById(id);
+        if (!this.el) return;
+        this.pantalla = this.el.querySelector('.consola__pantalla');
+        this.input    = this.el.querySelector('.consola__input');
+        this.form     = this.el.querySelector('.consola__form');
+        this.history  = [];
+        this.histIdx  = -1;
+        this.cmds = {
+          help:     () => this._help(),
+          whoami:   () => this._whoami(),
+          version:  () => this._version(),
+          clear:    () => this._clear(),
+          build:    () => this._build(),
+          status:   () => this._status(),
+          grimorio: () => this._grimorio(),
+          ls:       () => this._ls(),
+        };
+        this._init();
+      }
+
+      _init() {
+        this._boot();
+        this.form.addEventListener('submit', e => {
+          e.preventDefault();
+          const raw = this.input.value.trim();
+          this.input.value = '';
+          if (raw) this._exec(raw);
+        });
+        this.input.addEventListener('keydown', e => {
+          if (e.key === 'ArrowUp')   { e.preventDefault(); this._nav(-1); }
+          if (e.key === 'ArrowDown') { e.preventDefault(); this._nav(1); }
+        });
+      }
+
+      _nav(dir) {
+        if (!this.history.length) return;
+        this.histIdx = Math.max(-1, Math.min(this.history.length - 1, this.histIdx - dir));
+        this.input.value = this.histIdx >= 0 ? this.history[this.history.length - 1 - this.histIdx] : '';
+      }
+
+      _boot() {
+        [
+          ['>> ESC LABS · GRIMORIO ENGINE v2.0',   0,    'consola__linea--ok'],
+          ['>> Cargando runtime Dual Signal...',    350,  ''],
+          ['>> Componentes:    [OK]',               700,  'consola__linea--ok'],
+          ['>> Animaciones:    [OK]',               900,  'consola__linea--ok'],
+          ['>> Paletas:        [OK]',               1100, 'consola__linea--ok'],
+          ['>> Sistema listo. Escribe "help".',     1550, ''],
+        ].forEach(([t, ms, cls]) => setTimeout(() => this._print(t, cls), ms));
+      }
+
+      _print(text, cls = '') {
+        const el = document.createElement('span');
+        el.className = 'consola__linea' + (cls ? ' ' + cls : '');
+        el.textContent = text;
+        this.pantalla.appendChild(el);
+        this.pantalla.scrollTop = this.pantalla.scrollHeight;
+      }
+
+      _exec(raw) {
+        this.history.push(raw);
+        this.histIdx = -1;
+        this._print('> ' + raw, 'consola__linea--input');
+        const cmd = raw.toLowerCase().split(' ')[0];
+        (this.cmds[cmd] || (() => this._print('Error: "' + cmd + '" desconocido. Prueba "help".', 'consola__linea--error')))();
+      }
+
+      _help() {
+        ['Comandos disponibles:',
+         '  help      → esta ayuda',
+         '  whoami    → identidad del sistema',
+         '  version   → versión del engine',
+         '  status    → estado de módulos',
+         '  build     → secuencia de build',
+         '  grimorio  → info del framework',
+         '  ls        → lista de componentes',
+         '  clear     → limpia la consola',
+        ].forEach(l => this._print(l));
+      }
+
+      _whoami() {
+        this._print('ESC Labs · Evolution in Science & Computing');
+        this._print('Entidad: esc-labs-tlaxcala-mx');
+        this._print('Acceso: AUTORIZADO', 'consola__linea--ok');
+      }
+
+      _version() {
+        this._print('Grimorio Engine v2.0.0', 'consola__linea--ok');
+        this._print('Runtime: CSS3 + ES6 · Sin dependencias');
+        this._print('Paletas: Dual Signal + Cosmos Blue');
+      }
+
+      _clear() { this.pantalla.innerHTML = ''; }
+
+      _build() {
+        ['[1/5] Variables globales...',
+         '[2/5] Reset base...',
+         '[3/5] Compilando componentes...',
+         '[4/5] Inyectando animaciones PS1...',
+         '[5/5] BUILD COMPLETE',
+        ].forEach((s, i) => {
+          setTimeout(() => this._print(s, i === 4 ? 'consola__linea--ok' : ''), i * 280);
+        });
+      }
+
+      _status() {
+        this._print('Estado de módulos:');
+        [['Variables','OK'],['Botones','OK'],['Tarjetas','OK'],['Formularios','OK'],
+         ['Imágenes','OK'],['Consola','ACTIVO'],['VHS Engine','ACTIVO'],['Responsive','PARCIAL'],
+        ].forEach(([n, s]) => {
+          this._print('  ' + n.padEnd(14) + ' [' + s + ']',
+            (s === 'OK' || s === 'ACTIVO') ? 'consola__linea--ok' : '');
+        });
+      }
+
+      _grimorio() {
+        this._print('Grimorio Engine · Framework CSS de ESC Studios');
+        this._print('Estética PS1/CRT · Paleta propia · Sin dependencias.');
+        this._print('No vendemos tecnología. Resolvemos el problema real.');
+        this._print('esclabs.io', 'consola__linea--ok');
+      }
+
+      _ls() {
+        this._print('Componentes registrados:');
+        ['.btn','.btn-primario','.btn-accion','.btn-fantasma','.btn-pulso',
+         '.superficie','.tarjeta','.formulario-estandar','.barra-hp',
+         '.separador','.tagline-item','.cursor-ps1','.stat-hud',
+         '.ventana','.consola','.texto-maquina','.imagen-efecto','.vhs-overlay',
+        ].forEach(c => this._print('  ' + c));
+      }
+    }
+
+    /* ================================================
+       Texto máquina — mide el ancho natural con clon oculto
+       ================================================ */
+    function iniciarTextoMaquina() {
+      document.querySelectorAll('.texto-maquina').forEach(el => {
+        const clone = el.cloneNode(true);
+        Object.assign(clone.style, {
+          position: 'absolute', visibility: 'hidden', top: '-9999px',
+          maxWidth: 'none', animation: 'none', border: 'none'
+        });
+        document.body.appendChild(clone);
+        el.style.setProperty('--text-width', clone.scrollWidth + 'px');
+        document.body.removeChild(clone);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new ESCConsola('esc-consola');
+      iniciarTextoMaquina();
+      iniciarFormPasos();
+      iniciarTarjetaCredito();
+      iniciarArchivos();
+      iniciarPaginacion();
+      iniciarCorreoInputs();
+      iniciarSelectorTema();
+      const carruseles = [
+        new ESCCarrusel('carrusel-imagenes'),
+        new ESCCarrusel('carrusel-tarjetas'),
+      ];
+      window.addEventListener('resize', () => carruseles.forEach(c => c._actualizar()));
+    });
+  </script>
+
 </body>
-
 </html>

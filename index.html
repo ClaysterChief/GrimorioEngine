@@ -49,10 +49,10 @@
 
   <!-- ── SELECTOR DE TEMA (TOP) ───────────────────── -->
   <div style="border-bottom: 1px solid var(--border); background: var(--void-surface); padding: 0.75rem 0;">
-    <div class="contenedor" style="display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap;">
+    <div class="contenedor d-flex ai-center gap-md flex-wrap">
       <span
         style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);">Paleta:</span>
-      <div class="selector-tema" style="gap: 0.75rem;">
+      <div class="selector-tema gap-xs">
         <button type="button" class="selector-tema__opcion selector-tema__opcion--activa" data-tema="default"
           style="min-width: 0; flex: none; padding: 0;">
           <div class="selector-tema__preview"
@@ -112,7 +112,7 @@
   <!-- ── BOTONES ─────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Botones · Base</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
       <button class="btn">Base</button>
       <button class="btn btn-primario">Primario</button>
       <button class="btn btn-accion">Acción CTA</button>
@@ -120,7 +120,7 @@
     </div>
 
     <p class="separador">Botones · Animados</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
       <button class="btn btn-fantasma">Fantasma</button>
       <button class="btn btn-scan">Scan</button>
       <button class="btn btn-glitch">Glitch</button>
@@ -129,13 +129,13 @@
     </div>
 
     <p class="separador">Botones · Tamaños</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
       <button class="btn btn--sm">Pequeño</button>
       <button class="btn btn-primario">Normal</button>
       <button class="btn btn-primario btn--lg">Grande</button>
       <button class="btn btn-primario btn--xl">Extra grande</button>
     </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem;">
+    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
       <button class="btn btn-accion btn--xl">Acción XL</button>
       <button class="btn btn-fantasma btn--xl">Fantasma XL</button>
       <button class="btn btn-pulso btn--xl">Pulso XL</button>
@@ -185,7 +185,7 @@
         </div>
         <div class="tarjeta__footer">
           <div class="diamante"></div>
-          <div class="barra-hp" style="flex: 1;">
+          <div class="barra-hp flex-1">
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -207,7 +207,7 @@
         </div>
         <div class="tarjeta__footer">
           <div class="diamante"></div>
-          <div class="barra-hp" style="flex: 1;">
+          <div class="barra-hp flex-1">
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -230,7 +230,7 @@
         </div>
         <div class="tarjeta__footer">
           <div class="diamante"></div>
-          <div class="barra-hp" style="flex: 1;">
+          <div class="barra-hp flex-1">
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
@@ -285,7 +285,7 @@
   <!-- ── ELEMENTOS DE CARGA ───────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Elementos de carga · PS1 themed</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 3.5rem; align-items: flex-end;">
+    <div class="d-flex flex-wrap gap-4xl ai-end">
 
       <div>
         <h6 style="margin-bottom: 1rem;">.cargando-bloques · HP secuencial</h6>
@@ -358,7 +358,7 @@
           <span class="formulario-archivo-nombre" id="archivo-nombre-display">Ningún archivo seleccionado</span>
         </div>
       </div>
-      <div style="display: flex; gap: 1rem; margin-top: 1.75rem;">
+      <div class="d-flex gap-sm" style="margin-top: 1.75rem">
         <button class="btn btn-primario" type="submit">Enviar datos</button>
         <button class="btn btn-secundario" type="reset">Limpiar</button>
       </div>
@@ -368,7 +368,7 @@
   <!-- ── COMPONENTES EXTRAS DE FORMULARIO ─────────── -->
   <section class="contenedor seccion">
     <p class="separador">Formulario · Checkbox · Radio · Toggle · Textarea</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: flex-start;">
+    <div class="d-flex flex-wrap gap-3xl ai-start">
 
       <div style="min-width: 200px;">
         <h6 style="margin-bottom: 1rem;">Checkboxes</h6>
@@ -458,7 +458,7 @@
             <label for="fp-pass">Contraseña:</label>
             <input class="formulario-estandar" type="password" id="fp-pass" placeholder="••••••••" />
           </div>
-          <div style="display: flex; justify-content: flex-end; margin-top: 1.5rem;">
+          <div class="d-flex jc-end" style="margin-top: 1.5rem">
             <button class="btn btn-primario" data-paso-sig>Siguiente &#8594;</button>
           </div>
         </div>
@@ -475,7 +475,7 @@
             <span class="formulario-checkbox__marca"></span>
             Acepto los términos del sistema
           </label>
-          <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+          <div class="d-flex jc-between" style="margin-top: 1.5rem">
             <button class="btn btn-secundario" data-paso-ant>&#8592; Volver</button>
             <button class="btn btn-accion">Confirmar acceso ◆</button>
           </div>
@@ -488,7 +488,7 @@
   <!-- ── BARRA HP ────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Barra HP · Progreso</p>
-    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+    <div class="d-flex flex-col gap-md">
       <div class="barra-hp">
         <span class="barra-hp__label">Completo</span>
         <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -534,7 +534,7 @@
   <!-- ── IMÁGENES ────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Imágenes · Base</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; margin-bottom: 2.5rem;">
+    <div class="d-flex flex-wrap gap-xl ai-start" style="margin-bottom: 2.5rem">
       <div>
         <h6 style="margin-bottom: 0.75rem;">imagen-redonda</h6>
         <img src="images/imagen2.jpg" alt="Redonda" class="imagen-redonda" width="200" />
@@ -546,7 +546,7 @@
     </div>
 
     <p class="separador">Imágenes · Efectos hover · pasa el mouse sobre cada imagen</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+    <div class="d-flex flex-wrap gap-lg ai-start">
 
       <div>
         <h6 style="margin-bottom: 0.75rem;">imagen-zoom</h6>
@@ -580,13 +580,51 @@
         </div>
       </div>
 
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-duotono</h6>
+        <div class="imagen-efecto imagen-duotono" style="width: 200px; height: 150px;">
+          <img src="images/imagen1.jpg" alt="Duotono" />
+          <span class="imagen-efecto__label">DUOTONO</span>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-crt</h6>
+        <div class="imagen-efecto imagen-crt" style="width: 200px; height: 150px;">
+          <img src="images/imagen2.jpg" alt="CRT" />
+          <span class="imagen-efecto__label">CRT</span>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-hud</h6>
+        <div class="imagen-efecto imagen-hud" style="width: 200px; height: 150px;">
+          <img src="images/imagen3.jpg" alt="HUD" />
+          <div class="imagen-hud__datos">
+            <span>ID: ESC-0042</span>
+            <span>CLASIF: ACTIVO</span>
+            <span>RES: 1920×1080</span>
+            <span>SIG: DUAL</span>
+          </div>
+          <span class="imagen-efecto__label">HUD</span>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">imagen-estatica</h6>
+        <div class="imagen-efecto imagen-estatica" style="width: 200px; height: 150px;">
+          <img src="images/imagen4.png" alt="Static" />
+          <span class="imagen-efecto__label">STATIC</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- ── TEXTO MÁQUINA ────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Texto máquina · Efecto de escritura</p>
-    <div style="display: flex; flex-direction: column; gap: 2rem;">
+    <div class="d-flex flex-col gap-xl">
       <div>
         <h6 style="margin-bottom: 0.75rem;">.texto-maquina · Orbitron display</h6>
         <h2 class="texto-maquina text-acento">Build. Evolve. Compute.</h2>
@@ -606,7 +644,7 @@
   <!-- ── VENTANA PS1 ───────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Ventana · Contenedor PS1</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+    <div class="d-flex flex-wrap gap-lg ai-start">
 
       <div class="ventana ventana--entrada" style="flex: 1; min-width: 260px;">
         <div class="ventana__scanlines"></div>
@@ -788,7 +826,7 @@
   <!-- ── VHS CONTAINERS ────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">VHS · Overlay en contenedores</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start;">
+    <div class="d-flex flex-wrap gap-lg ai-start">
 
       <div class="superficie" style="flex: 1; min-width: 260px; position: relative;">
         <div class="vhs-overlay"></div>
@@ -825,10 +863,117 @@
     </div>
   </section>
 
+  <!-- ── MICRO-INTERACCIONES ──────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Micro-Interacciones · Efectos de sistema CRT/PS1</p>
+    <div class="d-flex flex-wrap gap-xl ai-start">
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">.cinta-glitch · haz clic</h6>
+        <div class="superficie cinta-glitch" style="width: 200px; padding: 1.5rem; text-align: center; cursor: pointer;">
+          <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--acento); letter-spacing: 0.1em;">◆ SEÑAL ACTIVA</p>
+          <p style="font-family: var(--font-body); font-size: var(--font-size-body); margin-top: 0.5rem;">Clic para desgarro</p>
+        </div>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">.fosfor-trail · hover</h6>
+        <button class="btn btn-primario fosfor-trail">◆ Señal Fósforo</button>
+        <p style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted);">Glow lento al salir</p>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">.cargando-wireframe</h6>
+        <div class="tarjeta cargando-wireframe" style="width: 200px;" id="demo-wireframe">
+          <div class="tarjeta__cuerpo">
+            <span class="tarjeta__titulo">Sistema</span>
+            <p class="tarjeta__texto">Boot del sistema</p>
+          </div>
+        </div>
+        <button class="btn btn-fantasma" style="margin-top: 0.75rem; font-size: var(--font-size-xs);"
+          onclick="const el=document.getElementById('demo-wireframe'); el.classList.remove('cargando-wireframe'); void el.offsetWidth; el.classList.add('cargando-wireframe');">
+          ↺ Replay
+        </button>
+      </div>
+
+      <div>
+        <h6 style="margin-bottom: 0.75rem;">.linea-display</h6>
+        <div class="superficie linea-display" style="width: 200px; padding: 1.5rem;">
+          <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); letter-spacing: 0.1em;">MONITOR ACTIVO</p>
+          <p style="font-family: var(--font-body); font-size: var(--font-size-body); color: var(--acento); margin-top: 0.5rem;">◆ En línea</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── ÍCONOS CSS PURO ───────────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Íconos CSS puro · .icono-* · sin SVG ni fuentes extra</p>
+
+    <div class="d-flex flex-wrap gap-xl ai-center" style="margin-bottom: 2.5rem;">
+
+      <div style="text-align: center;">
+        <span class="icono icono-diamante" style="font-size: 3rem; color: var(--acento);"></span>
+        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">diamante</p>
+      </div>
+
+      <div style="text-align: center;">
+        <span class="icono icono-flecha-der" style="font-size: 3rem; color: var(--acento);"></span>
+        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">flecha-der</p>
+      </div>
+
+      <div style="text-align: center;">
+        <span class="icono icono-flecha-izq" style="font-size: 3rem; color: var(--text-muted);"></span>
+        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">flecha-izq</p>
+      </div>
+
+      <div style="text-align: center;">
+        <span class="icono icono-check" style="font-size: 3rem; color: var(--color-ok);"></span>
+        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">check</p>
+      </div>
+
+      <div style="text-align: center;">
+        <span class="icono icono-cerrar" style="font-size: 3rem; color: var(--red-strike);"></span>
+        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">cerrar</p>
+      </div>
+
+      <div style="text-align: center;">
+        <span class="icono icono-alerta" style="font-size: 3rem; color: var(--color-warning);"></span>
+        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">alerta</p>
+      </div>
+
+    </div>
+
+    <div class="d-flex flex-wrap gap-lg ai-center" style="margin-bottom: 2.5rem;">
+      <span class="icono icono-diamante" style="font-size: 1.2rem; color: var(--acento);"></span>
+      <span class="icono icono-diamante" style="font-size: 2rem; color: var(--acento);"></span>
+      <span class="icono icono-diamante" style="font-size: 3rem; color: var(--acento);"></span>
+      <span class="icono icono-diamante" style="font-size: 4.5rem; color: var(--acento);"></span>
+      <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted);">Escala por font-size del padre</p>
+    </div>
+
+    <div class="d-flex flex-wrap gap-sm ai-center">
+      <button class="btn btn-accion d-flex ai-center gap-xs">
+        <span class="icono icono-check"></span> Confirmar
+      </button>
+      <button class="btn btn-fantasma d-flex ai-center gap-xs">
+        <span class="icono icono-cerrar"></span> Cancelar
+      </button>
+      <button class="btn btn-primario d-flex ai-center gap-xs">
+        Siguiente <span class="icono icono-flecha-der"></span>
+      </button>
+      <button class="btn btn-alerta d-flex ai-center gap-xs">
+        <span class="icono icono-alerta"></span> Error crítico
+      </button>
+    </div>
+
+  </section>
+
   <!-- ── FORMULARIOS ESPECIALES ─────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Formularios especiales · Correo y Tarjeta de crédito</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+    <div class="d-flex flex-wrap gap-xl ai-start">
 
       <!-- Formulario correo -->
       <div style="flex: 1; min-width: 280px; max-width: 420px;">
@@ -939,7 +1084,7 @@
             <label for="tc-nombre">Titular:</label>
             <input class="formulario-estandar" type="text" id="tc-nombre" placeholder="NOMBRE APELLIDO" />
           </div>
-          <div style="display: flex; gap: 1rem;">
+          <div class="d-flex gap-sm">
             <div class="campo-formulario" style="flex:1;">
               <label for="tc-exp">Expiración:</label>
               <input class="formulario-estandar" type="text" id="tc-exp" placeholder="MM/AA" maxlength="5" />
@@ -1143,7 +1288,7 @@
   <!-- ── ALERTAS ───────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Alertas · Notificaciones del sistema</p>
-    <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+    <div class="d-flex flex-col gap-xs">
 
       <div class="alerta">
         <span class="alerta__prefijo">INFO</span>
@@ -1188,7 +1333,7 @@
   <!-- ── MODAL ─────────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Modal · Ventana de diálogo PS1</p>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <div class="d-flex gap-sm flex-wrap">
       <button class="btn btn-primario"
         onclick="document.getElementById('modal-demo').classList.add('modal-overlay--visible')">
         Abrir modal ◆
@@ -1392,13 +1537,13 @@
     <!-- Botones cosmos -->
     <section class="contenedor seccion" style="padding-top: 0;">
       <p class="separador">Botones · Cosmos Blue</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+      <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 1.5rem">
         <button class="btn">Base</button>
         <button class="btn btn-primario">Primario</button>
         <button class="btn btn-accion">Acción CTA</button>
         <button class="btn btn-secundario">Secundario</button>
       </div>
-      <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+      <div class="d-flex flex-wrap gap-sm ai-center">
         <button class="btn btn-fantasma">Fantasma</button>
         <button class="btn btn-scan">Scan</button>
         <button class="btn btn-glitch">Glitch</button>
@@ -1420,7 +1565,7 @@
           </div>
           <div class="tarjeta__footer">
             <div class="diamante"></div>
-            <div class="barra-hp" style="flex: 1;">
+            <div class="barra-hp flex-1">
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -1442,7 +1587,7 @@
           </div>
           <div class="tarjeta__footer">
             <div class="diamante"></div>
-            <div class="barra-hp" style="flex: 1;">
+            <div class="barra-hp flex-1">
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -1464,7 +1609,7 @@
           </div>
           <div class="tarjeta__footer">
             <div class="diamante"></div>
-            <div class="barra-hp" style="flex: 1;">
+            <div class="barra-hp flex-1">
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
               <span class="barra-hp__bloque barra-hp__bloque--critico"></span>
@@ -1484,7 +1629,7 @@
     <!-- Taglines + Surface cosmos -->
     <section class="contenedor seccion" style="padding-top: 0;">
       <p class="separador">Taglines + Surface · Cosmos Blue</p>
-      <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+      <div class="d-flex flex-wrap ai-start" style="gap: 20px">
 
         <div style="flex: 1; min-width: 260px;">
           <div class="tagline-item">
@@ -1520,7 +1665,7 @@
         <div class="superficie" style="flex: 1; min-width: 260px;">
           <h6>Surface · Cosmos Blue · ESC-LABS-002</h6>
           <p style="margin-top: 0.75rem;">Panel institucional para sistemas técnicos y entornos de laboratorio.</p>
-          <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+          <div class="d-flex flex-col gap-xs" style="margin-top: 1rem">
             <div class="barra-hp">
               <span class="barra-hp__label">CPU</span>
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>

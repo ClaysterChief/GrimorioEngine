@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="shortcut icon" href="../images/logo_VAFBF.svg" type="image/x-icon" />
+  <title>Acceso · Grimorio Engine · ESC Labs</title>
+</head>
+
+<body>
+
+  <!-- ── NAVEGACIÓN ──────────────────────────────── -->
+  <header class="cabecera">
+    <nav class="navegar">
+      <a href="../index.html">
+        <img src="../images/Logo Extended VFISF.svg" alt="ESC Labs" class="logo-cabecera" />
+      </a>
+      <ul class="menu-principal">
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="../index.html">Inicio</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="contacto.html">Contacto</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="servicios.html">Servicios</a>
+        </li>
+        <li class="menu-principal__item--active">
+          <a class="menu-principal__link" href="">Acceso</a>
+        </li>
+      </ul>
+      <div class="nav-temas">
+        <button class="nav-temas__btn nav-temas__btn--activa" data-tema="default" title="Dual Signal"
+          aria-label="Tema Dual Signal">
+          <span class="nav-temas__diamante" style="background:#b44fff; box-shadow: 0 0 8px #b44fff88;"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="cosmos" title="Cosmos Blue" aria-label="Tema Cosmos Blue">
+          <span class="nav-temas__diamante" style="background:#1a6fd8; box-shadow: 0 0 8px #1a6fd888;"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="crimson" title="Crimson Signal" aria-label="Tema Crimson Signal">
+          <span class="nav-temas__diamante" style="background:#e53935; box-shadow: 0 0 8px #e5393588;"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="tema-flash" class="tema-flash"></div>
+
+  <!-- ── ACCESO ─────────────────────────────────── -->
+  <main class="contenedor" style="display: flex; justify-content: center; align-items: flex-start; padding: 4rem 1rem; min-height: calc(100vh - 140px);">
+
+    <div class="ventana ventana--entrada" style="width: 100%; max-width: 420px;">
+      <div class="ventana__barra">
+        <div class="ventana__dots">
+          <span class="ventana__dot ventana__dot--rojo"></span>
+          <span class="ventana__dot ventana__dot--amarillo"></span>
+          <span class="ventana__dot ventana__dot--verde"></span>
+        </div>
+        <span class="ventana__titulo">acceso · esc-labs</span>
+      </div>
+      <div class="ventana__cuerpo" style="padding: 2.4rem 2rem;">
+
+        <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem;">
+          ◆ Identificación de usuario
+        </p>
+
+        <form>
+          <div style="margin-bottom: 1.4rem;">
+            <label for="login-usuario">Usuario</label>
+            <input
+              id="login-usuario"
+              type="text"
+              class="formulario-estandar"
+              placeholder="nombre de usuario"
+              autocomplete="username"
+            />
+          </div>
+
+          <div style="margin-bottom: 1.8rem;">
+            <label for="login-contrasena">Contraseña</label>
+            <input
+              id="login-contrasena"
+              type="password"
+              class="formulario-estandar"
+              placeholder="••••••••"
+              autocomplete="current-password"
+            />
+          </div>
+
+          <div style="margin-bottom: 2rem;">
+            <label class="formulario-toggle">
+              <input type="checkbox" class="formulario-toggle__input" />
+              <span class="formulario-toggle__slider"></span>
+              <span class="formulario-toggle__etiqueta">Recordar sesión</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primario btn--bloque">
+            ◆ Iniciar sesión
+          </button>
+        </form>
+
+        <p style="margin-top: 1.8rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-align: center;">
+          ¿Sin acceso? →
+          <a href="contacto.html" style="color: var(--acento); text-decoration: none;">Contactar ESC Labs</a>
+        </p>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <img src="../images/logo_VAFBF.svg" width="100" alt="ESC Labs" />
+    <br /><br />
+    <p>systemescsts@gmail.com</p>
+    <hr style="border: none; border-top: 1px solid var(--border); margin: 1rem auto; max-width: 400px;" />
+    <p>©2025 ESC Labs · Evolution in Science &amp; Computing · v2.0</p>
+  </footer>
+
+  <script defer src="../js/engine.js"></script>
+
+</body>
+
+</html>

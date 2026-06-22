@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="shortcut icon" href="../images/logo_VAFBF.svg" type="image/x-icon" />
+  <title>Contacto · Grimorio Engine · ESC Labs</title>
+</head>
+
+<body>
+
+  <!-- ── NAVEGACIÓN ──────────────────────────────── -->
+  <header class="cabecera">
+    <nav class="navegar">
+      <a href="../index.html">
+        <img src="../images/Logo Extended VFISF.svg" alt="ESC Labs" class="logo-cabecera" />
+      </a>
+      <ul class="menu-principal">
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="../index.html">Inicio</a>
+        </li>
+        <li class="menu-principal__item--active">
+          <a class="menu-principal__link" href="">Contacto</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="servicios.html">Servicios</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="login.html">Acceso</a>
+        </li>
+      </ul>
+      <div class="nav-temas">
+        <button class="nav-temas__btn nav-temas__btn--activa" data-tema="default" title="Dual Signal"
+          aria-label="Tema Dual Signal">
+          <span class="nav-temas__diamante" style="background:#b44fff; box-shadow: 0 0 8px #b44fff88;"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="cosmos" title="Cosmos Blue" aria-label="Tema Cosmos Blue">
+          <span class="nav-temas__diamante" style="background:#1a6fd8; box-shadow: 0 0 8px #1a6fd888;"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="crimson" title="Crimson Signal" aria-label="Tema Crimson Signal">
+          <span class="nav-temas__diamante" style="background:#e53935; box-shadow: 0 0 8px #e5393588;"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="tema-flash" class="tema-flash"></div>
+
+  <!-- ── CONTACTO ───────────────────────────────── -->
+  <main class="contenedor" style="padding: 4rem 1rem;">
+
+    <div style="margin-bottom: 3rem;">
+      <h1 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--acento); margin-bottom: 0.5rem;">
+        ◆ Contacto
+      </h1>
+      <p style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;">
+        Envía un mensaje — respondemos en menos de 48h
+      </p>
+    </div>
+
+    <div class="grid grid--2" style="gap: 3rem; align-items: start;">
+
+      <!-- Columna izquierda: formulario -->
+      <div class="superficie" style="padding: 2.4rem;">
+
+        <form>
+          <div style="margin-bottom: 1.4rem;">
+            <label for="contacto-nombre">Nombre</label>
+            <input
+              id="contacto-nombre"
+              type="text"
+              class="formulario-estandar"
+              placeholder="Tu nombre completo"
+              autocomplete="name"
+            />
+          </div>
+
+          <div style="margin-bottom: 1.4rem;">
+            <label for="contacto-email">Correo</label>
+            <div class="formulario-correo" id="correo-contacto">
+              <input
+                id="contacto-email"
+                type="text"
+                class="formulario-correo__usuario"
+                placeholder="usuario"
+                autocomplete="off"
+              />
+              <span class="formulario-correo__arroba">@</span>
+              <div class="formulario-correo__dominio-wrap">
+                <button
+                  type="button"
+                  class="formulario-correo__dominio-btn"
+                  aria-expanded="false"
+                  aria-haspopup="listbox"
+                  aria-controls="contacto-dominios-listbox"
+                >
+                  <span class="formulario-correo__dominio-texto">gmail.com</span>
+                  <span class="formulario-correo__flecha">&#9660;</span>
+                </button>
+                <div
+                  class="formulario-correo__dropdown"
+                  role="listbox"
+                  aria-label="Lista de dominios de correo"
+                  id="contacto-dominios-listbox"
+                >
+                  <div role="option" tabindex="0" class="formulario-correo__opcion" data-dominio="gmail.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> gmail.com
+                  </div>
+                  <div role="option" tabindex="0" class="formulario-correo__opcion" data-dominio="hotmail.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> hotmail.com
+                  </div>
+                  <div role="option" tabindex="0" class="formulario-correo__opcion" data-dominio="yahoo.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> yahoo.com
+                  </div>
+                  <div role="option" tabindex="0" class="formulario-correo__opcion" data-dominio="outlook.com">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> outlook.com
+                  </div>
+                  <div role="option" tabindex="0" class="formulario-correo__opcion" data-dominio="proton.me">
+                    <span class="formulario-correo__opcion-icono">&#9654;</span> proton.me
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 1.8rem;">
+            <label for="contacto-mensaje">Mensaje</label>
+            <textarea
+              id="contacto-mensaje"
+              class="formulario-textarea"
+              rows="5"
+              placeholder="Describe tu proyecto o consulta..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-accion btn--bloque">
+            ◆ Enviar mensaje
+          </button>
+        </form>
+
+      </div>
+
+      <!-- Columna derecha: info de contacto -->
+      <div>
+
+        <div style="margin-bottom: 2.4rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.2rem;">
+            ◆ Canales directos
+          </p>
+
+          <div class="tagline-item">
+            <span class="tagline-item__arrow">>></span>
+            <div class="tagline-item__contenido">
+              <span class="tagline-item__texto">systemescsts@gmail.com</span>
+              <span class="tagline-item__contexto">correo · respuesta en 48h</span>
+            </div>
+          </div>
+
+          <div class="tagline-item">
+            <span class="tagline-item__arrow">>></span>
+            <div class="tagline-item__contenido">
+              <span class="tagline-item__texto">Tlaxcala, México</span>
+              <span class="tagline-item__contexto">ubicación · zona horaria CDT</span>
+            </div>
+          </div>
+
+          <div class="tagline-item">
+            <span class="tagline-item__arrow">>></span>
+            <div class="tagline-item__contenido">
+              <span class="tagline-item__texto">github.com/ClaysterChief</span>
+              <span class="tagline-item__contexto">repositorios públicos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="superficie" style="padding: 1.8rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.8rem;">
+            Estado del sistema
+          </p>
+          <p style="color: var(--color-ok); font-family: var(--font-mono); font-size: 0.85rem;">
+            ◆ Operativo · Grimorio Engine v2.0
+          </p>
+          <p style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.72rem; margin-top: 0.5rem;">
+            ¿Quieres trabajar con nosotros? →
+            <a href="servicios.html" style="color: var(--acento); text-decoration: none;">Ver servicios</a>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <img src="../images/logo_VAFBF.svg" width="100" alt="ESC Labs" />
+    <br /><br />
+    <p>systemescsts@gmail.com</p>
+    <hr style="border: none; border-top: 1px solid var(--border); margin: 1rem auto; max-width: 400px;" />
+    <p>©2025 ESC Labs · Evolution in Science &amp; Computing · v2.0</p>
+  </footer>
+
+  <script defer src="../js/engine.js"></script>
+
+</body>
+
+</html>

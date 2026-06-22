@@ -304,12 +304,12 @@ BEM simplificado, todo en **español, kebab-case**:
 - [x] Loaders PS1 (bloques HP, diamante, scan)
 - [x] Consola terminal · Texto máquina · Ventana PS1
 - [x] Stat HUD · Barra HP · VHS containers
-- [ ] Íconos CSS puros (`.icono-*`)
-- [ ] Utilidades `bg-`
-- [ ] `style.min.css` (fase final)
-- [ ] `package.json` para distribución npm
+- [x] Íconos CSS puros (`.icono-*`)
+- [x] Utilidades `bg-`
+- [ ] `style.min.css` (npm run build)
+- [x] `package.json` para distribución npm
 - [ ] Wrapper de componentes React (`grimorio-engine-react`)
-- [ ] Páginas secundarias (`login.html`, `contacto.html`)
+- [x] Páginas secundarias (`login.html`, `contacto.html`, `servicios.html`)
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "name": "@grimorio/react-native",
+  "version": "0.0.0",
+  "description": "GrimorioEngine — Componentes para React Native (usa @grimorio/core tokens)",
+  "private": true,
+  "peerDependencies": {
+    "react-native": ">=0.70.0",
+    "@grimorio/core": ">=0.1.0"
+  },
+  "author": "ESC Labs",
+  "license": "MIT"
+}

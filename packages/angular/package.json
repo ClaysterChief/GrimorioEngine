@@ -1,0 +1,13 @@
+{
+  "name": "@grimorio/angular",
+  "version": "0.0.0",
+  "description": "GrimorioEngine — Wrappers para Angular",
+  "private": true,
+  "peerDependencies": {
+    "@angular/core": ">=15.0.0",
+    "@grimorio/elements": ">=0.0.0",
+    "@grimorio/css": ">=2.0.0"
+  },
+  "author": "ESC Labs",
+  "license": "MIT"
+}

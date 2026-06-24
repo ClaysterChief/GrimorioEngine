@@ -1,0 +1,12 @@
+{
+  "name": "@grimorio/elements",
+  "version": "0.0.0",
+  "description": "GrimorioEngine — Web Components (Custom Elements) universales",
+  "private": true,
+  "peerDependencies": {
+    "@grimorio/css": ">=2.0.0",
+    "@grimorio/core": ">=0.1.0"
+  },
+  "author": "ESC Labs",
+  "license": "MIT"
+}

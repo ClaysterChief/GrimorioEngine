@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../../packages/css/style.css" />
   <link rel="shortcut icon" href="images/logo_VAFBF.svg" type="image/x-icon" />
   <title>Grimorio Engine · ESC Labs</title>
 </head>
@@ -35,59 +35,49 @@
       <div class="nav-temas">
         <button class="nav-temas__btn nav-temas__btn--activa" data-tema="default" title="Dual Signal"
           aria-label="Tema Dual Signal">
-          <span class="nav-temas__diamante" style="background:#b44fff; box-shadow: 0 0 8px #b44fff88;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--dual"></span>
         </button>
         <button class="nav-temas__btn" data-tema="cosmos" title="Cosmos Blue" aria-label="Tema Cosmos Blue">
-          <span class="nav-temas__diamante" style="background:#1a6fd8; box-shadow: 0 0 8px #1a6fd888;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--cosmos"></span>
         </button>
         <button class="nav-temas__btn" data-tema="crimson" title="Crimson Signal" aria-label="Tema Crimson Signal">
-          <span class="nav-temas__diamante" style="background:#e53935; box-shadow: 0 0 8px #e5393588;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--crimson"></span>
         </button>
       </div>
     </nav>
   </header>
 
   <!-- ── SELECTOR DE TEMA (TOP) ───────────────────── -->
-  <div style="border-bottom: 1px solid var(--border); background: var(--void-surface); padding: 0.75rem 0;">
+  <div class="selector-tema__barra">
     <div class="contenedor d-flex ai-center gap-md flex-wrap">
-      <span
-        style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted);">Paleta:</span>
+      <span class="selector-tema__barra-label">Paleta:</span>
       <div class="selector-tema gap-xs">
-        <button type="button" class="selector-tema__opcion selector-tema__opcion--activa" data-tema="default"
-          style="min-width: 0; flex: none; padding: 0;">
-          <div class="selector-tema__preview"
-            style="background: linear-gradient(135deg, #1a0840 0%, #060412 100%); width: 48px; height: 48px;">
-            <div class="selector-tema__acento-muestra"
-              style="background:#b44fff; color:#b44fff; box-shadow:0 0 12px #b44fff88; width:14px; height:14px;"></div>
+        <button type="button" class="selector-tema__opcion selector-tema__opcion--activa selector-tema__opcion--compacta" data-tema="default">
+          <div class="selector-tema__preview selector-tema__preview--dual selector-tema__preview--compacta">
+            <div class="selector-tema__acento-muestra selector-tema__acento-muestra--dual selector-tema__acento-muestra--compacta"></div>
           </div>
-          <div class="selector-tema__info" style="padding: 0.45rem 0.65rem;">
-            <div class="selector-tema__nombre" style="color:#b44fff; font-size: 0.72rem;">Dual Signal</div>
+          <div class="selector-tema__info selector-tema__info--compacta">
+            <div class="selector-tema__nombre selector-tema__nombre--dual fs-xs">Dual Signal</div>
           </div>
-          <span class="selector-tema__insignia" style="color:#b44fff;">ACTIVA</span>
+          <span class="selector-tema__insignia selector-tema__insignia--dual">ACTIVA</span>
         </button>
-        <button type="button" class="selector-tema__opcion" data-tema="cosmos"
-          style="min-width: 0; flex: none; padding: 0;">
-          <div class="selector-tema__preview"
-            style="background: linear-gradient(135deg, #0a1a40 0%, #040c18 100%); width: 48px; height: 48px;">
-            <div class="selector-tema__acento-muestra"
-              style="background:#1a6fd8; color:#1a6fd8; box-shadow:0 0 12px #1a6fd888; width:14px; height:14px;"></div>
+        <button type="button" class="selector-tema__opcion selector-tema__opcion--compacta" data-tema="cosmos">
+          <div class="selector-tema__preview selector-tema__preview--cosmos selector-tema__preview--compacta">
+            <div class="selector-tema__acento-muestra selector-tema__acento-muestra--cosmos selector-tema__acento-muestra--compacta"></div>
           </div>
-          <div class="selector-tema__info" style="padding: 0.45rem 0.65rem;">
-            <div class="selector-tema__nombre" style="color:#1a6fd8; font-size: 0.72rem;">Cosmos</div>
+          <div class="selector-tema__info selector-tema__info--compacta">
+            <div class="selector-tema__nombre selector-tema__nombre--cosmos fs-xs">Cosmos</div>
           </div>
-          <span class="selector-tema__insignia" style="color:#1a6fd8;">ACTIVA</span>
+          <span class="selector-tema__insignia selector-tema__insignia--cosmos">ACTIVA</span>
         </button>
-        <button type="button" class="selector-tema__opcion" data-tema="crimson"
-          style="min-width: 0; flex: none; padding: 0;">
-          <div class="selector-tema__preview"
-            style="background: linear-gradient(135deg, #2d0808 0%, #110202 100%); width: 48px; height: 48px;">
-            <div class="selector-tema__acento-muestra"
-              style="background:#e53935; color:#e53935; box-shadow:0 0 12px #e5393588; width:14px; height:14px;"></div>
+        <button type="button" class="selector-tema__opcion selector-tema__opcion--compacta" data-tema="crimson">
+          <div class="selector-tema__preview selector-tema__preview--crimson selector-tema__preview--compacta">
+            <div class="selector-tema__acento-muestra selector-tema__acento-muestra--crimson selector-tema__acento-muestra--compacta"></div>
           </div>
-          <div class="selector-tema__info" style="padding: 0.45rem 0.65rem;">
-            <div class="selector-tema__nombre" style="color:#e53935; font-size: 0.72rem;">Crimson</div>
+          <div class="selector-tema__info selector-tema__info--compacta">
+            <div class="selector-tema__nombre selector-tema__nombre--crimson fs-xs">Crimson</div>
           </div>
-          <span class="selector-tema__insignia" style="color:#e53935;">ACTIVA</span>
+          <span class="selector-tema__insignia selector-tema__insignia--crimson">ACTIVA</span>
         </button>
       </div>
     </div>
@@ -112,7 +102,7 @@
   <!-- ── BOTONES ─────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Botones · Base</p>
-    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
+    <div class="d-flex flex-wrap gap-sm ai-center mb-2xl">
       <button class="btn">Base</button>
       <button class="btn btn-primario">Primario</button>
       <button class="btn btn-accion">Acción CTA</button>
@@ -120,7 +110,7 @@
     </div>
 
     <p class="separador">Botones · Animados</p>
-    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
+    <div class="d-flex flex-wrap gap-sm ai-center mb-2xl">
       <button class="btn btn-fantasma">Fantasma</button>
       <button class="btn btn-scan">Scan</button>
       <button class="btn btn-glitch">Glitch</button>
@@ -129,22 +119,22 @@
     </div>
 
     <p class="separador">Botones · Tamaños</p>
-    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
+    <div class="d-flex flex-wrap gap-sm ai-center mb-2xl">
       <button class="btn btn--sm">Pequeño</button>
       <button class="btn btn-primario">Normal</button>
       <button class="btn btn-primario btn--lg">Grande</button>
       <button class="btn btn-primario btn--xl">Extra grande</button>
     </div>
-    <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 2.5rem">
+    <div class="d-flex flex-wrap gap-sm ai-center mb-2xl">
       <button class="btn btn-accion btn--xl">Acción XL</button>
       <button class="btn btn-fantasma btn--xl">Fantasma XL</button>
       <button class="btn btn-pulso btn--xl">Pulso XL</button>
     </div>
 
     <p class="separador">Botones · Bloque</p>
-    <div style="max-width: 400px;">
-      <button class="btn btn-primario btn--bloque" style="margin-bottom: 0.75rem;">Bloque Primario</button>
-      <button class="btn btn-accion btn--bloque" style="margin-bottom: 0.75rem;">Bloque Acción</button>
+    <div class="mw-xs">
+      <button class="btn btn-primario btn--bloque mb-xs">Bloque Primario</button>
+      <button class="btn btn-accion btn--bloque mb-xs">Bloque Acción</button>
       <button class="btn btn-secundario btn--bloque">Bloque Secundario</button>
     </div>
   </section>
@@ -156,7 +146,7 @@
       <h6>Panel de sistema · ESC-LABS-001</h6>
       <p>Superficie base para contenido estructurado. Úsala en dashboards, bloques de información y formularios
         destacados.</p>
-      <div class="barra-hp" style="margin-top: 1rem;">
+      <div class="barra-hp mt-sm">
         <span class="barra-hp__label">HP</span>
         <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
         <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -194,7 +184,7 @@
             <span class="barra-hp__bloque"></span>
             <span class="barra-hp__bloque"></span>
           </div>
-          <span style="font-size: 0.85rem;">ESC-001</span>
+          <span class="fs-sm">ESC-001</span>
         </div>
         <button class="btn btn-primario btn-tarjeta">Más información</button>
       </div>
@@ -216,7 +206,7 @@
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque"></span>
           </div>
-          <span style="font-size: 0.85rem;">ESC-002</span>
+          <span class="fs-sm">ESC-002</span>
         </div>
         <button class="btn btn-primario btn-tarjeta">Más información</button>
       </div>
@@ -239,7 +229,7 @@
             <span class="barra-hp__bloque"></span>
             <span class="barra-hp__bloque"></span>
           </div>
-          <span style="font-size: 0.85rem;">ESC-003</span>
+          <span class="fs-sm">ESC-003</span>
         </div>
         <button class="btn btn-accion btn-tarjeta">Contactar</button>
       </div>
@@ -250,7 +240,7 @@
   <!-- ── TAGLINES ────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Taglines · Voz de marca</p>
-    <div style="max-width: 560px;">
+    <div class="mw-sm">
       <div class="tagline-item">
         <span class="tagline-item__arrow">>></span>
         <div>
@@ -288,7 +278,7 @@
     <div class="d-flex flex-wrap gap-4xl ai-end">
 
       <div>
-        <h6 style="margin-bottom: 1rem;">.cargando-bloques · HP secuencial</h6>
+        <h6 class="mb-sm">.cargando-bloques · HP secuencial</h6>
         <div class="cargando-bloques">
           <span class="cargando-bloques__label">Cargando sistema</span>
           <div class="cargando-bloques__pista">
@@ -307,7 +297,7 @@
       </div>
 
       <div>
-        <h6 style="margin-bottom: 1rem;">.cargando-diamante · Anillos contra-rotantes</h6>
+        <h6 class="mb-sm">.cargando-diamante · Anillos contra-rotantes</h6>
         <div class="cargando-diamante">
           <div class="cargando-diamante__anillo-ext"></div>
           <div class="cargando-diamante__anillo-int"></div>
@@ -316,7 +306,7 @@
       </div>
 
       <div>
-        <h6 style="margin-bottom: 1rem;">.cargando-scan · Barrido CRT</h6>
+        <h6 class="mb-sm">.cargando-scan · Barrido CRT</h6>
         <div class="cargando-scan">
           <span class="cargando-scan__ruta">esc-labs://boot/sistema</span>
           <span class="cargando-scan__label">Scanning</span>
@@ -330,7 +320,7 @@
   <section class="contenedor seccion">
     <p class="separador">Formulario · Campos animados con focus</p>
     <form class="grupo-formulario" action="#" method="post" novalidate>
-      <div class="campo-formulario" style="margin-top: 0;">
+      <div class="campo-formulario mt-0">
         <label for="nombre">Nombre:</label>
         <input class="formulario-estandar" type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" />
       </div>
@@ -358,7 +348,7 @@
           <span class="formulario-archivo-nombre" id="archivo-nombre-display">Ningún archivo seleccionado</span>
         </div>
       </div>
-      <div class="d-flex gap-sm" style="margin-top: 1.75rem">
+      <div class="d-flex gap-sm mt-md">
         <button class="btn btn-primario" type="submit">Enviar datos</button>
         <button class="btn btn-secundario" type="reset">Limpiar</button>
       </div>
@@ -371,7 +361,7 @@
     <div class="d-flex flex-wrap gap-3xl ai-start">
 
       <div style="min-width: 200px;">
-        <h6 style="margin-bottom: 1rem;">Checkboxes</h6>
+        <h6 class="mb-sm">Checkboxes</h6>
         <label class="formulario-checkbox">
           <input type="checkbox" class="formulario-checkbox__input" />
           <span class="formulario-checkbox__marca"></span>
@@ -390,7 +380,7 @@
       </div>
 
       <div style="min-width: 200px;">
-        <h6 style="margin-bottom: 1rem;">Radio · Diamante PS1</h6>
+        <h6 class="mb-sm">Radio · Diamante PS1</h6>
         <label class="formulario-radio">
           <input type="radio" name="paleta-radio" class="formulario-radio__input" checked />
           <span class="formulario-radio__marca"></span>
@@ -409,27 +399,27 @@
       </div>
 
       <div style="min-width: 220px;">
-        <h6 style="margin-bottom: 1rem;">Toggles · Encendido / Apagado</h6>
+        <h6 class="mb-sm">Toggles · Encendido / Apagado</h6>
         <label class="formulario-toggle">
           <input type="checkbox" class="formulario-toggle__input" />
           <span class="formulario-toggle__slider"></span>
           <span class="formulario-toggle__etiqueta">Modo oscuro</span>
         </label>
-        <label class="formulario-toggle" style="margin-top: 0.85rem;">
+        <label class="formulario-toggle mt-xs">
           <input type="checkbox" class="formulario-toggle__input" checked />
           <span class="formulario-toggle__slider"></span>
           <span class="formulario-toggle__etiqueta">Señal activa</span>
         </label>
-        <label class="formulario-toggle" style="margin-top: 0.85rem;">
+        <label class="formulario-toggle mt-xs">
           <input type="checkbox" class="formulario-toggle__input" />
           <span class="formulario-toggle__slider"></span>
           <span class="formulario-toggle__etiqueta">Acceso remoto</span>
         </label>
       </div>
 
-      <div style="flex: 1; min-width: 240px;">
-        <h6 style="margin-bottom: 1rem;">Textarea</h6>
-        <label style="margin-top: 0;">Mensaje del sistema:</label>
+      <div class="flex-1" style="min-width: 240px;">
+        <h6 class="mb-sm">Textarea</h6>
+        <label class="mt-0">Mensaje del sistema:</label>
         <textarea class="formulario-textarea" placeholder="Ingresa el log o mensaje aquí..."></textarea>
       </div>
 
@@ -439,7 +429,7 @@
   <!-- ── FORMULARIO MULTI-PASO ──────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Formulario · Multi-paso con transición deslizante</p>
-    <div id="form-registro" class="formulario-pasos" style="max-width: 580px;">
+    <div id="form-registro" class="formulario-pasos mw-sm">
       <div class="formulario-pasos__barra">
         <span class="formulario-pasos__paso-ind formulario-pasos__paso-ind--activo">01 · Datos</span>
         <span class="formulario-pasos__conector"></span>
@@ -449,8 +439,8 @@
 
         <!-- Panel 1 -->
         <div class="formulario-pasos__panel">
-          <h6 style="color: var(--acento); margin-bottom: 1.25rem;">Datos de acceso</h6>
-          <div class="campo-formulario" style="margin-top: 0;">
+          <h6 class="text-acento mb-sm">Datos de acceso</h6>
+          <div class="campo-formulario mt-0">
             <label for="fp-usuario">Usuario:</label>
             <input class="formulario-estandar" type="text" id="fp-usuario" placeholder="esc_usuario" />
           </div>
@@ -458,24 +448,24 @@
             <label for="fp-pass">Contraseña:</label>
             <input class="formulario-estandar" type="password" id="fp-pass" placeholder="••••••••" />
           </div>
-          <div class="d-flex jc-end" style="margin-top: 1.5rem">
+          <div class="d-flex jc-end mt-md">
             <button class="btn btn-primario" data-paso-sig>Siguiente &#8594;</button>
           </div>
         </div>
 
         <!-- Panel 2 -->
         <div class="formulario-pasos__panel">
-          <h6 style="color: var(--acento); margin-bottom: 1.25rem;">Confirmar registro</h6>
-          <div class="campo-formulario" style="margin-top: 0;">
+          <h6 class="text-acento mb-sm">Confirmar registro</h6>
+          <div class="campo-formulario mt-0">
             <label for="fp-correo2">Correo de confirmación:</label>
             <input class="formulario-estandar" type="email" id="fp-correo2" placeholder="correo@esclabs.io" />
           </div>
-          <label class="formulario-checkbox" style="margin-top: 1rem;">
+          <label class="formulario-checkbox mt-sm">
             <input type="checkbox" class="formulario-checkbox__input" />
             <span class="formulario-checkbox__marca"></span>
             Acepto los términos del sistema
           </label>
-          <div class="d-flex jc-between" style="margin-top: 1.5rem">
+          <div class="d-flex jc-between mt-md">
             <button class="btn btn-secundario" data-paso-ant>&#8592; Volver</button>
             <button class="btn btn-accion">Confirmar acceso ◆</button>
           </div>
@@ -534,13 +524,13 @@
   <!-- ── IMÁGENES ────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Imágenes · Base</p>
-    <div class="d-flex flex-wrap gap-xl ai-start" style="margin-bottom: 2.5rem">
+    <div class="d-flex flex-wrap gap-xl ai-start mb-2xl">
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-redonda</h6>
+        <h6 class="mb-xs">imagen-redonda</h6>
         <img src="images/imagen2.jpg" alt="Redonda" class="imagen-redonda" width="200" />
       </div>
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-circular</h6>
+        <h6 class="mb-xs">imagen-circular</h6>
         <img src="images/imagen2.jpg" alt="Circular" class="imagen-circular" width="200" />
       </div>
     </div>
@@ -549,56 +539,56 @@
     <div class="d-flex flex-wrap gap-lg ai-start">
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-zoom</h6>
-        <div class="imagen-efecto imagen-zoom" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-zoom</h6>
+        <div class="imagen-efecto imagen-zoom imagen-efecto--demo">
           <img src="images/imagen1.jpg" alt="Zoom" />
           <span class="imagen-efecto__label">ZOOM</span>
         </div>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-scan</h6>
-        <div class="imagen-efecto imagen-scan" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-scan</h6>
+        <div class="imagen-efecto imagen-scan imagen-efecto--demo">
           <img src="images/imagen2.jpg" alt="Scan" />
           <span class="imagen-efecto__label">SCAN</span>
         </div>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-glitch</h6>
-        <div class="imagen-efecto imagen-glitch" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-glitch</h6>
+        <div class="imagen-efecto imagen-glitch imagen-efecto--demo">
           <img src="images/imagen3.jpg" alt="Glitch" />
           <span class="imagen-efecto__label">GLITCH</span>
         </div>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-vhs</h6>
-        <div class="imagen-efecto imagen-vhs" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-vhs</h6>
+        <div class="imagen-efecto imagen-vhs imagen-efecto--demo">
           <img src="images/imagen4.png" alt="VHS" />
           <span class="imagen-efecto__label">VHS</span>
         </div>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-duotono</h6>
-        <div class="imagen-efecto imagen-duotono" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-duotono</h6>
+        <div class="imagen-efecto imagen-duotono imagen-efecto--demo">
           <img src="images/imagen1.jpg" alt="Duotono" />
           <span class="imagen-efecto__label">DUOTONO</span>
         </div>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-crt</h6>
-        <div class="imagen-efecto imagen-crt" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-crt</h6>
+        <div class="imagen-efecto imagen-crt imagen-efecto--demo">
           <img src="images/imagen2.jpg" alt="CRT" />
           <span class="imagen-efecto__label">CRT</span>
         </div>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-hud</h6>
-        <div class="imagen-efecto imagen-hud" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-hud</h6>
+        <div class="imagen-efecto imagen-hud imagen-efecto--demo">
           <img src="images/imagen3.jpg" alt="HUD" />
           <div class="imagen-hud__datos">
             <span>ID: ESC-0042</span>
@@ -611,8 +601,8 @@
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">imagen-estatica</h6>
-        <div class="imagen-efecto imagen-estatica" style="width: 200px; height: 150px;">
+        <h6 class="mb-xs">imagen-estatica</h6>
+        <div class="imagen-efecto imagen-estatica imagen-efecto--demo">
           <img src="images/imagen4.png" alt="Static" />
           <span class="imagen-efecto__label">STATIC</span>
         </div>
@@ -626,16 +616,16 @@
     <p class="separador">Texto máquina · Efecto de escritura</p>
     <div class="d-flex flex-col gap-xl">
       <div>
-        <h6 style="margin-bottom: 0.75rem;">.texto-maquina · Orbitron display</h6>
+        <h6 class="mb-xs">.texto-maquina · Orbitron display</h6>
         <h2 class="texto-maquina text-acento">Build. Evolve. Compute.</h2>
       </div>
       <div>
-        <h6 style="margin-bottom: 0.75rem;">.texto-maquina--lento · VT323</h6>
+        <h6 class="mb-xs">.texto-maquina--lento · VT323</h6>
         <p class="texto-maquina texto-maquina--lento" style="font-size: 2.2rem; line-height: 1.2;">Sistema listo.
           Iniciando secuencia de arranque...</p>
       </div>
       <div>
-        <h6 style="margin-bottom: 0.75rem;">.texto-maquina--sin-cursor</h6>
+        <h6 class="mb-xs">.texto-maquina--sin-cursor</h6>
         <h3 class="texto-maquina texto-maquina--sin-cursor text-apagado">ESC Labs · v2.0 · Dual Signal</h3>
       </div>
     </div>
@@ -646,7 +636,7 @@
     <p class="separador">Ventana · Contenedor PS1</p>
     <div class="d-flex flex-wrap gap-lg ai-start">
 
-      <div class="ventana ventana--entrada" style="flex: 1; min-width: 260px;">
+      <div class="ventana ventana--entrada flex-1" style="min-width: 260px;">
         <div class="ventana__scanlines"></div>
         <div class="ventana__barra">
           <div class="ventana__dots">
@@ -658,10 +648,10 @@
           <span class="ventana__version">v2.0</span>
         </div>
         <div class="ventana__contenido">
-          <h6 style="color: var(--acento); margin-bottom: 0.75rem;">SISTEMA ACTIVO</h6>
+          <h6 class="text-acento mb-xs">SISTEMA ACTIVO</h6>
           <p>Contenedor de ventana PS1. Úsalo para dashboards, mensajes del sistema y bloques de información relevante.
           </p>
-          <div class="barra-hp" style="margin-top: 0.75rem;">
+          <div class="barra-hp mt-xs">
             <span class="barra-hp__label">HP</span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -677,7 +667,7 @@
         </div>
       </div>
 
-      <div class="ventana" style="flex: 1; min-width: 260px;">
+      <div class="ventana flex-1" style="min-width: 260px;">
         <div class="ventana__scanlines"></div>
         <div class="ventana__barra">
           <div class="ventana__dots">
@@ -689,9 +679,9 @@
           <span class="ventana__version">alerta</span>
         </div>
         <div class="ventana__contenido">
-          <h6 style="color: var(--red-strike); margin-bottom: 0.75rem;">MEMORIA CRÍTICA</h6>
+          <h6 class="text-accion mb-xs">MEMORIA CRÍTICA</h6>
           <p>Módulo de gestión en estado crítico. Libera recursos antes de continuar.</p>
-          <div class="barra-hp" style="margin-top: 0.75rem;">
+          <div class="barra-hp mt-xs">
             <span class="barra-hp__label">MEM</span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -828,12 +818,12 @@
     <p class="separador">VHS · Overlay en contenedores</p>
     <div class="d-flex flex-wrap gap-lg ai-start">
 
-      <div class="superficie" style="flex: 1; min-width: 260px; position: relative;">
+      <div class="superficie flex-1 pos-relative" style="min-width: 260px;">
         <div class="vhs-overlay"></div>
         <h6>Surface + .vhs-overlay</h6>
-        <p style="margin-top: 0.75rem;">Agrega <code>.vhs-overlay</code> como primer hijo de cualquier contenedor con
+        <p class="mt-xs">Agrega <code>.vhs-overlay</code> como primer hijo de cualquier contenedor con
           <code>position: relative</code>.</p>
-        <div class="barra-hp" style="margin-top: 1rem;">
+        <div class="barra-hp mt-sm">
           <span class="barra-hp__label">SIG</span>
           <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
           <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -846,7 +836,7 @@
         </div>
       </div>
 
-      <div class="tarjeta" style="width: 280px; position: relative;">
+      <div class="tarjeta pos-relative" style="width: 280px;">
         <div class="vhs-overlay"></div>
         <img src="images/creacion_web.png" alt="Web" class="tarjeta__imagen" />
         <div class="tarjeta__cuerpo">
@@ -856,7 +846,7 @@
         </div>
         <div class="tarjeta__footer">
           <div class="diamante"></div>
-          <span style="font-size: 0.85rem; margin-left: auto;">VHS-DEMO</span>
+          <span class="fs-sm ml-auto">VHS-DEMO</span>
         </div>
       </div>
 
@@ -869,38 +859,38 @@
     <div class="d-flex flex-wrap gap-xl ai-start">
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">.cinta-glitch · haz clic</h6>
-        <div class="superficie cinta-glitch" style="width: 200px; padding: 1.5rem; text-align: center; cursor: pointer;">
-          <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--acento); letter-spacing: 0.1em;">◆ SEÑAL ACTIVA</p>
-          <p style="font-family: var(--font-body); font-size: var(--font-size-body); margin-top: 0.5rem;">Clic para desgarro</p>
+        <h6 class="mb-xs">.cinta-glitch · haz clic</h6>
+        <div class="superficie cinta-glitch p-md text-centro cursor-pointer" style="width: 200px;">
+          <p class="text-mono fs-xs text-acento tracking-md">◆ SEÑAL ACTIVA</p>
+          <p class="text-body fs-body mt-xs">Clic para desgarro</p>
         </div>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">.fosfor-trail · hover</h6>
+        <h6 class="mb-xs">.fosfor-trail · hover</h6>
         <button class="btn btn-primario fosfor-trail">◆ Señal Fósforo</button>
-        <p style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted);">Glow lento al salir</p>
+        <p class="mt-xs text-mono fs-xs text-apagado">Glow lento al salir</p>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">.cargando-wireframe</h6>
+        <h6 class="mb-xs">.cargando-wireframe</h6>
         <div class="tarjeta cargando-wireframe" style="width: 200px;" id="demo-wireframe">
           <div class="tarjeta__cuerpo">
             <span class="tarjeta__titulo">Sistema</span>
             <p class="tarjeta__texto">Boot del sistema</p>
           </div>
         </div>
-        <button class="btn btn-fantasma" style="margin-top: 0.75rem; font-size: var(--font-size-xs);"
+        <button class="btn btn-fantasma mt-xs fs-xs"
           onclick="const el=document.getElementById('demo-wireframe'); el.classList.remove('cargando-wireframe'); void el.offsetWidth; el.classList.add('cargando-wireframe');">
           ↺ Replay
         </button>
       </div>
 
       <div>
-        <h6 style="margin-bottom: 0.75rem;">.linea-display</h6>
-        <div class="superficie linea-display" style="width: 200px; padding: 1.5rem;">
-          <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); letter-spacing: 0.1em;">MONITOR ACTIVO</p>
-          <p style="font-family: var(--font-body); font-size: var(--font-size-body); color: var(--acento); margin-top: 0.5rem;">◆ En línea</p>
+        <h6 class="mb-xs">.linea-display</h6>
+        <div class="superficie linea-display p-md" style="width: 200px;">
+          <p class="text-mono fs-xs text-apagado tracking-md">MONITOR ACTIVO</p>
+          <p class="text-body fs-body text-acento mt-xs">◆ En línea</p>
         </div>
       </div>
 
@@ -911,46 +901,46 @@
   <section class="contenedor seccion">
     <p class="separador">Íconos CSS puro · .icono-* · sin SVG ni fuentes extra</p>
 
-    <div class="d-flex flex-wrap gap-xl ai-center" style="margin-bottom: 2.5rem;">
+    <div class="d-flex flex-wrap gap-xl ai-center mb-2xl">
 
-      <div style="text-align: center;">
-        <span class="icono icono-diamante" style="font-size: 3rem; color: var(--acento);"></span>
-        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">diamante</p>
+      <div class="text-centro">
+        <span class="icono icono-diamante text-acento" style="font-size: 3rem;"></span>
+        <p class="text-mono fs-xs text-apagado mt-xs">diamante</p>
       </div>
 
-      <div style="text-align: center;">
-        <span class="icono icono-flecha-der" style="font-size: 3rem; color: var(--acento);"></span>
-        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">flecha-der</p>
+      <div class="text-centro">
+        <span class="icono icono-flecha-der text-acento" style="font-size: 3rem;"></span>
+        <p class="text-mono fs-xs text-apagado mt-xs">flecha-der</p>
       </div>
 
-      <div style="text-align: center;">
-        <span class="icono icono-flecha-izq" style="font-size: 3rem; color: var(--text-muted);"></span>
-        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">flecha-izq</p>
+      <div class="text-centro">
+        <span class="icono icono-flecha-izq text-apagado" style="font-size: 3rem;"></span>
+        <p class="text-mono fs-xs text-apagado mt-xs">flecha-izq</p>
       </div>
 
-      <div style="text-align: center;">
-        <span class="icono icono-check" style="font-size: 3rem; color: var(--color-ok);"></span>
-        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">check</p>
+      <div class="text-centro">
+        <span class="icono icono-check text-ok" style="font-size: 3rem;"></span>
+        <p class="text-mono fs-xs text-apagado mt-xs">check</p>
       </div>
 
-      <div style="text-align: center;">
-        <span class="icono icono-cerrar" style="font-size: 3rem; color: var(--red-strike);"></span>
-        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">cerrar</p>
+      <div class="text-centro">
+        <span class="icono icono-cerrar text-accion" style="font-size: 3rem;"></span>
+        <p class="text-mono fs-xs text-apagado mt-xs">cerrar</p>
       </div>
 
-      <div style="text-align: center;">
-        <span class="icono icono-alerta" style="font-size: 3rem; color: var(--color-warning);"></span>
-        <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted); margin-top: 0.5rem;">alerta</p>
+      <div class="text-centro">
+        <span class="icono icono-alerta text-advertencia" style="font-size: 3rem;"></span>
+        <p class="text-mono fs-xs text-apagado mt-xs">alerta</p>
       </div>
 
     </div>
 
-    <div class="d-flex flex-wrap gap-lg ai-center" style="margin-bottom: 2.5rem;">
-      <span class="icono icono-diamante" style="font-size: 1.2rem; color: var(--acento);"></span>
-      <span class="icono icono-diamante" style="font-size: 2rem; color: var(--acento);"></span>
-      <span class="icono icono-diamante" style="font-size: 3rem; color: var(--acento);"></span>
-      <span class="icono icono-diamante" style="font-size: 4.5rem; color: var(--acento);"></span>
-      <p style="font-family: var(--font-mono); font-size: var(--font-size-xs); color: var(--text-muted);">Escala por font-size del padre</p>
+    <div class="d-flex flex-wrap gap-lg ai-center mb-2xl">
+      <span class="icono icono-diamante text-acento" style="font-size: 1.2rem;"></span>
+      <span class="icono icono-diamante text-acento" style="font-size: 2rem;"></span>
+      <span class="icono icono-diamante text-acento" style="font-size: 3rem;"></span>
+      <span class="icono icono-diamante text-acento" style="font-size: 4.5rem;"></span>
+      <p class="text-mono fs-xs text-apagado">Escala por font-size del padre</p>
     </div>
 
     <div class="d-flex flex-wrap gap-sm ai-center">
@@ -976,10 +966,10 @@
     <div class="d-flex flex-wrap gap-xl ai-start">
 
       <!-- Formulario correo -->
-      <div style="flex: 1; min-width: 280px; max-width: 420px;">
-        <h6 style="margin-bottom: 1rem;">Input de correo</h6>
+      <div class="flex-1" style="min-width: 280px; max-width: 420px;">
+        <h6 class="mb-sm">Input de correo</h6>
         <form onsubmit="return false;">
-          <div class="campo-formulario" style="margin-top: 0;">
+          <div class="campo-formulario mt-0">
             <label for="correo-usuario">Correo electrónico:</label>
             <div class="formulario-correo" id="correo-input-1">
               <input id="correo-usuario" type="text" class="formulario-correo__usuario" placeholder="usuario" autocomplete="off" />
@@ -1023,15 +1013,15 @@
               </div>
             </div>
           </div>
-          <div style="margin-top: 1.5rem;">
+          <div class="mt-md">
             <button class="btn btn-primario" type="submit">Enviar correo</button>
           </div>
         </form>
       </div>
 
       <!-- Formulario tarjeta de crédito -->
-      <div style="flex: 1; min-width: 320px; max-width: 500px;">
-        <h6 style="margin-bottom: 1rem;">Tarjeta de crédito · Flip CVV</h6>
+      <div class="flex-1" style="min-width: 320px; max-width: 500px;">
+        <h6 class="mb-sm">Tarjeta de crédito · Flip CVV</h6>
         <form onsubmit="return false;">
           <!-- Preview 3D -->
           <div class="tarjeta-credito-escena">
@@ -1050,7 +1040,7 @@
                       <span class="tarjeta-credito__meta-label">Titular</span>
                       <span class="tarjeta-credito__meta-valor" id="tc-nombre-preview">NOMBRE APELLIDO</span>
                     </div>
-                    <div class="tarjeta-credito__meta-grupo" style="text-align:right;">
+                    <div class="tarjeta-credito__meta-grupo text-derecha">
                       <span class="tarjeta-credito__meta-label">Expira</span>
                       <span class="tarjeta-credito__meta-valor" id="tc-exp-preview">MM/AA</span>
                     </div>
@@ -1075,7 +1065,7 @@
             </div>
           </div>
           <!-- Inputs -->
-          <div class="campo-formulario" style="margin-top: 0;">
+          <div class="campo-formulario mt-0">
             <label for="tc-numero">Número:</label>
             <input class="formulario-estandar" type="text" id="tc-numero" placeholder="◆◆◆◆  ◆◆◆◆  ◆◆◆◆  ◆◆◆◆"
               maxlength="19" />
@@ -1085,16 +1075,16 @@
             <input class="formulario-estandar" type="text" id="tc-nombre" placeholder="NOMBRE APELLIDO" />
           </div>
           <div class="d-flex gap-sm">
-            <div class="campo-formulario" style="flex:1;">
+            <div class="campo-formulario flex-1">
               <label for="tc-exp">Expiración:</label>
               <input class="formulario-estandar" type="text" id="tc-exp" placeholder="MM/AA" maxlength="5" />
             </div>
-            <div class="campo-formulario" style="flex:1;">
+            <div class="campo-formulario flex-1">
               <label for="tc-cvv">CVV <small>(reverso)</small>:</label>
               <input class="formulario-estandar" type="text" id="tc-cvv" placeholder="◆◆◆" maxlength="4" />
             </div>
           </div>
-          <div style="margin-top: 1.5rem;">
+          <div class="mt-md">
             <button class="btn btn-accion" type="submit">Pagar ◆</button>
           </div>
         </form>
@@ -1106,32 +1096,32 @@
   <!-- ── CARRUSELES ───────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Carrusel · Imágenes con descripción</p>
-    <div id="carrusel-imagenes" class="carrusel" style="max-width: 680px;">
+    <div id="carrusel-imagenes" class="carrusel mw-md">
       <div class="carrusel__pista">
 
         <div class="carrusel__item">
-          <img src="images/imagen1.jpg" alt="Slide 1" class="imagen-total" style="height: 280px; object-fit: cover;" />
-          <div style="padding: 1rem; background: var(--void-surface); border-top: 1px solid var(--border);">
-            <h6 style="color: var(--acento); margin-bottom: 0.35rem;">Grimorio Engine · v2.0</h6>
-            <p style="margin: 0; font-size: 1.7rem;">Framework de componentes CSS con estética PS1 para proyectos de
+          <img src="images/imagen1.jpg" alt="Slide 1" class="imagen-total carrusel__img" />
+          <div class="carrusel__leyenda">
+            <h6>Grimorio Engine · v2.0</h6>
+            <p>Framework de componentes CSS con estética PS1 para proyectos de
               alto impacto.</p>
           </div>
         </div>
 
         <div class="carrusel__item">
-          <img src="images/imagen2.jpg" alt="Slide 2" class="imagen-total" style="height: 280px; object-fit: cover;" />
-          <div style="padding: 1rem; background: var(--void-surface); border-top: 1px solid var(--border);">
-            <h6 style="color: var(--acento); margin-bottom: 0.35rem;">Paleta Dual Signal</h6>
-            <p style="margin: 0; font-size: 1.7rem;">Morado profundo con señales de acento. La paleta por defecto del
+          <img src="images/imagen2.jpg" alt="Slide 2" class="imagen-total carrusel__img" />
+          <div class="carrusel__leyenda">
+            <h6>Paleta Dual Signal</h6>
+            <p>Morado profundo con señales de acento. La paleta por defecto del
               sistema.</p>
           </div>
         </div>
 
         <div class="carrusel__item">
-          <img src="images/imagen3.jpg" alt="Slide 3" class="imagen-total" style="height: 280px; object-fit: cover;" />
-          <div style="padding: 1rem; background: var(--void-surface); border-top: 1px solid var(--border);">
-            <h6 style="color: var(--acento); margin-bottom: 0.35rem;">Paleta Cosmos Blue</h6>
-            <p style="margin: 0; font-size: 1.7rem;">Azul oscuro institucional. Activa con <code>.cosmos</code> en
+          <img src="images/imagen3.jpg" alt="Slide 3" class="imagen-total carrusel__img" />
+          <div class="carrusel__leyenda">
+            <h6>Paleta Cosmos Blue</h6>
+            <p>Azul oscuro institucional. Activa con <code>.cosmos</code> en
               cualquier contenedor.</p>
           </div>
         </div>
@@ -1149,11 +1139,11 @@
     <br /><br />
 
     <p class="separador">Carrusel · Tarjetas de servicio</p>
-    <div id="carrusel-tarjetas" class="carrusel" style="max-width: 680px;">
+    <div id="carrusel-tarjetas" class="carrusel mw-md">
       <div class="carrusel__pista">
 
-        <div class="carrusel__item" style="padding: 1.25rem;">
-          <div class="tarjeta" style="width: 100%;">
+        <div class="carrusel__item carrusel__item-pad">
+          <div class="tarjeta w-full">
             <img src="images/creacion_web.png" alt="Web" class="tarjeta__imagen" />
             <div class="tarjeta__cuerpo">
               <span class="tarjeta__titulo">Creación Web</span>
@@ -1161,13 +1151,13 @@
             </div>
             <div class="tarjeta__footer">
               <div class="diamante"></div>
-              <span style="font-size: 0.85rem; margin-left: auto;">ESC-001</span>
+              <span class="fs-sm ml-auto">ESC-001</span>
             </div>
           </div>
         </div>
 
-        <div class="carrusel__item" style="padding: 1.25rem;">
-          <div class="tarjeta" style="width: 100%;">
+        <div class="carrusel__item carrusel__item-pad">
+          <div class="tarjeta w-full">
             <img src="images/creacion_sistemas.png" alt="Sistemas" class="tarjeta__imagen" />
             <div class="tarjeta__cuerpo">
               <span class="tarjeta__titulo">Sistemas y Móvil</span>
@@ -1175,13 +1165,13 @@
             </div>
             <div class="tarjeta__footer">
               <div class="diamante"></div>
-              <span style="font-size: 0.85rem; margin-left: auto;">ESC-002</span>
+              <span class="fs-sm ml-auto">ESC-002</span>
             </div>
           </div>
         </div>
 
-        <div class="carrusel__item" style="padding: 1.25rem;">
-          <div class="tarjeta tarjeta--accion" style="width: 100%;">
+        <div class="carrusel__item carrusel__item-pad">
+          <div class="tarjeta tarjeta--accion w-full">
             <img src="images/asesoria.png" alt="Asesoría" class="tarjeta__imagen" />
             <div class="tarjeta__cuerpo">
               <span class="tarjeta__titulo">Asesoría</span>
@@ -1189,7 +1179,7 @@
             </div>
             <div class="tarjeta__footer">
               <div class="diamante"></div>
-              <span style="font-size: 0.85rem; margin-left: auto;">ESC-003</span>
+              <span class="fs-sm ml-auto">ESC-003</span>
             </div>
           </div>
         </div>
@@ -1229,33 +1219,33 @@
   <!-- ── GRID / COLUMNAS ──────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Grid · Sistema de columnas</p>
-    <h6 style="margin-bottom: 0.75rem;">.grid--3</h6>
+    <h6 class="mb-xs">.grid--3</h6>
     <div class="grid grid--3">
-      <div class="superficie" style="padding: 1rem; text-align: center;">
-        <span class="text-mono" style="font-size: 0.75rem;">col · 1</span>
+      <div class="superficie p-sm text-centro">
+        <span class="text-mono fs-xs">col · 1</span>
       </div>
-      <div class="superficie" style="padding: 1rem; text-align: center;">
-        <span class="text-mono" style="font-size: 0.75rem;">col · 2</span>
+      <div class="superficie p-sm text-centro">
+        <span class="text-mono fs-xs">col · 2</span>
       </div>
-      <div class="superficie" style="padding: 1rem; text-align: center;">
-        <span class="text-mono" style="font-size: 0.75rem;">col · 3</span>
+      <div class="superficie p-sm text-centro">
+        <span class="text-mono fs-xs">col · 3</span>
       </div>
     </div>
-    <h6 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">.grid--4</h6>
+    <h6 class="mt-md mb-xs">.grid--4</h6>
     <div class="grid grid--4">
-      <div class="superficie" style="padding: 1rem; text-align: center;">
-        <span class="text-mono" style="font-size: 0.75rem;">1</span>
+      <div class="superficie p-sm text-centro">
+        <span class="text-mono fs-xs">1</span>
       </div>
-      <div class="superficie col-2" style="padding: 1rem; text-align: center;">
-        <span class="text-mono" style="font-size: 0.75rem;">2–3 (.col-2)</span>
+      <div class="superficie col-2 p-sm text-centro">
+        <span class="text-mono fs-xs">2–3 (.col-2)</span>
       </div>
-      <div class="superficie" style="padding: 1rem; text-align: center;">
-        <span class="text-mono" style="font-size: 0.75rem;">4</span>
+      <div class="superficie p-sm text-centro">
+        <span class="text-mono fs-xs">4</span>
       </div>
     </div>
-    <h6 style="margin-top: 1.5rem; margin-bottom: 0.75rem;">.grid--auto (minmax 220px)</h6>
+    <h6 class="mt-md mb-xs">.grid--auto (minmax 220px)</h6>
     <div class="grid grid--auto">
-      <div class="tarjeta" style="width: 100%;">
+      <div class="tarjeta w-full">
         <div class="tarjeta__cuerpo">
           <span class="tarjeta__titulo">Módulo A</span>
           <p class="tarjeta__texto">Grid auto-fit con tarjetas responsivas.</p>
@@ -1264,7 +1254,7 @@
           <div class="diamante"></div>
         </div>
       </div>
-      <div class="tarjeta" style="width: 100%;">
+      <div class="tarjeta w-full">
         <div class="tarjeta__cuerpo">
           <span class="tarjeta__titulo">Módulo B</span>
           <p class="tarjeta__texto">Se adapta al ancho disponible automáticamente.</p>
@@ -1273,7 +1263,7 @@
           <div class="diamante"></div>
         </div>
       </div>
-      <div class="tarjeta" style="width: 100%;">
+      <div class="tarjeta w-full">
         <div class="tarjeta__cuerpo">
           <span class="tarjeta__titulo">Módulo C</span>
           <p class="tarjeta__texto">Sin necesidad de breakpoints manuales.</p>
@@ -1359,10 +1349,10 @@
             onclick="document.getElementById('modal-demo').classList.remove('modal-overlay--visible')">&#10005;</button>
         </div>
         <div class="modal__contenido">
-          <h3 style="margin-bottom: 0.75rem;">Actualización disponible</h3>
+          <h3 class="mb-xs">Actualización disponible</h3>
           <p>Se ha detectado una nueva versión del sistema <code>v2.1.0</code>. Esta actualización incluye mejoras de
             rendimiento y correcciones de seguridad.</p>
-          <div class="barra-hp" style="margin-top: 1rem;">
+          <div class="barra-hp mt-sm">
             <span class="barra-hp__label">PROG</span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
             <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -1389,12 +1379,12 @@
       onclick="if(event.target===this) this.classList.remove('modal-overlay--visible')">
       <div class="modal" style="width: min(400px, 90vw);">
         <div class="modal__barra">
-          <h6 class="modal__titulo-barra" style="color: var(--red-strike);">ALERTA // ACCIÓN IRREVERSIBLE</h6>
+          <h6 class="modal__titulo-barra text-accion">ALERTA // ACCIÓN IRREVERSIBLE</h6>
           <button class="modal__cerrar"
             onclick="document.getElementById('modal-confirm').classList.remove('modal-overlay--visible')">&#10005;</button>
         </div>
         <div class="modal__contenido">
-          <p>Esta acción eliminará todos los datos del módulo. <strong style="color: var(--red-strike);">No se puede
+          <p>Esta acción eliminará todos los datos del módulo. <strong class="text-accion">No se puede
               deshacer.</strong> ¿Deseas continuar?</p>
         </div>
         <div class="modal__footer">
@@ -1411,8 +1401,8 @@
   <section class="contenedor seccion">
     <p class="separador">Tablas · Sistema PS1</p>
 
-    <h6 style="margin-bottom: 0.75rem;">.tabla · Tabla estándar</h6>
-    <div class="tabla-contenedor" style="margin-bottom: 2rem;">
+    <h6 class="mb-xs">.tabla · Tabla estándar</h6>
+    <div class="tabla-contenedor mb-lg">
       <table class="tabla">
         <thead>
           <tr>
@@ -1457,7 +1447,7 @@
       </table>
     </div>
 
-    <h6 style="margin-bottom: 0.75rem;">.tabla--rayada · Tabla con filas alternadas</h6>
+    <h6 class="mb-xs">.tabla--rayada · Tabla con filas alternadas</h6>
     <div class="tabla-contenedor">
       <table class="tabla tabla--rayada">
         <thead>
@@ -1510,13 +1500,369 @@
     </div>
   </section>
 
+  <!-- ══════════════════════════════════════════════
+       UTILIDADES — Spacing, Display & Texto
+       ══════════════════════════════════════════════ -->
+  <section class="contenedor seccion">
+    <p class="separador">UTILIDADES · Spacing &amp; Display</p>
+
+    <p class="mt-0 mb-md text-apagado text-mono fs-sm">
+      Clases de margen, relleno, visibilidad y alineación para componer sin inline styles.
+    </p>
+
+    <!-- Spacing demo -->
+    <div class="mb-lg">
+      <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Márgenes y Paddings</p>
+      <div class="d-flex flex-wrap gap-sm">
+        <div class="superficie p-xs"><code>.p-xs</code></div>
+        <div class="superficie p-sm"><code>.p-sm</code></div>
+        <div class="superficie p-md"><code>.p-md</code></div>
+        <div class="superficie p-lg"><code>.p-lg</code></div>
+        <div class="superficie p-xl"><code>.p-xl</code></div>
+      </div>
+      <div class="d-flex flex-wrap gap-sm mt-sm">
+        <div class="superficie px-lg py-xs"><code>.px-lg .py-xs</code></div>
+        <div class="superficie px-xs py-lg"><code>.px-xs .py-lg</code></div>
+        <div class="superficie mx-auto px-md py-sm w-fit"><code>.mx-auto</code></div>
+      </div>
+    </div>
+
+    <!-- Display & responsive -->
+    <div class="mb-lg">
+      <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Display y visibilidad</p>
+      <div class="d-flex flex-wrap gap-sm ai-center">
+        <span class="superficie px-md py-xs d-sm-none"><code>.d-sm-none</code> — oculto en ≤ 560px</span>
+        <span class="superficie px-md py-xs d-md-none"><code>.d-md-none</code> — oculto en ≤ 768px</span>
+        <span class="superficie px-md py-xs d-sm-only"><code>.d-sm-only</code> — solo en ≤ 560px</span>
+        <span class="superficie px-md py-xs text-acento text-mono fs-sm">← reduce la ventana para verlos cambiar</span>
+      </div>
+    </div>
+
+    <!-- Text utilities -->
+    <div>
+      <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Texto</p>
+      <div class="superficie p-md d-flex flex-col gap-sm">
+        <p class="text-izquierda text-mono">← <code>.text-izquierda</code></p>
+        <p class="text-centro text-mono">↔ <code>.text-centro</code></p>
+        <p class="text-derecha text-mono"><code>.text-derecha</code> →</p>
+        <p class="text-uppercase text-acento text-mono">text-uppercase: sistemas que evolucionan</p>
+        <p class="text-capitalize text-apagado text-mono">text-capitalize: build. evolve. compute.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       COMPONENTE — Acordeón
+       ══════════════════════════════════════════════ -->
+  <section class="contenedor seccion">
+    <p class="separador">COMPONENTE · Acordeón</p>
+
+    <div class="d-flex flex-wrap gap-xl">
+
+      <!-- Multi-open -->
+      <div class="flex-1" style="min-width: 28rem;">
+        <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Multi-panel — varios abiertos</p>
+        <div class="acordeon">
+          <div class="acordeon__item acordeon__item--abierto">
+            <button class="acordeon__titulo">Sistema de variables CSS</button>
+            <div class="acordeon__contenido">
+              <div class="acordeon__cuerpo">
+                Todos los colores del framework referencian custom properties (<code>--acento</code>, <code>--void-surface</code>, etc.) para adaptarse automáticamente al cambiar la paleta activa.
+              </div>
+            </div>
+          </div>
+          <div class="acordeon__item">
+            <button class="acordeon__titulo">Fuentes tipográficas</button>
+            <div class="acordeon__contenido">
+              <div class="acordeon__cuerpo">
+                <code>--font-display</code> (Orbitron 900) para títulos · <code>--font-body</code> (VT323) para cuerpo · <code>--font-mono</code> (Share Tech Mono) para código y etiquetas.
+              </div>
+            </div>
+          </div>
+          <div class="acordeon__item">
+            <button class="acordeon__titulo">Sin border-radius estructural</button>
+            <div class="acordeon__contenido">
+              <div class="acordeon__cuerpo">
+                Las esquinas afiladas son intencionales a la estética PS1. No usar <code>border-radius</code> en elementos estructurales del framework.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exclusivo (FAQ) -->
+      <div class="flex-1" style="min-width: 28rem;">
+        <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Exclusivo — estilo FAQ</p>
+        <div class="acordeon acordeon--exclusivo">
+          <div class="acordeon__item">
+            <button class="acordeon__titulo">¿Qué es Grimorio Engine?</button>
+            <div class="acordeon__contenido">
+              <div class="acordeon__cuerpo">
+                Framework CSS puro con estética PS1/CRT. Sin dependencias JavaScript externas. Una sola hoja de estilos: <code>packages/css/style.css</code>.
+              </div>
+            </div>
+          </div>
+          <div class="acordeon__item">
+            <button class="acordeon__titulo">¿Cómo se activa una paleta?</button>
+            <div class="acordeon__contenido">
+              <div class="acordeon__cuerpo">
+                Añade la clase <code>.cosmos</code> o <code>.crimson</code> al <code>&lt;body&gt;</code> o cualquier contenedor. Sin clase = paleta Dual Signal por defecto.
+              </div>
+            </div>
+          </div>
+          <div class="acordeon__item">
+            <button class="acordeon__titulo">¿Necesita un bundler?</button>
+            <div class="acordeon__contenido">
+              <div class="acordeon__cuerpo">
+                No. Abre <code>index.html</code> directamente en el navegador. El script <code>npm run build</code> solo genera el CSS minificado.
+              </div>
+            </div>
+          </div>
+          <div class="acordeon__item">
+            <button class="acordeon__titulo">¿Cómo se nombran las clases?</button>
+            <div class="acordeon__contenido">
+              <div class="acordeon__cuerpo">
+                BEM simplificado, todo en español, kebab-case. Prefijos principales: <code>btn</code>, <code>campo-</code>, <code>tarjeta-</code>, <code>alerta-</code>, <code>modal-</code>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       COMPONENTE — Toast / Snackbar
+       ══════════════════════════════════════════════ -->
+  <section class="contenedor seccion">
+    <p class="separador">COMPONENTE · Toast / Snackbar</p>
+
+    <p class="mb-md text-apagado text-mono fs-sm">
+      Notificaciones flotantes auto-descartables. Se apilan en la esquina inferior derecha. Desaparecen a los 3 segundos.
+    </p>
+
+    <div class="d-flex flex-wrap gap-sm">
+      <button class="btn btn-primario" onclick="ESCToast.mostrar('Conexión establecida con el servidor.', 'info')">
+        ◆ Info
+      </button>
+      <button class="btn" onclick="ESCToast.mostrar('Datos guardados correctamente.', 'ok')">
+        ✔ OK
+      </button>
+      <button class="btn btn-secundario" onclick="ESCToast.mostrar('Temperatura por encima del umbral.', 'warning')">
+        ▲ Warning
+      </button>
+      <button class="btn btn-alerta" onclick="ESCToast.mostrar('Error de conexión. Reintentando...', 'error')">
+        ✖ Error
+      </button>
+    </div>
+
+    <div class="mt-md superficie p-md text-mono fs-sm">
+      <p class="text-apagado mb-xs">Uso desde JS:</p>
+      <code class="text-acento">ESCToast.mostrar('Mensaje', 'ok' | 'warning' | 'error' | 'info', duracion_ms);</code>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       COMPONENTE — Spinners temáticos
+       ══════════════════════════════════════════════ -->
+  <section class="contenedor seccion">
+    <p class="separador">COMPONENTE · Spinners PS1</p>
+
+    <p class="mb-lg text-apagado text-mono fs-sm">
+      Indicadores de carga temáticos, sin JS. Cada uno reutiliza la estética CRT/PS1 del framework.
+    </p>
+
+    <!-- Los 4 spinners temáticos -->
+    <div class="d-flex flex-wrap gap-xl ai-center mb-xl">
+
+      <div class="d-flex flex-col ai-center gap-md superficie p-lg flex-1" style="min-width: 12rem;">
+        <span class="spinner-diamante"></span>
+        <code class="text-apagado fs-label text-centro">.spinner-diamante</code>
+        <span class="text-apagado text-mono fs-label text-centro">Núcleo ◆ + anillo orbital</span>
+      </div>
+
+      <div class="d-flex flex-col ai-center gap-md superficie p-lg flex-1" style="min-width: 12rem;">
+        <span class="spinner-pulso"></span>
+        <code class="text-apagado fs-label text-centro">.spinner-pulso</code>
+        <span class="text-apagado text-mono fs-label text-centro">Radar ping expansivo</span>
+      </div>
+
+      <div class="d-flex flex-col ai-center gap-md superficie p-lg flex-1" style="min-width: 12rem;">
+        <span class="spinner-scan-mini"></span>
+        <code class="text-apagado fs-label text-centro">.spinner-scan-mini</code>
+        <span class="text-apagado text-mono fs-label text-centro">Pantalla CRT de bolsillo</span>
+      </div>
+
+      <div class="d-flex flex-col ai-center gap-md superficie p-lg flex-1" style="min-width: 12rem;">
+        <span class="spinner-barras"><i></i><i></i><i></i><i></i></span>
+        <code class="text-apagado fs-label text-centro">.spinner-barras</code>
+        <span class="text-apagado text-mono fs-label text-centro">Ecualizador de señal</span>
+      </div>
+
+    </div>
+
+    <!-- Tamaños -->
+    <div class="mb-lg">
+      <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Tamaños — diamante y pulso</p>
+      <div class="d-flex flex-wrap gap-xl ai-center">
+        <div class="d-flex ai-center gap-md">
+          <span class="spinner-diamante"></span>
+          <span class="spinner-diamante spinner-diamante--sm"></span>
+          <span class="spinner-diamante spinner-diamante--xs"></span>
+          <code class="text-apagado fs-label">default · --sm · --xs</code>
+        </div>
+        <div class="d-flex ai-center gap-md">
+          <span class="spinner-pulso"></span>
+          <span class="spinner-pulso spinner-pulso--sm"></span>
+          <span class="spinner-pulso spinner-pulso--xs"></span>
+          <code class="text-apagado fs-label">default · --sm · --xs</code>
+        </div>
+        <div class="d-flex ai-center gap-md">
+          <span class="spinner-barras"><i></i><i></i><i></i><i></i></span>
+          <span class="spinner-barras spinner-barras--sm"><i></i><i></i><i></i><i></i></span>
+          <span class="spinner-barras spinner-barras--xs"><i></i><i></i><i></i></span>
+          <code class="text-apagado fs-label">default · --sm · --xs</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spinners en contexto inline -->
+    <div class="mb-lg">
+      <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Uso inline</p>
+      <div class="d-flex flex-col gap-sm">
+        <div class="d-flex ai-center gap-sm superficie px-md py-sm">
+          <span class="spinner-diamante spinner-diamante--xs"></span>
+          <span class="text-mono fs-sm">Compilando sistema...</span>
+        </div>
+        <div class="d-flex ai-center gap-sm superficie px-md py-sm">
+          <span class="spinner-barras spinner-barras--xs"><i></i><i></i><i></i></span>
+          <span class="text-mono fs-sm">Transmitiendo datos...</span>
+        </div>
+        <div class="d-flex ai-center gap-sm superficie px-md py-sm">
+          <span class="spinner-pulso spinner-pulso--xs"></span>
+          <span class="text-mono fs-sm">Esperando respuesta del servidor...</span>
+        </div>
+        <div class="d-flex ai-center gap-sm superficie px-md py-sm">
+          <span class="spinner-scan-mini"></span>
+          <span class="text-mono fs-sm">Analizando señal...</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estado .btn--cargando -->
+    <div>
+      <p class="mb-sm text-uppercase text-apagado text-mono fs-label tracking-wide">Botones en estado de carga</p>
+      <div class="d-flex flex-wrap gap-sm">
+        <button class="btn btn--cargando">Enviando</button>
+        <button class="btn btn-primario btn--cargando">Guardando</button>
+        <button class="btn btn-alerta btn--cargando">Eliminando</button>
+        <button class="btn" onclick="this.classList.toggle('btn--cargando')">
+          ◆ Activar / Desactivar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       COMPONENTE — Tooltips
+       ══════════════════════════════════════════════ -->
+  <section class="contenedor seccion">
+    <p class="separador">COMPONENTE · Tooltips</p>
+
+    <p class="mb-lg text-apagado text-mono fs-sm">
+      CSS puro vía atributo <code>data-tooltip</code>. Sin JS. Cuatro direcciones disponibles.
+    </p>
+
+    <div class="d-flex flex-wrap gap-xl ai-center jc-center" style="min-height: 12rem;">
+      <!-- El wrapper span lleva .tooltip para no conflictar con ::before del btn -->
+      <span class="tooltip d-inline-block" data-tooltip="Tooltip por defecto (arriba)">
+        <button class="btn">◆ Arriba</button>
+      </span>
+      <span class="tooltip tooltip--abajo d-inline-block" data-tooltip="Aparece debajo del elemento">
+        <button class="btn">◆ Abajo</button>
+      </span>
+      <span class="tooltip tooltip--derecha d-inline-block" data-tooltip="Aparece a la derecha">
+        <button class="btn">◆ Derecha</button>
+      </span>
+      <span class="tooltip tooltip--izquierda d-inline-block" data-tooltip="Aparece a la izquierda">
+        <button class="btn">◆ Izquierda</button>
+      </span>
+    </div>
+
+    <!-- Uso en contextos técnicos -->
+    <div class="mt-lg superficie p-md">
+      <p class="mb-sm text-apagado text-mono fs-label tracking-wide text-uppercase">Uso en interfaces técnicas</p>
+      <div class="d-flex flex-wrap gap-lg ai-center">
+        <span class="tooltip text-acento text-mono" data-tooltip="Temperatura operativa del reactor">T_OP</span>
+        <span class="tooltip text-acento text-mono" data-tooltip="Presión diferencial en kPa">ΔP</span>
+        <!-- Iconos CSS: usar wrapper para no conflictar con su ::before -->
+        <span class="tooltip tooltip--derecha d-inline-flex" data-tooltip="Sistema operativo: nominal">
+          <span class="icono-check" style="font-size: 2rem;"></span>
+        </span>
+        <span class="tooltip tooltip--abajo d-inline-flex" data-tooltip="Ver alertas del sistema">
+          <span class="icono-alerta" style="font-size: 2rem;"></span>
+        </span>
+        <code class="text-apagado fs-sm">class="tooltip" data-tooltip="Descripción"</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       COMPONENTE — Slider de Rango
+       ══════════════════════════════════════════════ -->
+  <section class="contenedor seccion">
+    <p class="separador">COMPONENTE · Slider de Rango</p>
+
+    <p class="mb-lg text-apagado text-mono fs-sm">
+      Control continuo para valores numéricos precisos. El thumb en forma de diamante ◆ mantiene la estética PS1.
+    </p>
+
+    <div class="d-flex flex-col gap-xl mw-sm">
+
+      <div class="campo-rango">
+        <div class="campo-rango__cabecera">
+          <span class="campo-rango__etiqueta">Temperatura del reactor</span>
+          <div class="campo-rango__valor-grupo">
+            <span class="campo-rango__valor" id="val-temp">450</span>
+            <span class="campo-rango__unidad">°C</span>
+          </div>
+        </div>
+        <input type="range" class="formulario-rango" id="rango-temp" min="0" max="1000" value="450" aria-label="Temperatura del reactor">
+      </div>
+
+      <div class="campo-rango">
+        <div class="campo-rango__cabecera">
+          <span class="campo-rango__etiqueta">Volumen de salida</span>
+          <div class="campo-rango__valor-grupo">
+            <span class="campo-rango__valor" id="val-vol">72</span>
+            <span class="campo-rango__unidad">%</span>
+          </div>
+        </div>
+        <input type="range" class="formulario-rango" id="rango-vol" min="0" max="100" value="72" aria-label="Volumen de salida">
+      </div>
+
+      <div class="campo-rango">
+        <div class="campo-rango__cabecera">
+          <span class="campo-rango__etiqueta">Intensidad de señal</span>
+          <div class="campo-rango__valor-grupo">
+            <span class="campo-rango__valor" id="val-sig">3</span>
+            <span class="campo-rango__unidad">/ 10</span>
+          </div>
+        </div>
+        <input type="range" class="formulario-rango" id="rango-sig" min="1" max="10" value="3" aria-label="Intensidad de señal">
+      </div>
+
+    </div>
+  </section>
+
   <!-- Flash overlay para transición de tema -->
   <div id="tema-flash" class="tema-flash"></div>
 
   <!-- ═══════════════════════════════════════════════
        PALETA A — COSMOS BLUE (referencia)
        ═══════════════════════════════════════════════ -->
-  <div class="cosmos" style="display: none;">
+  <div class="cosmos d-none">
 
     <!-- HERO cosmos -->
     <section class="contenedor seccion">
@@ -1535,9 +1881,9 @@
     </section>
 
     <!-- Botones cosmos -->
-    <section class="contenedor seccion" style="padding-top: 0;">
+    <section class="contenedor seccion pt-0">
       <p class="separador">Botones · Cosmos Blue</p>
-      <div class="d-flex flex-wrap gap-sm ai-center" style="margin-bottom: 1.5rem">
+      <div class="d-flex flex-wrap gap-sm ai-center mb-md">
         <button class="btn">Base</button>
         <button class="btn btn-primario">Primario</button>
         <button class="btn btn-accion">Acción CTA</button>
@@ -1553,7 +1899,7 @@
     </section>
 
     <!-- Tarjetas cosmos -->
-    <section class="contenedor seccion" style="padding-top: 0;">
+    <section class="contenedor seccion pt-0">
       <p class="separador">Tarjetas · Cosmos Blue</p>
       <div class="grupo-tarjeta">
 
@@ -1574,7 +1920,7 @@
               <span class="barra-hp__bloque"></span>
               <span class="barra-hp__bloque"></span>
             </div>
-            <span style="font-size: 0.85rem;">ESC-001</span>
+            <span class="fs-sm">ESC-001</span>
           </div>
           <button class="btn btn-primario btn-tarjeta">Más información</button>
         </div>
@@ -1596,7 +1942,7 @@
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
               <span class="barra-hp__bloque"></span>
             </div>
-            <span style="font-size: 0.85rem;">ESC-002</span>
+            <span class="fs-sm">ESC-002</span>
           </div>
           <button class="btn btn-primario btn-tarjeta">Más información</button>
         </div>
@@ -1618,7 +1964,7 @@
               <span class="barra-hp__bloque"></span>
               <span class="barra-hp__bloque"></span>
             </div>
-            <span style="font-size: 0.85rem;">ESC-003</span>
+            <span class="fs-sm">ESC-003</span>
           </div>
           <button class="btn btn-accion btn-tarjeta">Contactar</button>
         </div>
@@ -1627,11 +1973,11 @@
     </section>
 
     <!-- Taglines + Surface cosmos -->
-    <section class="contenedor seccion" style="padding-top: 0;">
+    <section class="contenedor seccion pt-0">
       <p class="separador">Taglines + Surface · Cosmos Blue</p>
-      <div class="d-flex flex-wrap ai-start" style="gap: 20px">
+      <div class="d-flex flex-wrap ai-start gap-xl">
 
-        <div style="flex: 1; min-width: 260px;">
+        <div class="flex-1" style="min-width: 260px;">
           <div class="tagline-item">
             <span class="tagline-item__arrow">>></span>
             <div>
@@ -1662,10 +2008,10 @@
           </div>
         </div>
 
-        <div class="superficie" style="flex: 1; min-width: 260px;">
+        <div class="superficie flex-1" style="min-width: 260px;">
           <h6>Surface · Cosmos Blue · ESC-LABS-002</h6>
-          <p style="margin-top: 0.75rem;">Panel institucional para sistemas técnicos y entornos de laboratorio.</p>
-          <div class="d-flex flex-col gap-xs" style="margin-top: 1rem">
+          <p class="mt-xs">Panel institucional para sistemas técnicos y entornos de laboratorio.</p>
+          <div class="d-flex flex-col gap-xs mt-sm">
             <div class="barra-hp">
               <span class="barra-hp__label">CPU</span>
               <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
@@ -1719,11 +2065,11 @@
     <img src="images/logo_VAFBF.svg" width="100" alt="ESC Labs" />
     <br /><br />
     <p>systemescsts@gmail.com</p>
-    <hr style="border: none; border-top: 1px solid var(--border); margin: 1rem auto; max-width: 400px;" />
+    <hr class="divisor" />
     <p>©2025 ESC Labs · Evolution in Science &amp; Computing · v2.0</p>
   </footer>
 
-  <script defer src="js/engine.js"></script>
+  <script defer src="../../js/engine.js"></script>
 
 </body>
 

@@ -1,0 +1,12 @@
+{
+  "name": "@grimorio/css",
+  "version": "2.0.0",
+  "description": "GrimorioEngine — PS1/CRT CSS framework (vanilla)",
+  "style": "style.css",
+  "exports": {
+    ".": "./style.css"
+  },
+  "keywords": ["css", "framework", "ps1", "crt", "ui", "esc-labs"],
+  "author": "ESC Labs",
+  "license": "MIT"
+}

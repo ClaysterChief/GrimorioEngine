@@ -1,0 +1,11 @@
+{
+  "name": "@grimorio/core",
+  "version": "0.1.0",
+  "description": "GrimorioEngine — Design tokens y lógica base",
+  "main": "tokens.js",
+  "exports": {
+    ".": "./tokens.js"
+  },
+  "author": "ESC Labs",
+  "license": "MIT"
+}

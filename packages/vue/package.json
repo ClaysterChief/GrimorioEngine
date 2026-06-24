@@ -1,0 +1,13 @@
+{
+  "name": "@grimorio/vue",
+  "version": "0.0.0",
+  "description": "GrimorioEngine — Wrappers para Vue 3",
+  "private": true,
+  "peerDependencies": {
+    "vue": ">=3.0.0",
+    "@grimorio/elements": ">=0.0.0",
+    "@grimorio/css": ">=2.0.0"
+  },
+  "author": "ESC Labs",
+  "license": "MIT"
+}

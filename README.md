@@ -317,16 +317,61 @@ BEM simplificado, todo en **español, kebab-case**:
 
 ```
 grimorio-engine/
-  css/
-    style.css           ← Framework completo
-  html/
-    servicios.html      ← (en desarrollo)
-  index.html            ← Showcase de todos los componentes
-  PROYECTO.md           ← Tracking interno de estado
+  packages/
+    css/
+      style.css           ← Framework completo (@grimorio/css v2.0.0)
+    core/
+      tokens.js           ← Design tokens — placeholder (@grimorio/core v0.1.0)
+    elements/             ← Stub — Web Components futuros (@grimorio/elements)
+    vue/                  ← Stub — Wrappers Vue 3 (@grimorio/vue)
+    angular/              ← Stub — Wrappers Angular (@grimorio/angular)
+    react-native/         ← Stub — Componentes RN (@grimorio/react-native)
+  apps/
+    showcase/
+      index.html          ← Demo de todos los componentes
+      html/               ← Páginas secundarias (login, contacto, servicios)
+      images/             ← Assets del showcase
+  js/
+    engine.js             ← JS vanilla (futuro: mover a packages/core/)
+  PROYECTO.md             ← Tracking interno de estado y roadmap
   ESC-LABS-PS1-FRAMEWORK.md ← Guía de identidad visual
   README.md
 ```
 
 ---
 
-*ESC Labs · Evolution in Science & Computing · GrimorioEngine v0.1*
+## Roadmap
+
+- [x] Variables globales · tres paletas
+- [x] Reset y base tipográfica
+- [x] Layout · grid · contenedor
+- [x] Navegación · menú · selector de tema
+- [x] Botones (9 variantes + tamaños)
+- [x] Formularios completos (todos los inputs)
+- [x] Formulario multi-paso deslizante
+- [x] Tarjeta de crédito con flip 3D
+- [x] Input de correo con dominio
+- [x] Tarjetas (5 variantes)
+- [x] Imágenes con efectos hover (8 efectos)
+- [x] Carruseles (2 variantes) + paginación
+- [x] Alertas · Modal · Tablas · Grid
+- [x] Loaders PS1 (bloques HP, diamante, scan)
+- [x] Consola terminal · Texto máquina · Ventana PS1
+- [x] Stat HUD · Barra HP · VHS containers
+- [x] Íconos CSS puros (`.icono-*`)
+- [x] Acordeón · Toast · Spinner · Tooltip · Rango
+- [x] `package.json` para distribución npm
+- [x] Páginas secundarias (`login.html`, `contacto.html`, `servicios.html`)
+- [x] Estructura monorepo — `packages/` + npm workspaces
+- [x] Showcase separado en `apps/showcase/`
+- [ ] `packages/css/style.min.css` — ejecutar `npm run build`
+- [ ] Extraer tokens CSS a `packages/core/tokens.js`
+- [ ] `@grimorio/elements` — Web Components (Custom Elements)
+- [ ] `@grimorio/vue` — Wrappers Vue 3
+- [ ] `@grimorio/angular` — Wrappers Angular
+- [ ] `@grimorio/react-native` — Componentes React Native
+- [ ] Publicar en npm / GitHub Packages
+
+---
+
+*ESC Labs · Evolution in Science & Computing · GrimorioEngine v2.0*

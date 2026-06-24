@@ -202,6 +202,7 @@ function iniciarSelectorTema() {
     setTimeout(() => {
       TEMAS.forEach(t => body.classList.remove(t));
       if (tema !== 'default') body.classList.add(tema);
+      localStorage.setItem('grimorio-tema', tema);
 
       // Sync active state on ALL [data-tema] buttons (nav + section cards)
       document.querySelectorAll('[data-tema]').forEach(b => {
@@ -421,7 +422,98 @@ function iniciarTextoMaquina() {
   });
 }
 
+/* ================================================
+   Acordeón — paneles expansibles
+   ================================================ */
+function iniciarAcordeon() {
+  document.querySelectorAll('.acordeon__titulo').forEach(titulo => {
+    titulo.addEventListener('click', () => {
+      const item = titulo.closest('.acordeon__item');
+      const acordeon = item.closest('.acordeon');
+      if (acordeon.classList.contains('acordeon--exclusivo')) {
+        acordeon.querySelectorAll('.acordeon__item--abierto').forEach(i => {
+          if (i !== item) i.classList.remove('acordeon__item--abierto');
+        });
+      }
+      item.classList.toggle('acordeon__item--abierto');
+    });
+  });
+}
+
+/* ================================================
+   Toast / Snackbar — notificaciones flotantes
+   ================================================ */
+const ESCToast = {
+  _zona: null,
+
+  _obtenerZona() {
+    if (!this._zona) {
+      this._zona = document.querySelector('.toast-zona');
+      if (!this._zona) {
+        this._zona = document.createElement('div');
+        this._zona.className = 'toast-zona';
+        document.body.appendChild(this._zona);
+      }
+    }
+    return this._zona;
+  },
+
+  mostrar(mensaje, tipo = 'info', duracion = 3000) {
+    const ICONOS = { info: '◆', ok: '✔', warning: '▲', error: '✖' };
+    const zona = this._obtenerZona();
+    const toast = document.createElement('div');
+    toast.className = `toast toast--${tipo}`;
+    toast.innerHTML = `<span class="toast__icono">${ICONOS[tipo] || '◆'}</span><span class="toast__texto">${mensaje}</span>`;
+    zona.appendChild(toast);
+
+    const salir = () => {
+      toast.classList.add('toast--saliendo');
+      toast.addEventListener('animationend', () => toast.remove(), { once: true });
+    };
+
+    setTimeout(salir, duracion);
+  }
+};
+
+window.ESCToast = ESCToast;
+
+/* ================================================
+   Sliders de rango — valor en vivo
+   ================================================ */
+function iniciarRangos() {
+  document.querySelectorAll('.campo-rango').forEach(campo => {
+    const input = campo.querySelector('.formulario-rango');
+    const valorEl = campo.querySelector('.campo-rango__valor');
+    if (!input) return;
+
+    const actualizar = () => {
+      const min = parseFloat(input.min) || 0;
+      const max = parseFloat(input.max) || 100;
+      const val = parseFloat(input.value) || 0;
+      const pct = ((val - min) / (max - min) * 100).toFixed(1) + '%';
+      input.style.setProperty('--rango-pct', pct);
+      if (valorEl) valorEl.textContent = input.value;
+    };
+
+    input.addEventListener('input', actualizar);
+    actualizar();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Restaurar paleta guardada antes de renderizar componentes
+  const temaGuardado = localStorage.getItem('grimorio-tema');
+  if (temaGuardado && temaGuardado !== 'default') {
+    document.body.classList.add(temaGuardado);
+    // Sincronizar botones activos con el tema restaurado
+    document.querySelectorAll('[data-tema]').forEach(b => {
+      const isNav = b.classList.contains('nav-temas__btn');
+      const isCard = b.classList.contains('selector-tema__opcion');
+      if (isNav) b.classList.toggle('nav-temas__btn--activa', b.dataset.tema === temaGuardado);
+      if (isCard) b.classList.toggle('selector-tema__opcion--activa', b.dataset.tema === temaGuardado);
+    });
+  }
+
   new ESCConsola('esc-consola');
   iniciarTextoMaquina();
   iniciarFormPasos();
@@ -430,6 +522,8 @@ document.addEventListener('DOMContentLoaded', () => {
   iniciarPaginacion();
   iniciarCorreoInputs();
   iniciarSelectorTema();
+  iniciarAcordeon();
+  iniciarRangos();
   const carruseles = [
     new ESCCarrusel('carrusel-imagenes'),
     new ESCCarrusel('carrusel-tarjetas'),

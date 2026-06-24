@@ -2,18 +2,26 @@
   "name": "grimorio-engine",
   "version": "2.0.0",
   "description": "ESC Labs PS1 UI Framework — pure CSS + vanilla JS",
-  "style": "css/style.css",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "style": "packages/css/style.css",
   "main": "js/engine.js",
   "exports": {
-    ".": "./css/style.css",
+    ".": "./packages/css/style.css",
     "./js": "./js/engine.js"
   },
   "scripts": {
-    "build": "cleancss -o css/style.min.css css/style.css",
+    "build": "cleancss -o packages/css/style.min.css packages/css/style.css",
     "serve": "npx serve ."
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   },
   "keywords": ["css", "framework", "ps1", "crt", "ui", "esc-labs"],
   "author": "ESC Labs",

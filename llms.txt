@@ -1,0 +1,19 @@
+# GrimorioEngine
+
+> Framework CSS puro de ESC Labs con estética PS1/CRT, tres paletas theme-aware y cero dependencias JS externas. Pensado para que una IA genere páginas/apps que se vean y sientan como un producto propio de ESC Labs.
+
+Para generar UI con este framework, lee primero el manifiesto: define las reglas de identidad no negociables, las paletas, las escalas de tokens, el catálogo completo de utilidades y componentes (con ejemplos mínimos), y un checklist de entrega. Regla central: **cero `style=""`** — todo se resuelve con utilidades o clases BEM en español.
+
+## Docs
+
+- [Manifiesto para IA](COMPONENTES.md): contrato completo — reglas de identidad, paletas, tokens, utilidades, componentes con ejemplos, checklist. **Empezar aquí.**
+- [Cómo generar páginas con IA](USO-CON-IA.md): guía operativa para el humano — montar el system prompt, plantilla de encargo, verificación y loop de iteración.
+- [Design tokens (JSON)](packages/core/tokens.json): fuente de verdad de colores por paleta, spacing, font-size, z-index, transiciones, bordes.
+- [Guía de instrucciones del repo](CLAUDE.md): arquitectura, convenciones, flujo de desarrollo.
+- [Identidad de marca](ESC-LABS-PS1-FRAMEWORK.md): reglas visuales, tipografía, voz de marca, prohibiciones.
+
+## Código
+
+- [CSS del framework](packages/css/style.css): toda la hoja de estilos (variables `:root`, utilidades, componentes, responsive).
+- [JS de interacciones](js/engine.js): vanilla ES6, init en DOMContentLoaded (carrusel, consola, selector de tema, toast, acordeón, rangos…).
+- [Showcase canónico](apps/showcase/index.html): demo viva de todos los componentes y patrones — fuente de verdad de uso.

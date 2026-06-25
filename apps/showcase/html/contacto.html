@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../packages/css/style.css" />
+  <link rel="stylesheet" href="../../../packages/css/style.css" />
   <link rel="shortcut icon" href="../images/logo_VAFBF.svg" type="image/x-icon" />
   <title>Contacto · Grimorio Engine · ESC Labs</title>
 </head>
@@ -34,13 +34,13 @@
       <div class="nav-temas">
         <button class="nav-temas__btn nav-temas__btn--activa" data-tema="default" title="Dual Signal"
           aria-label="Tema Dual Signal">
-          <span class="nav-temas__diamante" style="background:#b44fff; box-shadow: 0 0 8px #b44fff88;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--dual"></span>
         </button>
         <button class="nav-temas__btn" data-tema="cosmos" title="Cosmos Blue" aria-label="Tema Cosmos Blue">
-          <span class="nav-temas__diamante" style="background:#1a6fd8; box-shadow: 0 0 8px #1a6fd888;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--cosmos"></span>
         </button>
         <button class="nav-temas__btn" data-tema="crimson" title="Crimson Signal" aria-label="Tema Crimson Signal">
-          <span class="nav-temas__diamante" style="background:#e53935; box-shadow: 0 0 8px #e5393588;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--crimson"></span>
         </button>
       </div>
     </nav>
@@ -49,13 +49,13 @@
   <div id="tema-flash" class="tema-flash"></div>
 
   <!-- ── CONTACTO ───────────────────────────────── -->
-  <main class="contenedor" style="padding: 4rem 1rem;">
+  <main class="contenedor py-2xl px-sm">
 
-    <div style="margin-bottom: 3rem;">
-      <h1 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--acento); margin-bottom: 0.5rem;">
+    <div class="mb-xl">
+      <h1 class="text-display fs-xl text-acento mb-xs">
         ◆ Contacto
       </h1>
-      <p style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;">
+      <p class="etiqueta">
         Envía un mensaje — respondemos en menos de 48h
       </p>
     </div>
@@ -63,10 +63,10 @@
     <div class="grid grid--2 grid--gap-3xl grid--ai-start">
 
       <!-- Columna izquierda: formulario -->
-      <div class="superficie" style="padding: 2.4rem;">
+      <div class="superficie p-lg">
 
         <form>
-          <div style="margin-bottom: 1.4rem;">
+          <div class="mb-md">
             <label for="contacto-nombre">Nombre</label>
             <input
               id="contacto-nombre"
@@ -77,7 +77,7 @@
             />
           </div>
 
-          <div style="margin-bottom: 1.4rem;">
+          <div class="mb-md">
             <label for="contacto-email">Correo</label>
             <div class="formulario-correo" id="correo-contacto">
               <input
@@ -125,7 +125,7 @@
             </div>
           </div>
 
-          <div style="margin-bottom: 1.8rem;">
+          <div class="mb-lg">
             <label for="contacto-mensaje">Mensaje</label>
             <textarea
               id="contacto-mensaje"
@@ -145,8 +145,8 @@
       <!-- Columna derecha: info de contacto -->
       <div>
 
-        <div style="margin-bottom: 2.4rem;">
-          <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.2rem;">
+        <div class="mb-lg">
+          <p class="etiqueta mb-sm">
             ◆ Canales directos
           </p>
 
@@ -175,16 +175,16 @@
           </div>
         </div>
 
-        <div class="superficie" style="padding: 1.8rem;">
-          <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.8rem;">
+        <div class="superficie p-lg">
+          <p class="etiqueta mb-xs">
             Estado del sistema
           </p>
-          <p style="color: var(--color-ok); font-family: var(--font-mono); font-size: 0.85rem;">
+          <p class="text-ok font-mono fs-sm">
             ◆ Operativo · Grimorio Engine v2.0
           </p>
-          <p style="color: var(--text-muted); font-family: var(--font-mono); font-size: 0.72rem; margin-top: 0.5rem;">
+          <p class="text-apagado font-mono fs-xs mt-xs">
             ¿Quieres trabajar con nosotros? →
-            <a href="servicios.html" style="color: var(--acento); text-decoration: none;">Ver servicios</a>
+            <a href="servicios.html" class="enlace">Ver servicios</a>
           </p>
         </div>
 
@@ -199,11 +199,11 @@
     <img src="../images/logo_VAFBF.svg" width="100" alt="ESC Labs" />
     <br /><br />
     <p>systemescsts@gmail.com</p>
-    <hr style="border: none; border-top: 1px solid var(--border); margin: 1rem auto; max-width: 400px;" />
+    <hr class="regla" />
     <p>©2025 ESC Labs · Evolution in Science &amp; Computing · v2.0</p>
   </footer>
 
-  <script defer src="../../js/engine.js"></script>
+  <script defer src="../../../js/engine.js"></script>
 
 </body>
 

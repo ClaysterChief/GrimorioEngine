@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../../packages/css/style.css" />
+  <link rel="stylesheet" href="../../../packages/css/style.css" />
   <link rel="shortcut icon" href="../images/logo_VAFBF.svg" type="image/x-icon" />
   <title>Acceso · Grimorio Engine · ESC Labs</title>
 </head>
@@ -34,13 +34,13 @@
       <div class="nav-temas">
         <button class="nav-temas__btn nav-temas__btn--activa" data-tema="default" title="Dual Signal"
           aria-label="Tema Dual Signal">
-          <span class="nav-temas__diamante" style="background:#b44fff; box-shadow: 0 0 8px #b44fff88;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--dual"></span>
         </button>
         <button class="nav-temas__btn" data-tema="cosmos" title="Cosmos Blue" aria-label="Tema Cosmos Blue">
-          <span class="nav-temas__diamante" style="background:#1a6fd8; box-shadow: 0 0 8px #1a6fd888;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--cosmos"></span>
         </button>
         <button class="nav-temas__btn" data-tema="crimson" title="Crimson Signal" aria-label="Tema Crimson Signal">
-          <span class="nav-temas__diamante" style="background:#e53935; box-shadow: 0 0 8px #e5393588;"></span>
+          <span class="nav-temas__diamante nav-temas__diamante--crimson"></span>
         </button>
       </div>
     </nav>
@@ -49,9 +49,9 @@
   <div id="tema-flash" class="tema-flash"></div>
 
   <!-- ── ACCESO ─────────────────────────────────── -->
-  <main class="contenedor d-flex jc-center ai-start" style="padding: 4rem 1rem; min-height: calc(100vh - 140px)">
+  <main class="contenedor d-flex jc-center ai-start py-2xl px-sm min-h-vista">
 
-    <div class="ventana ventana--entrada" style="width: 100%; max-width: 420px;">
+    <div class="ventana ventana--entrada w-full max-w-xs">
       <div class="ventana__barra">
         <div class="ventana__dots">
           <span class="ventana__dot ventana__dot--rojo"></span>
@@ -60,14 +60,14 @@
         </div>
         <span class="ventana__titulo">acceso · esc-labs</span>
       </div>
-      <div class="ventana__cuerpo" style="padding: 2.4rem 2rem;">
+      <div class="ventana__cuerpo p-lg">
 
-        <p style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem;">
+        <p class="etiqueta mb-lg">
           ◆ Identificación de usuario
         </p>
 
         <form>
-          <div style="margin-bottom: 1.4rem;">
+          <div class="mb-md">
             <label for="login-usuario">Usuario</label>
             <input
               id="login-usuario"
@@ -78,7 +78,7 @@
             />
           </div>
 
-          <div style="margin-bottom: 1.8rem;">
+          <div class="mb-lg">
             <label for="login-contrasena">Contraseña</label>
             <input
               id="login-contrasena"
@@ -89,7 +89,7 @@
             />
           </div>
 
-          <div style="margin-bottom: 2rem;">
+          <div class="mb-lg">
             <label class="formulario-toggle">
               <input type="checkbox" class="formulario-toggle__input" />
               <span class="formulario-toggle__slider"></span>
@@ -102,9 +102,9 @@
           </button>
         </form>
 
-        <p style="margin-top: 1.8rem; font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted); text-align: center;">
+        <p class="mt-lg font-mono fs-xs text-apagado text-centro">
           ¿Sin acceso? →
-          <a href="contacto.html" style="color: var(--acento); text-decoration: none;">Contactar ESC Labs</a>
+          <a href="contacto.html" class="enlace">Contactar ESC Labs</a>
         </p>
 
       </div>
@@ -117,11 +117,11 @@
     <img src="../images/logo_VAFBF.svg" width="100" alt="ESC Labs" />
     <br /><br />
     <p>systemescsts@gmail.com</p>
-    <hr style="border: none; border-top: 1px solid var(--border); margin: 1rem auto; max-width: 400px;" />
+    <hr class="regla" />
     <p>©2025 ESC Labs · Evolution in Science &amp; Computing · v2.0</p>
   </footer>
 
-  <script defer src="../../js/engine.js"></script>
+  <script defer src="../../../js/engine.js"></script>
 
 </body>
 

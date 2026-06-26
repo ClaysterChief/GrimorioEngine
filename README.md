@@ -79,7 +79,8 @@ La forma más directa. Copia o enlaza el CSS y aplica clases.
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="ruta/al/grimorio-engine/css/style.css" />
+  <link rel="stylesheet" href="ruta/a/packages/css/style.css" />
+  <!-- Las fuentes ya se importan dentro de style.css; este <link> es opcional -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -98,50 +99,34 @@ Sin build step. Sin configuración. Funciona en cualquier proyecto HTML.
 
 ### Nivel 2 — npm package (proyectos con bundler)
 
-Con `package.json` configurado, el framework puede instalarse como dependencia local o publicarse en npm/GitHub Packages.
+El framework CSS se distribuye como el paquete **`@grimorio/css`** (dentro del monorepo). Dos formas de instalarlo:
 
-**Estructura del paquete:**
-```
-grimorio-engine/
-  css/
-    style.css
-    style.min.css
-  package.json
-  README.md
-```
-
-**`package.json` mínimo:**
-```json
-{
-  "name": "grimorio-engine",
-  "version": "0.1.0",
-  "description": "ESC Labs PS1 UI Framework",
-  "style": "css/style.css",
-  "exports": {
-    ".": "./css/style.css"
-  }
-}
-```
-
-**Instalación desde repositorio local:**
+**Desde el registro npm (paquete scoped):**
 ```bash
-npm install ../grimorio-engine
-# o con ruta absoluta
-npm install /ruta/al/grimorio-engine
+npm install @grimorio/css
 ```
-
-**Instalación desde GitHub:**
-```bash
-npm install github:ClaysterChief/GrimorioEngine
-```
-
-**Uso en cualquier proyecto con Vite, webpack, etc.:**
 ```js
 // main.js · main.jsx · main.ts
-import 'grimorio-engine/css/style.css'
+import '@grimorio/css'          // hoja completa
+// o la versión minificada:
+import '@grimorio/css/min'
+```
+
+**Desde GitHub (sin publicar en npm):**
+```bash
+npm install github:ClaysterChief/GrimorioEngine
+# o fijando una versión por tag:
+npm install github:ClaysterChief/GrimorioEngine#v2.0.0
+```
+```js
+// El paquete raíz exporta el CSS en su entry principal:
+import 'grimorio-engine'        // → packages/css/style.css
+import 'grimorio-engine/js'     // → js/engine.js (interacciones, opcional)
 ```
 
 El CSS queda disponible globalmente en toda la aplicación.
+
+> **Requisitos de navegador:** el framework usa `color-mix()` de forma extensiva (glow, sombras, overlays). Baseline: **Chrome/Edge 119+ · Safari 17.2+ · Firefox 113+**.
 
 ---
 
@@ -153,7 +138,7 @@ Importa el CSS globalmente y gestiona el tema con estado de React.
 ```jsx
 // src/providers/ThemeProvider.jsx
 import { createContext, useContext, useState, useEffect } from 'react'
-import 'grimorio-engine/css/style.css'
+import '@grimorio/css'
 
 const ThemeContext = createContext()
 
@@ -286,33 +271,6 @@ BEM simplificado, todo en **español, kebab-case**:
 
 ---
 
-## Roadmap
-
-- [x] Variables globales · tres paletas
-- [x] Reset y base tipográfica
-- [x] Layout · grid · contenedor
-- [x] Navegación · menú · selector de tema
-- [x] Botones (9 variantes + tamaños)
-- [x] Formularios completos (todos los inputs)
-- [x] Formulario multi-paso deslizante
-- [x] Tarjeta de crédito con flip 3D
-- [x] Input de correo con dominio
-- [x] Tarjetas (5 variantes)
-- [x] Imágenes con efectos hover
-- [x] Carruseles (2 variantes) + paginación
-- [x] Alertas · Modal · Tablas · Grid
-- [x] Loaders PS1 (bloques HP, diamante, scan)
-- [x] Consola terminal · Texto máquina · Ventana PS1
-- [x] Stat HUD · Barra HP · VHS containers
-- [x] Íconos CSS puros (`.icono-*`)
-- [x] Utilidades `bg-`
-- [ ] `style.min.css` (npm run build)
-- [x] `package.json` para distribución npm
-- [ ] Wrapper de componentes React (`grimorio-engine-react`)
-- [x] Páginas secundarias (`login.html`, `contacto.html`, `servicios.html`)
-
----
-
 ## Estructura del proyecto
 
 ```
@@ -321,7 +279,8 @@ grimorio-engine/
     css/
       style.css           ← Framework completo (@grimorio/css v2.0.0)
     core/
-      tokens.js           ← Design tokens — placeholder (@grimorio/core v0.1.0)
+      tokens.json         ← Design tokens (fuente de verdad) — @grimorio/core
+      tokens.js           ← Re-export ESM de los tokens
     elements/             ← Stub — Web Components futuros (@grimorio/elements)
     vue/                  ← Stub — Wrappers Vue 3 (@grimorio/vue)
     angular/              ← Stub — Wrappers Angular (@grimorio/angular)
@@ -333,6 +292,11 @@ grimorio-engine/
       images/             ← Assets del showcase
   js/
     engine.js             ← JS vanilla (futuro: mover a packages/core/)
+  COMPONENTES.md          ← Manifiesto para IA (reglas, paletas, tokens, catálogo)
+  USO-CON-IA.md           ← Guía: cómo generar páginas con IA usando el manifiesto
+  llms.txt                ← Índice raíz descubrible (llmstxt.org)
+  CHANGELOG.md            ← Historial de versiones
+  LICENSE                 ← MIT
   PROYECTO.md             ← Tracking interno de estado y roadmap
   ESC-LABS-PS1-FRAMEWORK.md ← Guía de identidad visual
   README.md
@@ -364,13 +328,18 @@ grimorio-engine/
 - [x] Páginas secundarias (`login.html`, `contacto.html`, `servicios.html`)
 - [x] Estructura monorepo — `packages/` + npm workspaces
 - [x] Showcase separado en `apps/showcase/`
-- [ ] `packages/css/style.min.css` — ejecutar `npm run build`
-- [ ] Extraer tokens CSS a `packages/core/tokens.js`
+- [x] Escala de tokens canónica (`--space-*`) + utilidades completas (position, z-index, overflow, opacity, sizing, aspect-ratio…)
+- [x] Showcase con **cero `style=""`**
+- [x] Utilidades de animación/transición, skeleton, validación de form, `:focus-visible`
+- [x] Lift de legibilidad de fuentes
+- [x] `packages/css/style.min.css` — generado por `npm run build`
+- [x] Tokens extraídos a `packages/core/tokens.json` (+ `tokens.js`)
+- [x] Manifiesto para IA (`COMPONENTES.md`, `llms.txt`, `USO-CON-IA.md`)
+- [ ] Publicar `@grimorio/css` en npm / GitHub Packages
 - [ ] `@grimorio/elements` — Web Components (Custom Elements)
 - [ ] `@grimorio/vue` — Wrappers Vue 3
 - [ ] `@grimorio/angular` — Wrappers Angular
 - [ ] `@grimorio/react-native` — Componentes React Native
-- [ ] Publicar en npm / GitHub Packages
 
 ---
 

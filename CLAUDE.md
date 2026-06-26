@@ -178,7 +178,7 @@ Spacing scale (`--space-*`, used by `.m-*`, `.p-*` (incl. `t/b/l/r/x/y`), `.gap-
 | `3xl` | 5rem (50px) |
 | `4xl` | 6rem (60px) |
 
-Font-size utilities (monotonic): `.fs-xs` (0.72) · `.fs-sm` (0.85) · `.fs-base` (1) · `.fs-md` (1.1) · `.fs-lg` (1.35) · `.fs-xl` (1.8) · `.fs-2xl` (2.2) · `.fs-3xl` (3) · `.fs-4xl` (4.5rem). Aliases: `.fs-label` (=md), `.fs-body` (=xl).
+Font-size utilities (monotonic): `.fs-xs` (0.9) · `.fs-sm` (1) · `.fs-base` (1.1) · `.fs-md` (1.2) · `.fs-lg` (1.5) · `.fs-xl` (1.8) · `.fs-2xl` (2.2) · `.fs-3xl` (3) · `.fs-4xl` (4.5rem). Aliases: `.fs-label` (=md), `.fs-body` (=xl). Min legible 0.9rem/9px; hardcoded floors at 0.8rem/8px.
 
 Letter-spacing: `.tracking-md` (0.1em) · `.tracking-wide` (0.08em) · `.tracking-wider` (0.18em)
 

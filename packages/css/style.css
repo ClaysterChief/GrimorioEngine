@@ -47,11 +47,11 @@
   --border-thick:  3px;
 
   /* Core font sizes — escala monótona (xs < sm < base < md < lg < xl < 2xl < 3xl < 4xl) */
-  --font-size-xs:    0.72rem;
-  --font-size-sm:    0.85rem;
-  --font-size-base:  1rem;
-  --font-size-md:    1.1rem;
-  --font-size-lg:    1.35rem;
+  --font-size-xs:    0.9rem;
+  --font-size-sm:    1rem;
+  --font-size-base:  1.1rem;
+  --font-size-md:    1.2rem;
+  --font-size-lg:    1.5rem;
   --font-size-xl:    1.8rem;
   --font-size-2xl:   2.2rem;
   --font-size-3xl:   3rem;
@@ -1822,7 +1822,7 @@ label {
 }
 .cargando-scan__label {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--acento);
@@ -1832,7 +1832,7 @@ label {
 }
 .cargando-scan__ruta {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   letter-spacing: 0.06em;
   position: relative;
@@ -2521,7 +2521,7 @@ label {
 }
 .tarjeta-credito__marca {
   font-family: var(--font-display);
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   letter-spacing: 0.2em;
   color: var(--acento);
   line-height: 1.1;
@@ -2529,7 +2529,7 @@ label {
 .tarjeta-credito__marca small {
   display: block;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.8rem;
   letter-spacing: 0.6em;
   color: var(--text-muted);
   margin-top: 0.15rem;
@@ -2582,7 +2582,7 @@ label {
 }
 .tarjeta-credito__meta-label {
   font-family: var(--font-mono);
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -2666,7 +2666,7 @@ label {
 }
 .tarjeta-credito__cvv-etiqueta {
   font-family: var(--font-mono);
-  font-size: 0.48rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
   color: var(--text-muted);
   text-align: right;
@@ -2678,7 +2678,7 @@ label {
   bottom: 0.75rem;
   right: 1.1rem;
   font-family: var(--font-display);
-  font-size: 0.62rem;
+  font-size: 0.8rem;
   letter-spacing: 0.2em;
   color: var(--acento);
   opacity: 0.6;
@@ -2763,7 +2763,7 @@ label {
   color: var(--acento);
 }
 .formulario-correo__flecha {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   transition: transform var(--transition-base) cubic-bezier(0.23, 1, 0.32, 1);
   display: inline-block;
 }
@@ -2826,7 +2826,7 @@ label {
   padding-left: 1.35rem;
 }
 .formulario-correo__opcion-icono {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   opacity: 0.6;
 }
 /* ================================================ */
@@ -2923,7 +2923,7 @@ label {
   top: 0.5rem;
   right: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.15rem 0.45rem;
@@ -3535,7 +3535,7 @@ label {
 .tabla th {
   padding: 0.65rem 1.1rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--acento);
@@ -3574,7 +3574,7 @@ label {
 /* Badge de estado para celdas */
 .tabla-badge {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.18rem 0.5rem;

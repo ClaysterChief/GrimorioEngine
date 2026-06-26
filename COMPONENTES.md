@@ -74,7 +74,7 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `engine.js` pe
 |---|---|---|---|---|---|---|---|---|---|
 | valor | 0 | .75rem | 1rem | 1.5rem | 2rem | 3rem | 4rem | 5rem | 6rem |
 
-**Font-size** (`fs-*`): `xs` .72 · `sm` .85 · `base` 1 · `md` 1.1 · `lg` 1.35 · `xl` 1.8 · `2xl` 2.2 · `3xl` 3 · `4xl` 4.5rem. (`fs-label`=md, `fs-body`=xl son alias.)
+**Font-size** (`fs-*`): `xs` .9 · `sm` 1 · `base` 1.1 · `md` 1.2 · `lg` 1.5 · `xl` 1.8 · `2xl` 2.2 · `3xl` 3 · `4xl` 4.5rem. (`fs-label`=md, `fs-body`=xl son alias.) Mínimo legible: 9px (`fs-xs`); ningún texto baja de 8px.
 
 **Z-index** (`z-*`): `base` 1 · `nav` 100 · `dropdown` 1000 · `sticky` 1100 · `modal` 8000 · `toast` 9000 · `flash` 9999.
 

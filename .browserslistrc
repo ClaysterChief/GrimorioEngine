@@ -1,0 +1,5 @@
+# GrimorioEngine usa color-mix() extensivamente → baseline moderna.
+chrome >= 119
+edge >= 119
+safari >= 17.2
+firefox >= 113

@@ -46,7 +46,7 @@ export const tokens = {
   spacing: { 0: '0', xs: '0.75rem', sm: '1rem', md: '1.5rem', lg: '2rem', xl: '3rem', '2xl': '4rem', '3xl': '5rem', '4xl': '6rem' },
 
   // Monótona por nombre; label = md, body = xl
-  fontSize: { xs: '0.9rem', sm: '1rem', base: '1.1rem', md: '1.2rem', lg: '1.5rem', xl: '1.8rem', '2xl': '2.2rem', '3xl': '3rem', '4xl': '4.5rem' },
+  fontSize: { xs: '1rem', sm: '1.1rem', base: '1.2rem', md: '1.3rem', lg: '1.6rem', xl: '1.8rem', '2xl': '2.2rem', '3xl': '3rem', '4xl': '4.5rem' },
 
   transitions: { fast: '0.15s', base: '0.22s', moderate: '0.3s', slow: '0.45s', card: '0.72s' },
 

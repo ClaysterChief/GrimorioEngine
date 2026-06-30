@@ -1,7 +1,7 @@
 # Grimorio Engine — CSS UI Library
 
 Framework de estilos CSS propio de ESC Labs.
-Se usa importando `packages/css/style.css` y aplicando las clases en cualquier HTML.
+Se usa importando `packages/css/grimorio.css` (o el espejo `css/grimorio.css` en la raíz) y aplicando las clases en cualquier HTML.
 
 ---
 
@@ -32,7 +32,7 @@ Se usa importando `packages/css/style.css` y aplicando las clases en cualquier H
 | Showcase (`apps/showcase/`) | ✅ Listo |
 | Estructura monorepo (`packages/`) | ✅ Listo |
 | npm workspaces        | ✅ Listo      |
-| `style.min.css`       | ⬜ Pendiente  |
+| `grimorio.min.css`    | ✅ Listo      |
 
 ---
 
@@ -42,9 +42,10 @@ Se usa importando `packages/css/style.css` y aplicando las clases en cualquier H
 grimorio-engine/
   packages/
     css/
-      style.css           ← Framework completo (@grimorio/css)
+      grimorio.css        ← Framework completo (@grimorio/css) — fuente editable
     core/
-      tokens.js           ← Placeholder tokens JSON (@grimorio/core)
+      tokens.json         ← Design tokens (fuente de verdad) — @grimorio/core
+      tokens.js           ← Re-export ESM de los tokens
     elements/             ← Stub — Web Components futuros
     vue/                  ← Stub — Wrappers Vue 3
     angular/              ← Stub — Wrappers Angular
@@ -54,8 +55,10 @@ grimorio-engine/
       index.html          ← Demo de todos los componentes
       html/               ← Páginas secundarias
       images/             ← Assets del showcase
+  css/
+    grimorio.css          ← Espejo generado (instalación GitHub/CDN) — no editar a mano
   js/
-    engine.js             ← JS vanilla (futuro: mover a packages/core/)
+    grimorio.js           ← JS vanilla (futuro: mover a packages/core/)
   CLAUDE.md
   ESC-LABS-PS1-FRAMEWORK.md ← Guía de identidad visual
   README.md
@@ -67,12 +70,12 @@ grimorio-engine/
 ## Roadmap — Pendientes
 
 ### Infraestructura
-- [ ] Extraer variables CSS a `packages/core/tokens.js` (design tokens JSON)
-- [ ] Script de build que regenera el bloque `:root` desde `tokens.js`
-- [ ] Mover `js/engine.js` a `packages/core/` (requiere tokens implementados)
-- [ ] Generar `packages/css/style.min.css` via `npm run build`
+- [x] Extraer variables CSS a `packages/core/tokens.json` (design tokens)
+- [x] Generar `packages/css/grimorio.min.css` via `npm run build`
+- [x] Renombrar `style.css`/`engine.js` → `grimorio.css`/`grimorio.js` + espejo `css/` a nivel raíz
+- [ ] Mover `js/grimorio.js` a `packages/core/`
 - [ ] Agregar `package.json` a `apps/showcase/` para formalizar como workspace app
-- [ ] Decidir nombre del paquete CSS: `@grimorio/css` vs `@grimorio/styles`
+- [x] Decidir nombre del paquete CSS: `@grimorio/css`
 
 ### Web Components (`@grimorio/elements`)
 - [ ] `<esc-acordeon>` — primer Custom Element (14 líneas JS, bajo acoplamiento)

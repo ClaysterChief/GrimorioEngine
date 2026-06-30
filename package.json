@@ -1,19 +1,26 @@
 {
   "name": "grimorio-engine",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "ESC Labs PS1 UI Framework — pure CSS + vanilla JS",
   "private": true,
   "workspaces": [
     "packages/*"
   ],
-  "style": "packages/css/style.css",
-  "main": "js/engine.js",
+  "style": "css/grimorio.css",
+  "main": "js/grimorio.js",
   "exports": {
-    ".": "./packages/css/style.css",
-    "./js": "./js/engine.js"
+    ".": "./css/grimorio.css",
+    "./js": "./js/grimorio.js"
   },
+  "files": [
+    "css/grimorio.css",
+    "css/grimorio.min.css",
+    "js/grimorio.js",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "cleancss -o packages/css/style.min.css packages/css/style.css",
+    "build": "cleancss -o packages/css/grimorio.min.css packages/css/grimorio.css && node -e \"const fs=require('fs');fs.mkdirSync('css',{recursive:true});fs.copyFileSync('packages/css/grimorio.css','css/grimorio.css');fs.copyFileSync('packages/css/grimorio.min.css','css/grimorio.min.css')\"",
     "serve": "npx serve ."
   },
   "devDependencies": {

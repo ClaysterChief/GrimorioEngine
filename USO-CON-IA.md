@@ -50,7 +50,7 @@ Detalles:
 - Paleta: <dual (default) | cosmos | crimson>.
 - Incluye la cabecera estándar con nav-temas y el #tema-flash.
 - Tono del copy: directo, técnico, sin relleno. Sin emojis. Usa el diamante ◆ donde aporte.
-- Entrega un único archivo HTML completo enlazando packages/css/style.css y js/engine.js.
+- Entrega un único archivo HTML completo enlazando css/grimorio.css y js/grimorio.js (o, vía CDN, https://cdn.jsdelivr.net/gh/ClaysterChief/GrimorioEngine@TAG/css/grimorio.css y .../js/grimorio.js).
 
 Antes de entregar, recórrete el checklist del manifiesto y confírmame que lo cumple.
 ```
@@ -68,7 +68,7 @@ Antes de entregar, recórrete el checklist del manifiesto y confírmame que lo c
    ```bash
    grep -c 'style="' archivo-generado.html   # esperado: 0
    ```
-   (Los `style` que inyecta `engine.js` en runtime —rango, texto-máquina, carrusel— no cuentan: son dinámicos, no están en el HTML fuente.)
+   (Los `style` que inyecta `grimorio.js` en runtime —rango, texto-máquina, carrusel— no cuentan: son dinámicos, no están en el HTML fuente.)
 
 2. **Prueba las 3 paletas** — cambia la clase del `<body>` entre *(nada)* / `cosmos` / `crimson` (o usa el nav-temas) y confirma que todo se adapta sin colores rotos.
 
@@ -83,7 +83,7 @@ Si algo falla, no lo arregles a mano con inline styles: dile a la IA qué regla 
 ## Paso 4 — Iterar el manifiesto
 
 El manifiesto es vivo. Cuando notes que la IA tropieza siempre con lo mismo (pide una utilidad que no existe, malinterpreta una clase), **arréglalo en la fuente**:
-- ¿Falta una utilidad? Agrégala a `packages/css/style.css` y demuéstrala en el showcase.
+- ¿Falta una utilidad? Agrégala a `packages/css/grimorio.css` y demuéstrala en el showcase.
 - ¿La IA malentiende una clase? Aclara su fila en `COMPONENTES.md` con un mejor ejemplo.
 
 Así cada cliente que generes deja el sistema un poco más afilado.

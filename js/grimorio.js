@@ -1,6 +1,6 @@
 /* ================================================
    Grimorio Engine — ESC Labs · v2.0
-   js/engine.js · ES6 vanilla · sin bundler
+   js/grimorio.js · ES6 vanilla · sin bundler
    ================================================ */
 
 /* ================================================

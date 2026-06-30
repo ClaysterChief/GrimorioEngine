@@ -2,7 +2,7 @@
 
 > **Propósito de este archivo.** Es el contrato que una IA debe seguir para generar páginas/apps que se vean y sientan como un producto de **ESC Labs**. Pégalo (o enlázalo) en el prompt de sistema de la IA generadora. Si una necesidad de layout no se resuelve con una clase de aquí, la regla es **agregar la utilidad al framework primero**, nunca improvisar con `style=""`.
 >
-> Framework: CSS puro, estética PS1/CRT, sin dependencias JS externas. Todo el CSS vive en `packages/css/style.css`. Interacciones en `js/engine.js`. Tokens en `packages/core/tokens.json`.
+> Framework: CSS puro, estética PS1/CRT, sin dependencias JS externas. Todo el CSS vive en `packages/css/grimorio.css` (fuente) / `css/grimorio.css` (espejo de instalación, ver §1). Interacciones en `js/grimorio.js`. Tokens en `packages/core/tokens.json`.
 >
 > **¿Eres el humano que dirige a la IA?** Lee [`USO-CON-IA.md`](USO-CON-IA.md): explica cómo montar el system prompt con este manifiesto, cómo redactar el encargo y cómo verificar la salida.
 
@@ -33,14 +33,14 @@ Taglines aprobados: *Systems that evolve.* · *Build. Evolve. Compute.* · *From
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="ruta/a/packages/css/style.css" />
-  <!-- Las fuentes ya se importan dentro de style.css (@import Google Fonts) -->
+  <link rel="stylesheet" href="ruta/a/css/grimorio.css" />
+  <!-- Las fuentes ya se importan dentro de grimorio.css (@import Google Fonts) -->
   <title>Título · ESC Labs</title>
 </head>
 <body>
   <!-- contenido -->
   <div id="tema-flash" class="tema-flash"></div>
-  <script defer src="ruta/a/js/engine.js"></script>
+  <script defer src="ruta/a/js/grimorio.js"></script>
 </body>
 </html>
 ```
@@ -62,7 +62,7 @@ Se aplican como clase en `<body>` o cualquier contenedor. Todos los componentes 
 Variables theme-aware: `--void-deep` · `--void-primary` · `--void-surface` · `--deep` · `--border` · `--acento` · `--acento-light` · `--red-strike` · `--text-primary` · `--text-muted`.
 Fuentes (constantes): `--font-display` (Orbitron) · `--font-body` (VT323) · `--font-mono` (Share Tech Mono).
 
-Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `engine.js` persiste en `localStorage['grimorio-tema']` y dispara el flash CRT.
+Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` persiste en `localStorage['grimorio-tema']` y dispara el flash CRT.
 
 ---
 
@@ -74,7 +74,7 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `engine.js` pe
 |---|---|---|---|---|---|---|---|---|---|
 | valor | 0 | .75rem | 1rem | 1.5rem | 2rem | 3rem | 4rem | 5rem | 6rem |
 
-**Font-size** (`fs-*`): `xs` .9 · `sm` 1 · `base` 1.1 · `md` 1.2 · `lg` 1.5 · `xl` 1.8 · `2xl` 2.2 · `3xl` 3 · `4xl` 4.5rem. (`fs-label`=md, `fs-body`=xl son alias.) Mínimo legible: 9px (`fs-xs`); ningún texto baja de 8px.
+**Font-size** (`fs-*`): `xs` 1 · `sm` 1.1 · `base` 1.2 · `md` 1.3 · `lg` 1.6 · `xl` 1.8 · `2xl` 2.2 · `3xl` 3 · `4xl` 4.5rem. (`fs-label`=md, `fs-body`=xl son alias.) Mínimo legible: 10px (`fs-xs`); ningún texto del framework baja de 10px.
 
 **Z-index** (`z-*`): `base` 1 · `nav` 100 · `dropdown` 1000 · `sticky` 1100 · `modal` 8000 · `toast` 9000 · `flash` 9999.
 
@@ -175,7 +175,7 @@ Variante: `.tarjeta--accion` (rojo).
   <span class="formulario-toggle__etiqueta">Recordar sesión</span>
 </label>
 
-<input type="range" class="formulario-rango" min="0" max="100" value="45" /> <!-- engine.js fija --rango-pct -->
+<input type="range" class="formulario-rango" min="0" max="100" value="45" /> <!-- grimorio.js fija --rango-pct -->
 ```
 Especiales (requieren markup específico — copiar del showcase): correo con dominio (`.formulario-correo`), multi-paso (`.formulario-pasos` + `data-paso-sig`/`data-paso-ant`), tarjeta de crédito flip, file input (`.formulario-archivo-contenedor` + `data-nombre-id`).
 
@@ -283,7 +283,7 @@ Badges: `tabla-badge--ok/--error/--pendiente/--inactivo`.
 Direcciones: `tooltip--abajo/--derecha/--izquierda`.
 
 ### Acordeón
-`.acordeon` (multi-abierto) o `.acordeon--exclusivo` (uno a la vez). Lo maneja `engine.js`.
+`.acordeon` (multi-abierto) o `.acordeon--exclusivo` (uno a la vez). Lo maneja `grimorio.js`.
 
 ### Spinners / loaders
 `.spinner` · `.spinner-diamante` · `.spinner-pulso` · `.spinner-scan-mini` · `.spinner-barras` (con `--sm`/`--xs`). Loaders grandes: `.cargando-bloques` · `.cargando-diamante` · `.cargando-scan`.
@@ -327,7 +327,7 @@ Modificadores `--error`/`--ok` también en `.formulario-textarea`. El rojo de `-
 
 ### Texto máquina (typewriter)
 ```html
-<p class="texto-maquina">Sistema listo.</p>  <!-- engine.js mide el ancho -->
+<p class="texto-maquina">Sistema listo.</p>  <!-- grimorio.js mide el ancho -->
 ```
 Modificadores: `texto-maquina--lento`, `texto-maquina--sin-cursor`.
 
@@ -336,7 +336,7 @@ Modificadores: `texto-maquina--lento`, `texto-maquina--sin-cursor`.
 
 ---
 
-## 6. Componentes JS (`js/engine.js`, vanilla, init en `DOMContentLoaded`)
+## 6. Componentes JS (`js/grimorio.js`, vanilla, init en `DOMContentLoaded`)
 
 Cada init hace early-return si su nodo no existe → seguro de cargar en cualquier página.
 
@@ -359,4 +359,4 @@ Cada init hace early-return si su nodo no existe → seguro de cargar en cualqui
 
 ---
 
-*Fuente de verdad viva: `apps/showcase/index.html` (demo de todos los componentes) + `packages/css/style.css`. Tokens: `packages/core/tokens.json`. Identidad completa: `ESC-LABS-PS1-FRAMEWORK.md`.*
+*Fuente de verdad viva: `apps/showcase/index.html` (demo de todos los componentes) + `packages/css/grimorio.css`. Tokens: `packages/core/tokens.json`. Identidad completa: `ESC-LABS-PS1-FRAMEWORK.md`.*

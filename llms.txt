@@ -14,6 +14,6 @@ Para generar UI con este framework, lee primero el manifiesto: define las reglas
 
 ## Código
 
-- [CSS del framework](packages/css/style.css): toda la hoja de estilos (variables `:root`, utilidades, componentes, responsive).
-- [JS de interacciones](js/engine.js): vanilla ES6, init en DOMContentLoaded (carrusel, consola, selector de tema, toast, acordeón, rangos…).
+- [CSS del framework](packages/css/grimorio.css): toda la hoja de estilos (variables `:root`, utilidades, componentes, responsive). Espejo de instalación en `css/grimorio.css` (raíz).
+- [JS de interacciones](js/grimorio.js): vanilla ES6, init en DOMContentLoaded (carrusel, consola, selector de tema, toast, acordeón, rangos…).
 - [Showcase canónico](apps/showcase/index.html): demo viva de todos los componentes y patrones — fuente de verdad de uso.

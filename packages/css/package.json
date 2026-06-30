@@ -2,17 +2,17 @@
   "name": "@grimorio/css",
   "version": "2.0.0",
   "description": "GrimorioEngine — PS1/CRT CSS framework (vanilla, zero JS deps)",
-  "style": "style.css",
+  "style": "grimorio.css",
   "exports": {
-    ".": "./style.css",
-    "./min": "./style.min.css",
-    "./style.css": "./style.css",
-    "./style.min.css": "./style.min.css"
+    ".": "./grimorio.css",
+    "./min": "./grimorio.min.css",
+    "./grimorio.css": "./grimorio.css",
+    "./grimorio.min.css": "./grimorio.min.css"
   },
   "sideEffects": ["*.css"],
   "files": [
-    "style.css",
-    "style.min.css",
+    "grimorio.css",
+    "grimorio.min.css",
     "README.md",
     "LICENSE"
   ],

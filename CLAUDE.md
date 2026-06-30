@@ -4,15 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What is this
 
-Grimorio Engine is a pure CSS UI framework by ESC Labs with a PS1/CRT retro aesthetic. Zero external JS dependencies. Fonts are loaded from Google Fonts. The entire framework lives in one file: `packages/css/style.css`.
+Grimorio Engine is a pure CSS UI framework by ESC Labs with a PS1/CRT retro aesthetic. Zero external JS dependencies. Fonts are loaded from Google Fonts. The entire framework lives in one file: `packages/css/grimorio.css`.
 
-`apps/showcase/index.html` is the **canonical component showcase** — it demonstrates every component and is the source of truth for all design patterns and usage. All JavaScript lives in `js/engine.js`.
+`apps/showcase/index.html` is the **canonical component showcase** — it demonstrates every component and is the source of truth for all design patterns and usage. All JavaScript lives in `js/grimorio.js`.
 
 **System requirements:** Node ≥18.0.0, npm ≥9.0.0
 
 ## Running / Developing
 
-**Zero build step during development.** Edit `packages/css/style.css` directly and see changes instantly with any static server. Choose one:
+**Zero build step during development.** Edit `packages/css/grimorio.css` directly and see changes instantly with any static server. Choose one:
 
 ### Quick start (no npm):
 ```bash
@@ -28,36 +28,37 @@ npm run serve      # npx serve . (any port) — then navigate to /apps/showcase/
 
 ### Before publishing:
 ```bash
-npm run build      # generates packages/css/style.min.css (minified CSS for distribution)
+npm run build      # minifies packages/css/grimorio.css -> packages/css/grimorio.min.css,
+                    # then mirrors both files to css/ at repo root (see "Two distribution channels" below)
 ```
 
-**Development workflow:** Open showcase in browser, edit CSS directly in `packages/css/style.css`, refresh to see changes. No compilation or transpilation needed.
+**Development workflow:** Open showcase in browser, edit CSS directly in `packages/css/grimorio.css`, refresh to see changes. No compilation or transpilation needed.
 
 **Validation:** `.hintrc` configures HTMLHint validation (development only). The `no-inline-styles` rule is disabled by design — this policy is maintained manually in code review (see below).
 
 ## Common development tasks
 
 **Add a new component:**
-1. Create a new CSS section in `packages/css/style.css` with the standard header pattern (see Architecture)
+1. Create a new CSS section in `packages/css/grimorio.css` with the standard header pattern (see Architecture)
 2. Use BEM naming in Spanish
 3. Use CSS variables for all colors (never hardcode hex in components)
 4. Add demo markup + example in `apps/showcase/index.html` under a `.separador` label
 5. Test all three palettes (no class, `.cosmos`, `.crimson`)
 
 **Update the showcase:**
-- **Zero `style=""` anywhere** — `index.html` and all secondary pages are inline-style-free (verify with a grep for `style="` returning nothing). Solve every layout need with a utility or BEM class; if a value is missing, add the utility to `style.css` first.
-- Changes to `packages/css/style.css` auto-reload in the browser; no build step needed
+- **Zero `style=""` anywhere** — `index.html` and all secondary pages are inline-style-free (verify with a grep for `style="` returning nothing). Solve every layout need with a utility or BEM class; if a value is missing, add the utility to `grimorio.css` first.
+- Changes to `packages/css/grimorio.css` auto-reload in the browser; no build step needed
 - Always add theme-switcher button to secondary pages (`data-tema` attribute + `#tema-flash` div required)
 
 **Create a new secondary page (like login.html, contacto.html):**
 - Copy boilerplate from existing secondary pages in `apps/showcase/html/`
 - Update `menu-principal__item--active` on current nav item
-- Secondary pages live at `apps/showcase/html/` (3 levels below repo root), so CSS and JS use a **`../../../` prefix** (`../../../packages/css/style.css`, `../../../js/engine.js`). Images live at `apps/showcase/images/`, so they use `../images/`. Sibling pages use plain relative links (`contacto.html`).
+- Secondary pages live at `apps/showcase/html/` (3 levels below repo root), so CSS and JS use a **`../../../` prefix** (`../../../packages/css/grimorio.css`, `../../../js/grimorio.js`). Images live at `apps/showcase/images/`, so they use `../images/`. Sibling pages use plain relative links (`contacto.html`).
 - Paths to images use `../images/`
 
 **Publish a release:**
-1. Run `npm run build` to generate minified CSS
-2. Ensure `packages/css/style.min.css` exists and is committed
+1. Run `npm run build` — minifies `packages/css/grimorio.css` and mirrors both files into `css/` at repo root
+2. Ensure `packages/css/grimorio.min.css` AND the root `css/grimorio.css` + `css/grimorio.min.css` mirror exist and are committed (the root mirror is what GitHub-install/CDN consumers get — see "Two distribution channels" below)
 3. Tag the commit (e.g., `v2.0.1`)
 4. Distribution via GitHub: `npm install github:ClaysterChief/GrimorioEngine#v2.0.1`
 
@@ -65,7 +66,7 @@ npm run build      # generates packages/css/style.min.css (minified CSS for dist
 
 ### Single-file CSS framework
 
-`packages/css/style.css` is organized into sections marked with this header pattern:
+`packages/css/grimorio.css` is organized into sections marked with this header pattern:
 
 ```css
 /* ================================================
@@ -97,9 +98,9 @@ Three palettes, applied as a class on `<body>` or any container:
 
 All component colors reference CSS custom properties (`--acento`, `--void-surface`, `--border`, etc.) so they automatically adapt when a palette class is applied. Theme switching triggers a CRT flash animation via `#tema-flash` + `.tema-flash--activo`.
 
-### JavaScript (`js/engine.js`)
+### JavaScript (`js/grimorio.js`)
 
-All JS is vanilla ES6 in `js/engine.js`, no modules, no bundler — everything is global scope. Loaded via `<script defer src="js/engine.js">` at the bottom of each page. Initialized on `DOMContentLoaded`:
+All JS is vanilla ES6 in `js/grimorio.js`, no modules, no bundler — everything is global scope. Loaded via `<script defer src="js/grimorio.js">` at the bottom of each page. Initialized on `DOMContentLoaded`:
 
 - `ESCCarrusel` — class, handles image/card carousels
 - `ESCConsola` — class, interactive terminal with command history
@@ -114,7 +115,7 @@ All JS is vanilla ES6 in `js/engine.js`, no modules, no bundler — everything i
 - `iniciarRangos()` — range sliders with live value display; sets `--rango-pct` CSS variable
 - `ESCToast` — singleton toast system; call `ESCToast.mostrar(msg, tipo, duracion)` where `tipo` is `info | ok | warning | error`
 
-All functions return early if their target element is not found, so engine.js is safe to load on any page even if most components are absent. Theme choice is persisted in `localStorage['grimorio-tema']`.
+All functions return early if their target element is not found, so grimorio.js is safe to load on any page even if most components are absent. Theme choice is persisted in `localStorage['grimorio-tema']`.
 
 ### Naming conventions
 
@@ -146,7 +147,7 @@ Key prefixes: `btn`, `campo-`, `formulario-`, `tarjeta-`, `grupo-`, `imagen-`, `
 
 Font variables (constant across palettes): `--font-display` (Orbitron 900), `--font-body` (VT323), `--font-mono` (Share Tech Mono).
 
-Additional token groups (the `:root` block in `style.css` is the single source — see `--space-*`, `--z-*`, `--font-size-*`):
+Additional token groups (the `:root` block in `grimorio.css` is the single source — see `--space-*`, `--z-*`, `--font-size-*`):
 
 ```css
 --transition-fast / --transition-base / --transition-moderate / --transition-slow / --transition-card
@@ -178,7 +179,7 @@ Spacing scale (`--space-*`, used by `.m-*`, `.p-*` (incl. `t/b/l/r/x/y`), `.gap-
 | `3xl` | 5rem (50px) |
 | `4xl` | 6rem (60px) |
 
-Font-size utilities (monotonic): `.fs-xs` (0.9) · `.fs-sm` (1) · `.fs-base` (1.1) · `.fs-md` (1.2) · `.fs-lg` (1.5) · `.fs-xl` (1.8) · `.fs-2xl` (2.2) · `.fs-3xl` (3) · `.fs-4xl` (4.5rem). Aliases: `.fs-label` (=md), `.fs-body` (=xl). Min legible 0.9rem/9px; hardcoded floors at 0.8rem/8px.
+Font-size utilities (monotonic): `.fs-xs` (1) · `.fs-sm` (1.1) · `.fs-base` (1.2) · `.fs-md` (1.3) · `.fs-lg` (1.6) · `.fs-xl` (1.8) · `.fs-2xl` (2.2) · `.fs-3xl` (3) · `.fs-4xl` (4.5rem). Aliases: `.fs-label` (=md), `.fs-body` (=xl). Min legible 1rem/10px — no hardcoded font-size in the framework goes below 1rem.
 
 Letter-spacing: `.tracking-md` (0.1em) · `.tracking-wide` (0.08em) · `.tracking-wider` (0.18em)
 
@@ -221,13 +222,13 @@ Accessibility: global `:focus-visible` ring in `--acento` (automatic, no class n
 
 The showcase (`apps/showcase/index.html`) is the **source of truth** for all components, patterns, and best practices.
 
-1. Add a new section in `packages/css/style.css` with the standard header comment (see Architecture).
+1. Add a new section in `packages/css/grimorio.css` with the standard header comment (see Architecture).
 2. Follow BEM naming in Spanish.
 3. Use CSS variables for all colors — never hardcode hex values in component rules.
 4. Demonstrate the component in `apps/showcase/index.html` under a `.separador` label.
 5. Test it across all three palettes to ensure theme switching works.
 
-**Critical rule:** `apps/showcase/index.html` must not use `style=""` attributes. The showcase is the framework's own demo — every layout need must be solved with a utility class or BEM modifier. If a utility class for a needed value doesn't exist, add it to the Utilities sections of `packages/css/style.css` first.
+**Critical rule:** `apps/showcase/index.html` must not use `style=""` attributes. The showcase is the framework's own demo — every layout need must be solved with a utility class or BEM modifier. If a utility class for a needed value doesn't exist, add it to the Utilities sections of `packages/css/grimorio.css` first.
 
 **New components must be visible and working in the showcase before being considered complete.** This is both the demo and the test suite.
 
@@ -235,8 +236,8 @@ The showcase (`apps/showcase/index.html`) is the **source of truth** for all com
 
 `apps/showcase/html/login.html`, `apps/showcase/html/contacto.html`, and `apps/showcase/html/servicios.html` are complete. All three share the same shell:
 
-- `<link rel="stylesheet" href="../../../packages/css/style.css" />`
-- `<script defer src="../../../js/engine.js"></script>`
+- `<link rel="stylesheet" href="../../../packages/css/grimorio.css" />`
+- `<script defer src="../../../js/grimorio.js"></script>`
 - Same nav with `menu-principal__item--active` on the current page's item
 - `<div id="tema-flash" class="tema-flash"></div>` — required for theme switcher
 - Same footer with `../images/` paths (images live at `apps/showcase/images/`)
@@ -262,9 +263,9 @@ The repo uses npm workspaces (`"workspaces": ["packages/*"]`).
 
 | Package | Path | Purpose |
 |---|---|---|
-| `@grimorio/css` | `packages/css/` | ✅ Active — the complete CSS framework (`style.css` + minified `style.min.css`) |
+| `@grimorio/css` | `packages/css/` | ✅ Active — the complete CSS framework (`grimorio.css` + minified `grimorio.min.css`) |
 
-**AI-consumable artifacts** (keep in sync with `style.css` whenever tokens/components change — these are what an AI generator reads to produce on-brand UI):
+**AI-consumable artifacts** (keep in sync with `grimorio.css` whenever tokens/components change — these are what an AI generator reads to produce on-brand UI):
 
 | File | Purpose |
 |---|---|
@@ -282,7 +283,12 @@ The repo uses npm workspaces (`"workspaces": ["packages/*"]`).
 | `@grimorio/angular` | `packages/angular/` | Angular component wrappers (future) |
 | `@grimorio/react-native` | `packages/react-native/` | React Native components (future) |
 
-`js/engine.js` lives at root for now — it will move to `packages/core/` when design token extraction is implemented.
+`js/grimorio.js` lives at root for now — it will move to `packages/core/` at some point (design tokens are already extracted to `packages/core/tokens.json`, so this is no longer blocked, just not yet done).
+
+### Two distribution channels (don't confuse them)
+
+1. **`@grimorio/css` (npm registry, scoped package)** — lives in `packages/css/` (unmoved). This is the **live-edited source** — the showcase links here directly (`packages/css/grimorio.css`), preserving the zero-build-step dev workflow. Files: `packages/css/grimorio.css` + `packages/css/grimorio.min.css`.
+2. **`grimorio-engine` (root package — GitHub install / CDN like jsDelivr)** — a **generated mirror** folder `css/` at repo root, parallel to `js/`. Produced by `npm run build` (which now does two things: minify `packages/css/grimorio.css` → `packages/css/grimorio.min.css`, then copy both into `css/` at root) and **committed to git**, same as `grimorio.min.css` always has been, so GitHub-install/CDN consumers don't need to run a build themselves. **Never hand-edit `css/` at the root** — it's regenerated by `npm run build`.
 
 The showcase lives at `apps/showcase/`: `index.html` is the component demo, `html/` has the secondary pages, `images/` has all demo assets. To open locally: `apps/showcase/index.html` in browser, or `npm run serve` and navigate to `/apps/showcase/`.
 
@@ -310,7 +316,8 @@ npm install github:ClaysterChief/GrimorioEngine
 Then import CSS globally in any bundler project:
 
 ```js
-import 'grimorio-engine/css/style.css'
+import 'grimorio-engine'      // -> css/grimorio.css
+import 'grimorio-engine/js'   // -> js/grimorio.js (optional, for interactive components)
 ```
 
 For **React**, manage theme with state rather than `data-tema` + `iniciarSelectorTema()` (that function targets DOM directly and doesn't fit React's lifecycle). Apply the palette class on `document.body` via `useEffect` and persist in `localStorage['grimorio-tema']`. Interactive components (carousel, multi-step form, credit card) should be ported to React hooks (`useEffect` / `useRef`) — the CSS doesn't change, only the JS logic moves into the component lifecycle.

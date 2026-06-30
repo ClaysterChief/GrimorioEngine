@@ -79,8 +79,8 @@ La forma más directa. Copia o enlaza el CSS y aplica clases.
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="stylesheet" href="ruta/a/packages/css/style.css" />
-  <!-- Las fuentes ya se importan dentro de style.css; este <link> es opcional -->
+  <link rel="stylesheet" href="ruta/a/packages/css/grimorio.css" />
+  <!-- Las fuentes ya se importan dentro de grimorio.css; este <link> es opcional -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 </head>
 <body>
@@ -120,8 +120,8 @@ npm install github:ClaysterChief/GrimorioEngine#v2.0.0
 ```
 ```js
 // El paquete raíz exporta el CSS en su entry principal:
-import 'grimorio-engine'        // → packages/css/style.css
-import 'grimorio-engine/js'     // → js/engine.js (interacciones, opcional)
+import 'grimorio-engine'        // → css/grimorio.css (espejo de raíz, igual nivel que js/)
+import 'grimorio-engine/js'     // → js/grimorio.js (interacciones, opcional)
 ```
 
 El CSS queda disponible globalmente en toda la aplicación.
@@ -277,7 +277,7 @@ BEM simplificado, todo en **español, kebab-case**:
 grimorio-engine/
   packages/
     css/
-      style.css           ← Framework completo (@grimorio/css v2.0.0)
+      grimorio.css        ← Framework completo (@grimorio/css v2.0.0) — fuente editable
     core/
       tokens.json         ← Design tokens (fuente de verdad) — @grimorio/core
       tokens.js           ← Re-export ESM de los tokens
@@ -290,8 +290,10 @@ grimorio-engine/
       index.html          ← Demo de todos los componentes
       html/               ← Páginas secundarias (login, contacto, servicios)
       images/             ← Assets del showcase
+  css/
+    grimorio.css          ← Espejo generado por `npm run build` (instalación GitHub/CDN) — no editar a mano
   js/
-    engine.js             ← JS vanilla (futuro: mover a packages/core/)
+    grimorio.js          ← JS vanilla (futuro: mover a packages/core/)
   COMPONENTES.md          ← Manifiesto para IA (reglas, paletas, tokens, catálogo)
   USO-CON-IA.md           ← Guía: cómo generar páginas con IA usando el manifiesto
   llms.txt                ← Índice raíz descubrible (llmstxt.org)
@@ -332,9 +334,10 @@ grimorio-engine/
 - [x] Showcase con **cero `style=""`**
 - [x] Utilidades de animación/transición, skeleton, validación de form, `:focus-visible`
 - [x] Lift de legibilidad de fuentes
-- [x] `packages/css/style.min.css` — generado por `npm run build`
+- [x] `packages/css/grimorio.min.css` — generado por `npm run build`
 - [x] Tokens extraídos a `packages/core/tokens.json` (+ `tokens.js`)
 - [x] Manifiesto para IA (`COMPONENTES.md`, `llms.txt`, `USO-CON-IA.md`)
+- [x] CSS/JS renombrados a `grimorio.css`/`grimorio.js` + espejo `css/` a nivel raíz (paralelo a `js/`)
 - [ ] Publicar `@grimorio/css` en npm / GitHub Packages
 - [ ] `@grimorio/elements` — Web Components (Custom Elements)
 - [ ] `@grimorio/vue` — Wrappers Vue 3

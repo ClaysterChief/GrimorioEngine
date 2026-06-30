@@ -29,7 +29,7 @@ import '@grimorio/css/min'
 Sin bundler (HTML directo):
 
 ```html
-<link rel="stylesheet" href="node_modules/@grimorio/css/style.css" />
+<link rel="stylesheet" href="node_modules/@grimorio/css/grimorio.css" />
 <!-- Fuentes: ya se importan dentro del CSS (Google Fonts) -->
 ```
 

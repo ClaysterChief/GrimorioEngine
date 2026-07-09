@@ -15,7 +15,7 @@ export const tokens = {
 
   palettes: {
     dual: {
-      label: 'Dual Signal', default: true, bodyClass: '',
+      label: 'Dual Signal', default: true, bodyClass: '', explicitClass: 'dual',
       tokens: {
         'void-deep': '#030108', 'void-primary': '#060412', 'void-surface': '#0e061e',
         deep: '#1a0840', border: '#2e1e60', acento: '#b44fff', 'acento-light': '#d98fff',
@@ -23,7 +23,7 @@ export const tokens = {
       },
     },
     cosmos: {
-      label: 'Cosmos Blue', default: false, bodyClass: 'cosmos',
+      label: 'Cosmos Blue', default: false, bodyClass: 'cosmos', explicitClass: 'cosmos',
       tokens: {
         'void-deep': '#020609', 'void-primary': '#040c18', 'void-surface': '#060e1e',
         deep: '#0a1a40', border: '#1e3060', acento: '#1a6fd8', 'acento-light': '#4fa3ff',
@@ -31,7 +31,7 @@ export const tokens = {
       },
     },
     crimson: {
-      label: 'Crimson Signal', default: false, bodyClass: 'crimson',
+      label: 'Crimson Signal', default: false, bodyClass: 'crimson', explicitClass: 'crimson',
       tokens: {
         'void-deep': '#090101', 'void-primary': '#110202', 'void-surface': '#1c0505',
         deep: '#2a0808', border: '#461212', acento: '#e53935', 'acento-light': '#ff6b67',

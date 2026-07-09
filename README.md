@@ -3,7 +3,7 @@
 **CSS UI Framework — ESC Labs**
 Estética PS1 / CRT · Tres paletas de color · Sin dependencias
 
-```
+```text
 Build. Evolve. Compute.
 ```
 
@@ -22,7 +22,7 @@ No es Tailwind. No es Bootstrap. Es un lenguaje visual propio.
 El framework incluye tres paletas que se aplican como clase en el `<body>`:
 
 | Paleta | Clase | Acento |
-|---|---|---|
+| --- | --- | --- |
 | Dual Signal *(default)* | *(ninguna)* | `#b44fff` — señal púrpura |
 | Cosmos Blue | `.cosmos` | `#1a6fd8` — azul profundo |
 | Crimson Signal | `.crimson` | `#e53935` — rojo casi negro |
@@ -37,25 +37,25 @@ El cambio de tema incluye un efecto de flash CRT generado por CSS puro.
 
 ## Componentes incluidos
 
-| Categoría | Componentes |
-|---|---|
-| **Botones** | Base, Primario, Acción, Secundario, Fantasma, Scan, Glitch, Pulso, Alerta + tamaños |
-| **Formularios** | Input estándar, Checkbox, Radio (diamante), Toggle, Textarea, File input |
-| **Formularios especiales** | Multi-paso deslizante, Tarjeta de crédito (flip 3D), Input de correo con dominio |
-| **Tarjetas** | Base, Destacada, Inversa, Stat HUD, VHS container |
-| **Navegación** | Navbar, Menú desplegable, Selector de tema |
-| **Contenido** | Carrusel imágenes, Carrusel tarjetas, Paginación |
-| **Feedback** | Alertas (ok / advertencia / error), Modal con overlay |
-| **Datos** | Tabla con badges de estado, Grid sistema (2/3/4/auto col) |
-| **Elementos PS1** | Barra HP, Consola terminal, Texto máquina, Ventana PS1, Loaders |
-| **Tipografía** | Utilidades de texto, Taglines, Separadores de sección |
-| **Imágenes** | Hover effects (scan, glitch, zoom, flip, distorsión) |
+| Categoría                  | Componentes                                                                         |
+| -------------------------- | ----------------------------------------------------------------------------------- |
+| **Botones**                | Base, Primario, Acción, Secundario, Fantasma, Scan, Glitch, Pulso, Alerta + tamaños |
+| **Formularios**            | Input estándar, Checkbox, Radio (diamante), Toggle, Textarea, File input            |
+| **Formularios especiales** | Multi-paso deslizante, Tarjeta de crédito (flip 3D), Input de correo con dominio    |
+| **Tarjetas**               | Base, Destacada, Inversa, Stat HUD, VHS container                                   |
+| **Navegación**             | Navbar, Menú desplegable, Selector de tema                                          |
+| **Contenido**              | Carrusel imágenes, Carrusel tarjetas, Paginación                                    |
+| **Feedback**               | Alertas (ok / advertencia / error), Modal con overlay                               |
+| **Datos**                  | Tabla con badges de estado, Grid sistema (2/3/4/auto col)                           |
+| **Elementos PS1**          | Barra HP, Consola terminal, Texto máquina, Ventana PS1, Loaders                     |
+| **Tipografía**             | Utilidades de texto, Taglines, Separadores de sección                               |
+| **Imágenes**               | Hover effects (scan, glitch, zoom, flip, distorsión)                                |
 
 ---
 
 ## Tipografía
 
-```
+```text
 Display  : Orbitron 900         → Títulos, logo, headers
 Body     : VT323                → Texto corrido, descripciones
 Mono     : Share Tech Mono      → Labels, metadatos, código
@@ -102,9 +102,11 @@ Sin build step. Sin configuración. Funciona en cualquier proyecto HTML.
 El framework CSS se distribuye como el paquete **`@grimorio/css`** (dentro del monorepo). Dos formas de instalarlo:
 
 **Desde el registro npm (paquete scoped):**
+
 ```bash
 npm install @grimorio/css
 ```
+
 ```js
 // main.js · main.jsx · main.ts
 import '@grimorio/css'          // hoja completa
@@ -113,11 +115,13 @@ import '@grimorio/css/min'
 ```
 
 **Desde GitHub (sin publicar en npm):**
+
 ```bash
 npm install github:ClaysterChief/GrimorioEngine
 # o fijando una versión por tag:
 npm install github:ClaysterChief/GrimorioEngine#v2.0.0
 ```
+
 ```js
 // El paquete raíz exporta el CSS en su entry principal:
 import 'grimorio-engine'        // → css/grimorio.css (espejo de raíz, igual nivel que js/)
@@ -135,6 +139,7 @@ El CSS queda disponible globalmente en toda la aplicación.
 Importa el CSS globalmente y gestiona el tema con estado de React.
 
 **Proveedor de tema:**
+
 ```jsx
 // src/providers/ThemeProvider.jsx
 import { createContext, useContext, useState, useEffect } from 'react'
@@ -160,6 +165,7 @@ export const useTema = () => useContext(ThemeContext)
 ```
 
 **Uso en `main.jsx`:**
+
 ```jsx
 import { ThemeProvider } from './providers/ThemeProvider'
 
@@ -171,6 +177,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 ```
 
 **Componentes con clases de GrimorioEngine:**
+
 ```jsx
 // Los componentes solo aplican clases CSS — sin estilos propios
 function Boton({ variante = 'btn-primario', tamaño, children, ...props }) {
@@ -190,6 +197,7 @@ function Boton({ variante = 'btn-primario', tamaño, children, ...props }) {
 ```
 
 **Selector de tema:**
+
 ```jsx
 function SelectorTema() {
   const { tema, setTema } = useTema()
@@ -226,7 +234,7 @@ function SelectorTema() {
 
 BEM simplificado, todo en **español, kebab-case**:
 
-```
+```text
 .bloque
 .bloque-modificador
 .bloque__elemento
@@ -234,7 +242,7 @@ BEM simplificado, todo en **español, kebab-case**:
 ```
 
 | Prefijo | Tipo | Ejemplo |
-|---|---|---|
+| --- | --- | --- |
 | `btn` | Botones | `.btn`, `.btn-primario` |
 | `campo-` | Inputs de formulario | `.campo-formulario` |
 | `formulario-` | Contenedores de form | `.formulario-estandar` |
@@ -273,7 +281,7 @@ BEM simplificado, todo en **español, kebab-case**:
 
 ## Estructura del proyecto
 
-```
+```text
 grimorio-engine/
   packages/
     css/
@@ -346,4 +354,4 @@ grimorio-engine/
 
 ---
 
-*ESC Labs · Evolution in Science & Computing · GrimorioEngine v2.0*
+ESC Labs · Evolution in Science & Computing · GrimorioEngine v2.0

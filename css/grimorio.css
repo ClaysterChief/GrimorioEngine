@@ -81,6 +81,36 @@
   --z-flash:    9999;
 }
 
+/* Paleta B — Dual Signal (explícita)
+   :root ya aplica estos valores por defecto, pero sin una clase propia no hay
+   forma de ANCLAR un contenedor anidado a Dual Signal cuando un ancestro tiene
+   .cosmos/.crimson — las variables CSS heredarían del ancestro. .dual resuelve
+   ese caso (ej. tarjetas de comparación de paletas dentro de una página con
+   tema activo distinto). Mismos valores que :root, misma estructura que
+   .cosmos/.crimson para poder aplicarse a <body> o a cualquier contenedor. */
+.dual {
+  --void-deep: #030108;
+  --void-primary: #060412;
+  --void-surface: #0e061e;
+  --deep: #1a0840;
+  --border: #2e1e60;
+  --acento: #b44fff;
+  --acento-light: #d98fff;
+  --red-strike: #ff3d6e;
+  --text-primary: #dcc8f0;
+  --text-muted: #8868a8;
+  background-color: var(--void-primary);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, var(--deep) 0%, var(--void-primary) 70%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.2) 2px,
+      rgba(0, 0, 0, 0.2) 4px
+    );
+}
+
 /* Paleta A — Cosmos Blue */
 .cosmos {
   --void-deep: #020609;
@@ -1100,6 +1130,13 @@ footer .divisor {
 }
 .btn-fantasma.btn--peligro::before {
   background-color: var(--red-strike);
+}
+/* En .btn-fantasma el hover rellena con --red-strike sólido (vía ::before de
+   arriba) — el texto debe volverse oscuro ahí, si no, queda rojo sobre rojo
+   (invisible). Fuera de .btn-fantasma el hover usa fondo oscuro --deep, donde
+   el texto --red-strike normal ya contrasta bien. */
+.btn-fantasma.btn--peligro:hover {
+  color: var(--void-deep);
 }
 
 /* Scan — barrido de luz horizontal en hover */

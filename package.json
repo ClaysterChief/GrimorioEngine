@@ -1,6 +1,6 @@
 {
   "name": "grimorio-engine",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "ESC Labs PS1 UI Framework — pure CSS + vanilla JS",
   "private": true,
   "workspaces": [

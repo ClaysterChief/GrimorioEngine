@@ -4,6 +4,13 @@ Todas las versiones notables de GrimorioEngine. Formato basado en
 [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/); el proyecto sigue
 versionado semántico.
 
+## [2.0.2]
+
+### Fixed
+- **No había forma de anclar un elemento anidado a Dual Signal.** `.cosmos` y `.crimson` son clases completas (variables + fondo) que se pueden aplicar a cualquier contenedor, pero Dual Signal solo existía como los valores por defecto de `:root` — sin clase propia. Resultado: un elemento "sin clase" anidado dentro de un contenedor `.cosmos`/`.crimson` heredaba esa paleta en vez de quedarse en púrpura (encontrado por una IA generando una página de comparación de temas — ver `USO-CON-IA.md`). Agregada **`.dual`**, misma estructura que `.cosmos`/`.crimson`, mismos valores que `:root`. Regla nueva: al mostrar una paleta específica dentro de un contenedor con otra paleta activa, usar siempre una clase explícita (`.dual`/`.cosmos`/`.crimson`) — nunca dejar Dual Signal "sin clase" en ese caso. Demostrado en el showcase; `COMPONENTES.md`, `CLAUDE.md` y `tokens.json`/`tokens.js` (campo `explicitClass`) sincronizados.
+
+[2.0.2]: https://github.com/ClaysterChief/GrimorioEngine/releases/tag/v2.0.2
+
 ## [2.0.1]
 
 ### Changed

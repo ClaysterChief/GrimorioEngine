@@ -1,6 +1,6 @@
 {
   "name": "@grimorio/css",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "GrimorioEngine — PS1/CRT CSS framework (vanilla, zero JS deps)",
   "style": "grimorio.css",
   "exports": {

@@ -92,11 +92,13 @@ Three palettes, applied as a class on `<body>` or any container:
 
 | Palette | Class | Accent |
 |---|---|---|
-| Dual Signal (default) | *(none)* | `#b44fff` purple |
+| Dual Signal (default) | *(none)*, or explicit `.dual` | `#b44fff` purple |
 | Cosmos Blue | `.cosmos` | `#1a6fd8` blue |
 | Crimson Signal | `.crimson` | `#e53935` red |
 
 All component colors reference CSS custom properties (`--acento`, `--void-surface`, `--border`, etc.) so they automatically adapt when a palette class is applied. Theme switching triggers a CRT flash animation via `#tema-flash` + `.tema-flash--activo`.
+
+**Nesting palettes**: `.cosmos`/`.crimson`/`.dual` all mirror the same structure (var overrides + background-color + background-image) so any of them can scope a nested element regardless of what palette an ancestor has. `.dual` exists specifically because Dual Signal has no class by default (it's just `:root`) — without it, a nested "no class" element would inherit an ancestor's `.cosmos`/`.crimson` variables instead of staying purple. Always use an explicit class (`.cosmos`, `.crimson`, or `.dual`) when showing one palette's look inside a container themed with another (e.g. theme-comparison cards) — never rely on "no class" to mean Dual Signal in that context.
 
 ### JavaScript (`js/grimorio.js`)
 

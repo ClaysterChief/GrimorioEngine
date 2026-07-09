@@ -1594,7 +1594,7 @@
     </div>
 
     <!-- Semantic helpers -->
-    <div>
+    <div class="mb-lg">
       <p class="etiqueta mb-sm">Clases semánticas reutilizables</p>
       <div class="superficie p-md">
         <p class="etiqueta">◆ etiqueta — eyebrow mono en mayúsculas</p>
@@ -1603,6 +1603,28 @@
         <p class="text-mono text-centro mt-sm">
           <button class="btn btn-fantasma btn--peligro"><code>.btn--peligro</code></button>
         </p>
+      </div>
+    </div>
+
+    <!-- Anidamiento de paletas -->
+    <div>
+      <p class="etiqueta mb-sm">Anidamiento de paletas — .dual / .cosmos / .crimson</p>
+      <p class="fs-xs font-mono text-apagado mb-sm">
+        Este contenedor exterior tiene <code>.cosmos</code> aplicado. Las tres tarjetas de adentro usan una clase de paleta explícita cada una — ninguna se queda "sin clase", por eso ninguna hereda el azul del ancestro.
+      </p>
+      <div class="cosmos p-lg d-flex flex-wrap gap-md">
+        <div class="dual superficie p-md min-w-xs">
+          <code class="fs-xs font-mono">.dual</code>
+          <p class="text-acento fs-md mt-xs">Dual Signal</p>
+        </div>
+        <div class="cosmos superficie p-md min-w-xs">
+          <code class="fs-xs font-mono">.cosmos</code>
+          <p class="text-acento fs-md mt-xs">Cosmos Blue</p>
+        </div>
+        <div class="crimson superficie p-md min-w-xs">
+          <code class="fs-xs font-mono">.crimson</code>
+          <p class="text-acento fs-md mt-xs">Crimson Signal</p>
+        </div>
       </div>
     </div>
   </section>

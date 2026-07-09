@@ -55,9 +55,11 @@ Se aplican como clase en `<body>` o cualquier contenedor. Todos los componentes 
 
 | Paleta | Clase | Acento |
 |---|---|---|
-| Dual Signal (default) | *(ninguna)* | `#b44fff` púrpura |
+| Dual Signal (default) | *(ninguna)*, o explícita: `.dual` | `#b44fff` púrpura |
 | Cosmos Blue | `.cosmos` | `#1a6fd8` azul |
 | Crimson Signal | `.crimson` | `#e53935` rojo |
+
+**Anidamiento de paletas:** si vas a mostrar un elemento de una paleta específica DENTRO de un contenedor que ya tiene otra paleta activa (ej. una tarjeta comparativa "así se ve cada tema"), usá SIEMPRE una clase de paleta explícita en ese elemento — `.cosmos`, `.crimson` o `.dual`. Nunca dejes Dual Signal "sin clase" en ese caso: sin `.dual`, el elemento hereda las variables del ancestro (`.cosmos`/`.crimson`) en vez de quedarse en púrpura. La ausencia de clase solo significa Dual Signal cuando NINGÚN ancestro tiene otra paleta aplicada.
 
 Variables theme-aware: `--void-deep` · `--void-primary` · `--void-surface` · `--deep` · `--border` · `--acento` · `--acento-light` · `--red-strike` · `--text-primary` · `--text-muted`.
 Fuentes (constantes): `--font-display` (Orbitron) · `--font-body` (VT323) · `--font-mono` (Share Tech Mono).
@@ -136,20 +138,20 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` 
 <div class="grupo-tarjeta">
   <div class="tarjeta">
     <img src="..." alt="..." class="tarjeta__imagen" />
-    <div class="tarjeta__header">
+    <div class="tarjeta__cuerpo">
       <span class="etiqueta">01 · desarrollo</span>
-      <h3 class="tarjeta__titulo">Creación Web</h3>
+      <h3 class="tarjeta__titulo mt-xs">Creación Web</h3>
+      <p class="tarjeta__texto">Descripción del servicio.</p>
     </div>
-    <p>Descripción del servicio.</p>
     <div class="tarjeta__footer d-flex ai-center gap-sm">
       <span class="font-mono fs-xs text-apagado">Capacidad</span>
       <div class="barra-hp flex-1"><!-- bloques --></div>
     </div>
-    <a href="#" class="btn btn-primario mt-md d-inline-block">◆ Más info</a>
+    <a href="#" class="btn btn-primario btn-tarjeta">◆ Más info</a>
   </div>
 </div>
 ```
-Variante: `.tarjeta--accion` (rojo).
+**Crítico:** `.tarjeta` en sí NO tiene padding — el texto/título deben ir **siempre** envueltos en `.tarjeta__cuerpo` (que sí trae `padding: 1rem`), nunca sueltos como hijos directos de `.tarjeta`. Sin `.tarjeta__cuerpo` el contenido queda pegado al borde. El botón inferior usa `.btn-tarjeta` (no `mt-md d-inline-block`) para heredar el margen lateral de 1rem correcto. Variante: `.tarjeta--accion` (rojo).
 
 ### Formularios
 ```html

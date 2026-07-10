@@ -7,8 +7,8 @@
    ESCCarrusel — Carrusel de slides
    ================================================ */
 class ESCCarrusel {
-  constructor(id) {
-    this.el = document.getElementById(id);
+  constructor(el) {
+    this.el = el;
     if (!this.el) return;
     this.pista = this.el.querySelector('.carrusel__pista');
     this.items = this.el.querySelectorAll('.carrusel__item');
@@ -96,56 +96,60 @@ function iniciarFormPasos() {
 
 /* ================================================
    Tarjeta de crédito — flip + preview en vivo
+   Auto-descubre cualquier .tarjeta-credito-form
    ================================================ */
 function iniciarTarjetaCredito() {
-  const preview = document.getElementById('tc-preview');
-  const numInput = document.getElementById('tc-numero');
-  const nomInput = document.getElementById('tc-nombre');
-  const expInput = document.getElementById('tc-exp');
-  const cvvInput = document.getElementById('tc-cvv');
-  if (!preview) return;
+  document.querySelectorAll('.tarjeta-credito-form').forEach(form => {
+    const preview = form.querySelector('.tarjeta-credito');
+    if (!preview) return;
 
-  const numPrev = document.getElementById('tc-num-preview');
-  const nomPrev = document.getElementById('tc-nombre-preview');
-  const expPrev = document.getElementById('tc-exp-preview');
-  const firmaPrev = document.getElementById('tc-firma-preview');
-  const cvvPrev = document.getElementById('tc-cvv-preview');
+    const numInput = form.querySelector('[data-tc="numero"]');
+    const nomInput = form.querySelector('[data-tc="nombre"]');
+    const expInput = form.querySelector('[data-tc="exp"]');
+    const cvvInput = form.querySelector('[data-tc="cvv"]');
 
-  function fmtNumero(v) {
-    return v.replace(/\D/g, '').substring(0, 16)
-      .replace(/(.{4})/g, '$1 ').trim();
-  }
-  function numMask(v) {
-    const d = v.replace(/\D/g, '');
-    const shown = d.substring(0, 4);
-    const masked = d.substring(4, 12).replace(/\d/g, '◆');
-    const last = d.substring(12, 16);
-    const raw = (shown + masked + last).padEnd(16, '◆');
-    return raw.replace(/(.{4})/g, '$1 ').trim();
-  }
+    const numPrev = preview.querySelector('.tarjeta-credito__numero');
+    const nomPrev = preview.querySelector('.tarjeta-credito__meta-valor--nombre');
+    const expPrev = preview.querySelector('.tarjeta-credito__meta-valor--exp');
+    const firmaPrev = preview.querySelector('.tarjeta-credito__firma-texto');
+    const cvvPrev = preview.querySelector('.tarjeta-credito__cvv-valor');
 
-  numInput?.addEventListener('input', e => {
-    e.target.value = fmtNumero(e.target.value);
-    if (numPrev) numPrev.innerHTML = numMask(e.target.value);
-  });
-  nomInput?.addEventListener('input', e => {
-    const v = e.target.value.toUpperCase() || 'NOMBRE APELLIDO';
-    if (nomPrev) nomPrev.textContent = v;
-    if (firmaPrev) firmaPrev.textContent = v.toLowerCase();
-  });
-  expInput?.addEventListener('input', e => {
-    let v = e.target.value.replace(/\D/g, '');
-    if (v.length > 2) v = v.substring(0, 2) + '/' + v.substring(2, 4);
-    e.target.value = v;
-    if (expPrev) expPrev.textContent = v || 'MM/AA';
-  });
-  cvvInput?.addEventListener('input', e => {
-    if (cvvPrev) cvvPrev.textContent = e.target.value || '◆◆◆';
-  });
+    function fmtNumero(v) {
+      return v.replace(/\D/g, '').substring(0, 16)
+        .replace(/(.{4})/g, '$1 ').trim();
+    }
+    function numMask(v) {
+      const d = v.replace(/\D/g, '');
+      const shown = d.substring(0, 4);
+      const masked = d.substring(4, 12).replace(/\d/g, '◆');
+      const last = d.substring(12, 16);
+      const raw = (shown + masked + last).padEnd(16, '◆');
+      return raw.replace(/(.{4})/g, '$1 ').trim();
+    }
 
-  // Flip on CVV focus/blur
-  cvvInput?.addEventListener('focus', () => preview.classList.add('tarjeta-credito--volteada'));
-  cvvInput?.addEventListener('blur', () => preview.classList.remove('tarjeta-credito--volteada'));
+    numInput?.addEventListener('input', e => {
+      e.target.value = fmtNumero(e.target.value);
+      if (numPrev) numPrev.innerHTML = numMask(e.target.value);
+    });
+    nomInput?.addEventListener('input', e => {
+      const v = e.target.value.toUpperCase() || 'NOMBRE APELLIDO';
+      if (nomPrev) nomPrev.textContent = v;
+      if (firmaPrev) firmaPrev.textContent = v.toLowerCase();
+    });
+    expInput?.addEventListener('input', e => {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 2) v = v.substring(0, 2) + '/' + v.substring(2, 4);
+      e.target.value = v;
+      if (expPrev) expPrev.textContent = v || 'MM/AA';
+    });
+    cvvInput?.addEventListener('input', e => {
+      if (cvvPrev) cvvPrev.textContent = e.target.value || '◆◆◆';
+    });
+
+    // Flip on CVV focus/blur
+    cvvInput?.addEventListener('focus', () => preview.classList.add('tarjeta-credito--volteada'));
+    cvvInput?.addEventListener('blur', () => preview.classList.remove('tarjeta-credito--volteada'));
+  });
 }
 
 /* ================================================
@@ -241,40 +245,43 @@ function iniciarArchivos() {
 }
 
 /* ================================================
-   Paginación demo interactiva
+   Paginación — auto-descubre cualquier .paginacion
    ================================================ */
 function iniciarPaginacion() {
-  const total = 7;
-  let pagActual = 1;
-  const paginasEl = document.getElementById('pag-paginas');
-  const antBtn = document.getElementById('pag-ant');
-  const sigBtn = document.getElementById('pag-sig');
-  if (!paginasEl) return;
+  document.querySelectorAll('.paginacion').forEach(nav => {
+    const paginasEl = nav.querySelector('.paginacion__paginas');
+    const antBtn = nav.querySelector('.paginacion__btn[data-dir="-1"]');
+    const sigBtn = nav.querySelector('.paginacion__btn[data-dir="1"]');
+    if (!paginasEl || !antBtn || !sigBtn) return;
 
-  function render() {
-    paginasEl.innerHTML = '';
-    for (let i = 1; i <= total; i++) {
-      const btn = document.createElement('button');
-      btn.className = 'paginacion__pagina' + (i === pagActual ? ' paginacion__pagina--activa' : '');
-      btn.textContent = i;
-      btn.addEventListener('click', () => { pagActual = i; render(); });
-      paginasEl.appendChild(btn);
+    const total = parseInt(nav.dataset.total) || 7;
+    let pagActual = 1;
+
+    function render() {
+      paginasEl.innerHTML = '';
+      for (let i = 1; i <= total; i++) {
+        const btn = document.createElement('button');
+        btn.className = 'paginacion__pagina' + (i === pagActual ? ' paginacion__pagina--activa' : '');
+        btn.textContent = i;
+        btn.addEventListener('click', () => { pagActual = i; render(); });
+        paginasEl.appendChild(btn);
+      }
+      antBtn.disabled = pagActual === 1;
+      sigBtn.disabled = pagActual === total;
     }
-    antBtn.disabled = pagActual === 1;
-    sigBtn.disabled = pagActual === total;
-  }
 
-  antBtn.addEventListener('click', () => { if (pagActual > 1) { pagActual--; render(); } });
-  sigBtn.addEventListener('click', () => { if (pagActual < total) { pagActual++; render(); } });
-  render();
+    antBtn.addEventListener('click', () => { if (pagActual > 1) { pagActual--; render(); } });
+    sigBtn.addEventListener('click', () => { if (pagActual < total) { pagActual++; render(); } });
+    render();
+  });
 }
 
 /* ================================================
    ESCConsola — Terminal interactiva del framework
    ================================================ */
 class ESCConsola {
-  constructor(id) {
-    this.el = document.getElementById(id);
+  constructor(el) {
+    this.el = el;
     if (!this.el) return;
     this.pantalla = this.el.querySelector('.consola__pantalla');
     this.input = this.el.querySelector('.consola__input');
@@ -514,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  new ESCConsola('esc-consola');
+  document.querySelectorAll('.consola').forEach(el => new ESCConsola(el));
   iniciarTextoMaquina();
   iniciarFormPasos();
   iniciarTarjetaCredito();
@@ -524,9 +531,6 @@ document.addEventListener('DOMContentLoaded', () => {
   iniciarSelectorTema();
   iniciarAcordeon();
   iniciarRangos();
-  const carruseles = [
-    new ESCCarrusel('carrusel-imagenes'),
-    new ESCCarrusel('carrusel-tarjetas'),
-  ];
+  const carruseles = Array.from(document.querySelectorAll('.carrusel')).map(el => new ESCCarrusel(el));
   window.addEventListener('resize', () => carruseles.forEach(c => c._actualizar()));
 });

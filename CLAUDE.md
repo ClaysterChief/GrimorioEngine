@@ -147,7 +147,7 @@ Key prefixes: `btn`, `campo-`, `formulario-`, `tarjeta-`, `grupo-`, `imagen-`, `
 --text-muted      /* labels, metadata */
 ```
 
-Font variables (constant across palettes): `--font-display` (Orbitron 900), `--font-body` (VT323), `--font-mono` (Share Tech Mono).
+Font variables (constant across palettes): `--font-display` (Orbitron 900), `--font-body` (VT323), `--font-mono` (Share Tech Mono) — this triad is brand identity, never swap for UI. One exception: `--font-code` (Cascadia Code PL, system-fallback stack, no @import) used only in `.codigo__cuerpo` for actual code legibility.
 
 Additional token groups (the `:root` block in `grimorio.css` is the single source — see `--space-*`, `--z-*`, `--font-size-*`):
 

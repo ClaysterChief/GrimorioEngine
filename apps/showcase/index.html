@@ -700,6 +700,22 @@
     </div>
   </section>
 
+  <!-- ── BLOQUE DE CÓDIGO ──────────────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Código · Snippets e instalación</p>
+    <div class="grid grid--2 grid--gap-lg">
+      <div class="codigo">
+        <div class="codigo__barra">bash</div>
+        <pre class="codigo__cuerpo"><code>npm install @grimorio/css</code></pre>
+      </div>
+      <div class="codigo">
+        <div class="codigo__barra">html</div>
+        <pre class="codigo__cuerpo"><code>&lt;link rel="stylesheet"
+  href="css/grimorio.css" /&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CONSOLA TERMINAL ──────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Consola · Terminal interactiva · escribe "help" para empezar</p>
@@ -1022,27 +1038,27 @@
       <!-- Formulario tarjeta de crédito -->
       <div class="flex-1 min-w-xl max-w-sm">
         <h6 class="mb-sm">Tarjeta de crédito · Flip CVV</h6>
-        <form onsubmit="return false;">
+        <form class="tarjeta-credito-form" onsubmit="return false;">
           <!-- Preview 3D -->
           <div class="tarjeta-credito-escena">
-            <div class="tarjeta-credito" id="tc-preview">
+            <div class="tarjeta-credito">
               <div class="tarjeta-credito__cara">
                 <div class="tarjeta-credito__frente-contenido">
                   <div class="tarjeta-credito__header">
                     <div class="tarjeta-credito__marca">ESC LABS<small>SIGNAL CARD</small></div>
                     <div class="tarjeta-credito__chip"></div>
                   </div>
-                  <div class="tarjeta-credito__numero" id="tc-num-preview">
+                  <div class="tarjeta-credito__numero">
                     ◆◆◆◆ &nbsp; ◆◆◆◆ &nbsp; ◆◆◆◆ &nbsp; ◆◆◆◆
                   </div>
                   <div class="tarjeta-credito__footer">
                     <div class="tarjeta-credito__meta-grupo">
                       <span class="tarjeta-credito__meta-label">Titular</span>
-                      <span class="tarjeta-credito__meta-valor" id="tc-nombre-preview">NOMBRE APELLIDO</span>
+                      <span class="tarjeta-credito__meta-valor tarjeta-credito__meta-valor--nombre">NOMBRE APELLIDO</span>
                     </div>
                     <div class="tarjeta-credito__meta-grupo text-derecha">
                       <span class="tarjeta-credito__meta-label">Expira</span>
-                      <span class="tarjeta-credito__meta-valor" id="tc-exp-preview">MM/AA</span>
+                      <span class="tarjeta-credito__meta-valor tarjeta-credito__meta-valor--exp">MM/AA</span>
                     </div>
                   </div>
                 </div>
@@ -1052,10 +1068,10 @@
                   <div class="tarjeta-credito__banda"></div>
                   <div class="tarjeta-credito__firma-row">
                     <div class="tarjeta-credito__firma">
-                      <span class="tarjeta-credito__firma-texto" id="tc-firma-preview">NOMBRE APELLIDO</span>
+                      <span class="tarjeta-credito__firma-texto">NOMBRE APELLIDO</span>
                     </div>
                     <div class="tarjeta-credito__cvv-bloque">
-                      <div class="tarjeta-credito__cvv-valor" id="tc-cvv-preview">◆◆◆</div>
+                      <div class="tarjeta-credito__cvv-valor">◆◆◆</div>
                       <div class="tarjeta-credito__cvv-etiqueta">CVV</div>
                     </div>
                   </div>
@@ -1067,21 +1083,21 @@
           <!-- Inputs -->
           <div class="campo-formulario mt-0">
             <label for="tc-numero">Número:</label>
-            <input class="formulario-estandar" type="text" id="tc-numero" placeholder="◆◆◆◆  ◆◆◆◆  ◆◆◆◆  ◆◆◆◆"
+            <input class="formulario-estandar" type="text" id="tc-numero" data-tc="numero" placeholder="◆◆◆◆  ◆◆◆◆  ◆◆◆◆  ◆◆◆◆"
               maxlength="19" />
           </div>
           <div class="campo-formulario">
             <label for="tc-nombre">Titular:</label>
-            <input class="formulario-estandar" type="text" id="tc-nombre" placeholder="NOMBRE APELLIDO" />
+            <input class="formulario-estandar" type="text" id="tc-nombre" data-tc="nombre" placeholder="NOMBRE APELLIDO" />
           </div>
           <div class="d-flex gap-sm">
             <div class="campo-formulario flex-1">
               <label for="tc-exp">Expiración:</label>
-              <input class="formulario-estandar" type="text" id="tc-exp" placeholder="MM/AA" maxlength="5" />
+              <input class="formulario-estandar" type="text" id="tc-exp" data-tc="exp" placeholder="MM/AA" maxlength="5" />
             </div>
             <div class="campo-formulario flex-1">
               <label for="tc-cvv">CVV <small>(reverso)</small>:</label>
-              <input class="formulario-estandar" type="text" id="tc-cvv" placeholder="◆◆◆" maxlength="4" />
+              <input class="formulario-estandar" type="text" id="tc-cvv" data-tc="cvv" placeholder="◆◆◆" maxlength="4" />
             </div>
           </div>
           <div class="mt-md">
@@ -1198,10 +1214,10 @@
   <!-- ── PAGINACIÓN ────────────────────────────────── -->
   <section class="contenedor seccion">
     <p class="separador">Paginación</p>
-    <nav class="paginacion" aria-label="Paginación" id="paginacion-demo">
-      <button class="paginacion__btn" id="pag-ant" disabled>&#8592; Ant</button>
-      <div class="paginacion__paginas" id="pag-paginas"></div>
-      <button class="paginacion__btn" id="pag-sig">Sig &#8594;</button>
+    <nav class="paginacion" aria-label="Paginación" data-total="7">
+      <button class="paginacion__btn" data-dir="-1" disabled>&#8592; Ant</button>
+      <div class="paginacion__paginas"></div>
+      <button class="paginacion__btn" data-dir="1">Sig &#8594;</button>
     </nav>
   </section>
 

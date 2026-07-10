@@ -11,6 +11,7 @@ export const tokens = {
     display: '"Orbitron", sans-serif',
     body: '"VT323", monospace',
     mono: '"Share Tech Mono", monospace',
+    code: '"Cascadia Code PL", "Cascadia Code", ui-monospace, Consolas, Menlo, "Liberation Mono", monospace',
   },
 
   palettes: {

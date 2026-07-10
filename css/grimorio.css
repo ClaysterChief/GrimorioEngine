@@ -25,6 +25,11 @@
   --font-display: "Orbitron", sans-serif;
   --font-body: "VT323", monospace;
   --font-mono: "Share Tech Mono", monospace;
+  /* Fuente de código real (bloques .codigo) — distinta de --font-mono, que es
+     la retro/UI (labels, badges, nav). Sin @import: si el visitante tiene
+     Cascadia Code (PL) instalada la usa, si no cae a un stack monoespaciado
+     sólido (Consolas/Menlo/ui-monospace). No agrega requests ni assets. */
+  --font-code: "Cascadia Code PL", "Cascadia Code", ui-monospace, Consolas, Menlo, "Liberation Mono", monospace;
 
   /* Transition timings */
   --transition-fast:     0.15s;
@@ -3742,6 +3747,56 @@ label {
   pointer-events: none;
   animation: vhs-scanlines 14s linear infinite;
   z-index: 1;
+}
+/* ================================================ */
+
+/* ================================================
+   COMPONENTE — Bloque de código
+   Más liviano que .ventana (sin dots/controles) — pensado
+   para snippets de instalación, comandos, ejemplos de código.
+   ================================================ */
+.codigo {
+  background: var(--void-surface);
+  border: 2px solid var(--border);
+  border-top: 2px solid var(--acento);
+  overflow: hidden;
+}
+.codigo__barra {
+  background: linear-gradient(90deg, var(--deep) 0%, var(--void-surface) 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  -webkit-user-select: none;
+  user-select: none;
+}
+.codigo__cuerpo {
+  background: var(--void-deep);
+  margin: 0;
+  padding: 1rem;
+  font-family: var(--font-code);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--acento-light);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--void-deep);
+}
+.codigo__cuerpo::-webkit-scrollbar {
+  height: 5px;
+}
+.codigo__cuerpo::-webkit-scrollbar-track {
+  background: var(--void-deep);
+}
+.codigo__cuerpo::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+/* Sin .codigo__barra — el borde superior de acento ya marca el inicio del bloque */
+.codigo > .codigo__cuerpo:first-child {
+  border-top: none;
 }
 /* ================================================ */
 

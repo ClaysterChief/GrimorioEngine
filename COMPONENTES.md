@@ -62,7 +62,7 @@ Se aplican como clase en `<body>` o cualquier contenedor. Todos los componentes 
 **Anidamiento de paletas:** si vas a mostrar un elemento de una paleta específica DENTRO de un contenedor que ya tiene otra paleta activa (ej. una tarjeta comparativa "así se ve cada tema"), usá SIEMPRE una clase de paleta explícita en ese elemento — `.cosmos`, `.crimson` o `.dual`. Nunca dejes Dual Signal "sin clase" en ese caso: sin `.dual`, el elemento hereda las variables del ancestro (`.cosmos`/`.crimson`) en vez de quedarse en púrpura. La ausencia de clase solo significa Dual Signal cuando NINGÚN ancestro tiene otra paleta aplicada.
 
 Variables theme-aware: `--void-deep` · `--void-primary` · `--void-surface` · `--deep` · `--border` · `--acento` · `--acento-light` · `--red-strike` · `--text-primary` · `--text-muted`.
-Fuentes (constantes): `--font-display` (Orbitron) · `--font-body` (VT323) · `--font-mono` (Share Tech Mono).
+Fuentes (constantes): `--font-display` (Orbitron) · `--font-body` (VT323) · `--font-mono` (Share Tech Mono). Estas tres son la identidad de marca — nunca usar otras fuentes para UI. Excepción única: `--font-code` (Cascadia Code PL, sin @import, con fallback a monoespaciadas del sistema), exclusivo de `.codigo__cuerpo` para mostrar código real de forma legible.
 
 Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` persiste en `localStorage['grimorio-tema']` y dispara el flash CRT.
 
@@ -108,6 +108,9 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` 
 - `.enlace` — link de acento sin subrayado (hover → acento-light).
 - `.icono--sm/md/lg/xl` — tamaño de ícono CSS (1.2/2/3/4.5rem).
 - `.btn--peligro` — recolorea cualquier botón a `--red-strike`.
+- `.diamante` — rombo decorativo (motivo ◆), `<div class="diamante"></div>`.
+- `.cursor-ps1` — cursor parpadeante triangular (`--red-strike`), `<span class="cursor-ps1"></span>`.
+- `.logo-divisor` — línea con diamante centrado: `<div class="logo-divisor"><span class="logo-divisor__linea"></span><span class="logo-divisor__diamante"></span><span class="logo-divisor__linea"></span></div>`.
 
 ### Animación y transición (exponen los keyframes/tokens del framework)
 - **Animación** (aplica a cualquier elemento): `.animate-glow` · `.animate-pulse` · `.animate-blink` · `.animate-glitch` · `.animate-scan` · `.animate-spin` · `.animate-ping` · `.animate-flicker` · `.animate-entrada`. Control: `.animate--once` (una vez) · `.animate--pausa`. Todas respetan `prefers-reduced-motion`.
@@ -179,7 +182,146 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` 
 
 <input type="range" class="formulario-rango" min="0" max="100" value="45" /> <!-- grimorio.js fija --rango-pct -->
 ```
-Especiales (requieren markup específico — copiar del showcase): correo con dominio (`.formulario-correo`), multi-paso (`.formulario-pasos` + `data-paso-sig`/`data-paso-ant`), tarjeta de crédito flip, file input (`.formulario-archivo-contenedor` + `data-nombre-id`).
+
+**Rango con valor en vivo** (muestra el número actual al lado del slider):
+```html
+<div class="campo-rango">
+  <div class="campo-rango__cabecera">
+    <span class="campo-rango__etiqueta">Temperatura del reactor</span>
+    <div class="campo-rango__valor-grupo">
+      <span class="campo-rango__valor">450</span>
+      <span class="campo-rango__unidad">°C</span>
+    </div>
+  </div>
+  <input type="range" class="formulario-rango" min="0" max="1000" value="450" aria-label="Temperatura del reactor" />
+</div>
+```
+`grimorio.js` (`iniciarRangos()`) escanea `.campo-rango`, sincroniza `.campo-rango__valor` con el valor del input en cada `input` event, y fija `--rango-pct` en el input para el relleno visual del track. Sin el wrapper `.campo-rango`, el slider funciona igual mas no muestra el valor en vivo.
+
+**Archivo tematizado:**
+```html
+<div class="formulario-archivo-contenedor">
+  <label class="formulario-archivo-btn" for="mi-archivo">
+    <span>◆</span> Elegir archivo
+  </label>
+  <input type="file" id="mi-archivo" class="formulario-archivo-input" data-nombre-id="mi-archivo-nombre" />
+  <span class="formulario-archivo-nombre" id="mi-archivo-nombre">Ningún archivo seleccionado</span>
+</div>
+```
+`data-nombre-id` en el input debe coincidir con el `id` del `<span>` que muestra el nombre — `iniciarArchivos()` los conecta por ese id.
+
+**Correo con dominio (dropdown):**
+```html
+<div class="formulario-correo">
+  <input type="text" class="formulario-correo__usuario" placeholder="usuario" autocomplete="off" />
+  <span class="formulario-correo__arroba">@</span>
+  <div class="formulario-correo__dominio-wrap">
+    <button type="button" class="formulario-correo__dominio-btn" aria-expanded="false" aria-haspopup="listbox">
+      <span class="formulario-correo__dominio-texto">gmail.com</span>
+      <span class="formulario-correo__flecha">&#9660;</span>
+    </button>
+    <div class="formulario-correo__dropdown" role="listbox" aria-label="Dominios de correo">
+      <div role="option" tabindex="0" class="formulario-correo__opcion" data-dominio="gmail.com">
+        <span class="formulario-correo__opcion-icono">&#9654;</span> gmail.com
+      </div>
+      <div role="option" tabindex="0" class="formulario-correo__opcion" data-dominio="hotmail.com">
+        <span class="formulario-correo__opcion-icono">&#9654;</span> hotmail.com
+      </div>
+    </div>
+  </div>
+</div>
+```
+`.formulario-correo` es auto-descubierto (cualquier cantidad en la página). `data-dominio` en cada `.formulario-correo__opcion` es lo que `iniciarCorreoInputs()` copia a `.formulario-correo__dominio-texto` al hacer click.
+
+**Formulario multi-paso:**
+```html
+<div class="formulario-pasos mw-sm">
+  <div class="formulario-pasos__barra">
+    <span class="formulario-pasos__paso-ind formulario-pasos__paso-ind--activo">01 · Datos</span>
+    <span class="formulario-pasos__conector"></span>
+    <span class="formulario-pasos__paso-ind">02 · Confirmar</span>
+  </div>
+  <div class="formulario-pasos__pista">
+    <div class="formulario-pasos__panel">
+      <input class="formulario-estandar" type="text" placeholder="Usuario" />
+      <div class="d-flex jc-end mt-md">
+        <button class="btn btn-primario" data-paso-sig>Siguiente &#8594;</button>
+      </div>
+    </div>
+    <div class="formulario-pasos__panel">
+      <input class="formulario-estandar" type="email" placeholder="Correo" />
+      <div class="d-flex jc-between mt-md">
+        <button class="btn btn-secundario" data-paso-ant>&#8592; Volver</button>
+        <button class="btn btn-accion">Confirmar ◆</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+`.formulario-pasos` es auto-descubierto. Un `.formulario-pasos__paso-ind` por panel (indicador de la barra superior) y un `.formulario-pasos__conector` entre cada par de indicadores. `data-paso-sig`/`data-paso-ant` (atributos booleanos, sin valor) en los botones de avanzar/retroceder dentro de cada `.formulario-pasos__panel`.
+
+**Tarjeta de crédito (flip 3D + preview en vivo):**
+```html
+<form class="tarjeta-credito-form">
+  <div class="tarjeta-credito-escena">
+    <div class="tarjeta-credito">
+      <div class="tarjeta-credito__cara">
+        <div class="tarjeta-credito__frente-contenido">
+          <div class="tarjeta-credito__header">
+            <div class="tarjeta-credito__marca">ESC LABS<small>SIGNAL CARD</small></div>
+            <div class="tarjeta-credito__chip"></div>
+          </div>
+          <div class="tarjeta-credito__numero">◆◆◆◆ &nbsp; ◆◆◆◆ &nbsp; ◆◆◆◆ &nbsp; ◆◆◆◆</div>
+          <div class="tarjeta-credito__footer">
+            <div class="tarjeta-credito__meta-grupo">
+              <span class="tarjeta-credito__meta-label">Titular</span>
+              <span class="tarjeta-credito__meta-valor tarjeta-credito__meta-valor--nombre">NOMBRE APELLIDO</span>
+            </div>
+            <div class="tarjeta-credito__meta-grupo text-derecha">
+              <span class="tarjeta-credito__meta-label">Expira</span>
+              <span class="tarjeta-credito__meta-valor tarjeta-credito__meta-valor--exp">MM/AA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tarjeta-credito__cara tarjeta-credito__reverso-cara">
+        <div class="tarjeta-credito__reverso-contenido">
+          <div class="tarjeta-credito__banda"></div>
+          <div class="tarjeta-credito__firma-row">
+            <div class="tarjeta-credito__firma">
+              <span class="tarjeta-credito__firma-texto">NOMBRE APELLIDO</span>
+            </div>
+            <div class="tarjeta-credito__cvv-bloque">
+              <div class="tarjeta-credito__cvv-valor">◆◆◆</div>
+              <div class="tarjeta-credito__cvv-etiqueta">CVV</div>
+            </div>
+          </div>
+          <div class="tarjeta-credito__logo-reverso">ESC LABS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="campo-formulario mt-0">
+    <label>Número:</label>
+    <input class="formulario-estandar" type="text" data-tc="numero" maxlength="19" />
+  </div>
+  <div class="campo-formulario">
+    <label>Titular:</label>
+    <input class="formulario-estandar" type="text" data-tc="nombre" />
+  </div>
+  <div class="d-flex gap-sm">
+    <div class="campo-formulario flex-1">
+      <label>Expiración:</label>
+      <input class="formulario-estandar" type="text" data-tc="exp" maxlength="5" />
+    </div>
+    <div class="campo-formulario flex-1">
+      <label>CVV:</label>
+      <input class="formulario-estandar" type="text" data-tc="cvv" maxlength="4" />
+    </div>
+  </div>
+</form>
+```
+El wrapper `<form class="tarjeta-credito-form">` es obligatorio y auto-descubierto. Los 4 inputs se conectan por `data-tc="numero|nombre|exp|cvv"` (no por `id`). En el preview: `.tarjeta-credito__numero`, `.tarjeta-credito__firma-texto` y `.tarjeta-credito__cvv-valor` son únicos dentro de la tarjeta; los dos `.tarjeta-credito__meta-valor` (titular/expira) se distinguen con el modificador `--nombre`/`--exp` — **ambos son obligatorios** para que el preview en vivo funcione. El flip a la cara trasera es automático al enfocar el campo CVV.
 
 ### Navegación (cabecera estándar)
 ```html
@@ -215,6 +357,21 @@ Especiales (requieren markup específico — copiar del showcase): correo con do
 ```
 Estado crítico: `barra-hp__bloque--critico`.
 
+### Stat HUD (panel de métricas)
+```html
+<div class="stat-hud">
+  <div class="stat-hud__item">
+    <span class="stat-hud__label">Componentes</span>
+    <span class="stat-hud__valor">18<span class="stat-hud__unidad"> mods</span></span>
+    <div class="stat-hud__barra barra-hp">
+      <span class="barra-hp__bloque barra-hp__bloque--activo"></span>
+      <span class="barra-hp__bloque"></span>
+    </div>
+  </div>
+</div>
+```
+`.stat-hud__unidad` es opcional (sufijo pequeño junto al valor). `.stat-hud__barra` reutiliza `.barra-hp` como mini-indicador visual — un `.stat-hud__item` por métrica, sin JS asociado.
+
 ### Grid
 `.grid` + `grid--2/3/4/auto`. Span: `.col-2`. Gap: `grid--gap-*`, alineación `grid--ai-start`.
 ```html
@@ -230,21 +387,24 @@ Estado crítico: `barra-hp__bloque--critico`.
 
 ### Modal
 ```html
-<div class="modal-overlay" id="m1">
+<button class="btn btn-primario" onclick="document.getElementById('m1').classList.add('modal-overlay--visible')">◆ Abrir</button>
+
+<div class="modal-overlay" id="m1"
+  onclick="if(event.target===this) this.classList.remove('modal-overlay--visible')">
   <div class="modal w-full max-w-xs">
     <div class="modal__barra">
       <h6 class="modal__titulo-barra">TÍTULO</h6>
-      <button class="modal__cerrar">&#10005;</button>
+      <button class="modal__cerrar" onclick="document.getElementById('m1').classList.remove('modal-overlay--visible')">&#10005;</button>
     </div>
     <div class="modal__contenido"><p>…</p></div>
     <div class="modal__footer">
-      <button class="btn btn-secundario">Cancelar</button>
-      <button class="btn btn-fantasma btn--peligro">Confirmar</button>
+      <button class="btn btn-secundario" onclick="document.getElementById('m1').classList.remove('modal-overlay--visible')">Cancelar</button>
+      <button class="btn btn-fantasma btn--peligro" onclick="document.getElementById('m1').classList.remove('modal-overlay--visible')">Confirmar</button>
     </div>
   </div>
 </div>
 ```
-Abrir/cerrar: alternar la clase `modal-overlay--visible`.
+Abrir/cerrar: alternar la clase `modal-overlay--visible` en el `.modal-overlay`. No hay helper JS dedicado — el patrón establecido (usado en todo el showcase) es `onclick` inline con `classList.add/remove`, incluyendo cerrar al clickear fuera del modal (`if(event.target===this)` en el propio `.modal-overlay`). Esto es intencional, no una improvisación a evitar.
 
 ### Tabla
 ```html
@@ -272,6 +432,16 @@ Badges: `tabla-badge--ok/--error/--pendiente/--inactivo`.
 </div>
 ```
 
+### Bloque de código
+Para snippets, comandos e instalación — **NO** improvisar con `.ventana` ni con utilidades sueltas (`bg-void-deep p-md font-mono`), usar siempre este componente:
+```html
+<div class="codigo">
+  <div class="codigo__barra">bash</div>
+  <pre class="codigo__cuerpo"><code>npm install @grimorio/css</code></pre>
+</div>
+```
+`.codigo__barra` es opcional (label del lenguaje, ej. `bash`/`html`/`css`) — si se omite, `.codigo__cuerpo` pierde el borde superior interno automáticamente. `.codigo__cuerpo` ya trae `overflow-x: auto` para líneas largas y usa `--font-code` (no `--font-mono`) — es la única excepción de fuente del framework, pensada para legibilidad real de código.
+
 ### Íconos CSS puros
 `.icono` + tipo (`icono-diamante/flecha-der/flecha-izq/check/cerrar/alerta`) + tamaño (`icono--sm/md/lg/xl`) + color (`text-*`).
 ```html
@@ -284,8 +454,58 @@ Badges: `tabla-badge--ok/--error/--pendiente/--inactivo`.
 ```
 Direcciones: `tooltip--abajo/--derecha/--izquierda`.
 
+### Carrusel (imágenes o tarjetas)
+```html
+<div class="carrusel mw-md">
+  <div class="carrusel__pista">
+    <div class="carrusel__item">
+      <img src="..." alt="..." class="imagen-total carrusel__img" />
+      <div class="carrusel__leyenda">
+        <h6>Título del slide</h6>
+        <p>Descripción breve.</p>
+      </div>
+    </div>
+    <div class="carrusel__item">
+      <img src="..." alt="..." class="imagen-total carrusel__img" />
+      <div class="carrusel__leyenda">
+        <h6>Otro slide</h6>
+        <p>Descripción.</p>
+      </div>
+    </div>
+  </div>
+  <div class="carrusel__nav carrusel__nav--izq">
+    <button class="carrusel__btn" data-dir="-1">&#9664;</button>
+  </div>
+  <div class="carrusel__nav carrusel__nav--der">
+    <button class="carrusel__btn" data-dir="1">&#9654;</button>
+  </div>
+  <div class="carrusel__puntos"></div> <!-- vacío: ESCCarrusel genera los puntos solo -->
+</div>
+```
+Lo maneja `grimorio.js` (`ESCCarrusel`), que auto-descubre **cualquier** `.carrusel` de la página (no requiere `id`). Los botones prev/next necesitan `data-dir="-1"`/`"1"` exactos — es lo que la clase lee para saber la dirección. `.carrusel__leyenda` es opcional (para tarjetas sin caption, omitila). Para carrusel de tarjetas en vez de imágenes, `.carrusel__item` puede contener cualquier contenido (ej. una `.tarjeta` completa) en vez de `<img>` + `.carrusel__leyenda`.
+
 ### Acordeón
-`.acordeon` (multi-abierto) o `.acordeon--exclusivo` (uno a la vez). Lo maneja `grimorio.js`.
+```html
+<div class="acordeon"> <!-- o .acordeon.acordeon--exclusivo: uno abierto a la vez -->
+  <div class="acordeon__item acordeon__item--abierto"> <!-- --abierto opcional: empieza expandido -->
+    <button class="acordeon__titulo">◆ ¿Qué es GrimorioEngine?</button>
+    <div class="acordeon__contenido">
+      <div class="acordeon__cuerpo">
+        Un framework CSS puro con estética PS1/CRT.
+      </div>
+    </div>
+  </div>
+  <div class="acordeon__item">
+    <button class="acordeon__titulo">◆ ¿Tiene dependencias?</button>
+    <div class="acordeon__contenido">
+      <div class="acordeon__cuerpo">
+        Ninguna dependencia de JS externo.
+      </div>
+    </div>
+  </div>
+</div>
+```
+Lo maneja `grimorio.js` (`iniciarAcordeon()`), que escucha clicks en **`.acordeon__titulo`** y alterna `.acordeon__item--abierto` en el `.acordeon__item` padre. **Los tres niveles de anidamiento son obligatorios y los nombres exactos** — `.acordeon__contenido` (wrapper animado, no llevar padding acá) envolviendo `.acordeon__cuerpo` (el que sí lleva el padding real). Sin esta estructura exacta el acordeón no responde a los clicks.
 
 ### Spinners / loaders
 `.spinner` · `.spinner-diamante` · `.spinner-pulso` · `.spinner-scan-mini` · `.spinner-barras` (con `--sm`/`--xs`). Loaders grandes: `.cargando-bloques` · `.cargando-diamante` · `.cargando-scan`.
@@ -336,11 +556,42 @@ Modificadores: `texto-maquina--lento`, `texto-maquina--sin-cursor`.
 ### VHS overlay
 `.vhs-overlay` dentro de una superficie/tarjeta posicionada para scanlines + aberración cromática.
 
+### Paginación
+```html
+<nav class="paginacion" aria-label="Paginación" data-total="7">
+  <button class="paginacion__btn" data-dir="-1" disabled>&#8592; Ant</button>
+  <div class="paginacion__paginas"></div>
+  <button class="paginacion__btn" data-dir="1">Sig &#8594;</button>
+</nav>
+```
+`.paginacion` es auto-descubierto (cualquier cantidad en la página). `.paginacion__paginas` empieza vacío — `iniciarPaginacion()` genera los botones numerados solo. `data-total` en el `<nav>` fija el número de páginas (default 7 si se omite). `data-dir="-1"/"1"` en los botones anterior/siguiente — mismo patrón que `.carrusel__btn`.
+
+### Consola / terminal interactiva
+```html
+<div class="consola">
+  <div class="consola__barra">
+    <div class="ventana__dots">
+      <span class="ventana__dot ventana__dot--rojo"></span>
+      <span class="ventana__dot ventana__dot--amarillo"></span>
+      <span class="ventana__dot ventana__dot--verde"></span>
+    </div>
+    <span class="consola__titulo">ESC LABS · TERMINAL</span>
+    <span class="consola__version">v2.0.0</span>
+  </div>
+  <div class="consola__pantalla" aria-label="Salida de consola" aria-live="polite"></div>
+  <form class="consola__form" autocomplete="off">
+    <span class="consola__prompt">esc@labs:~$</span>
+    <input class="consola__input" type="text" placeholder="escribe un comando..." spellcheck="false" aria-label="Entrada de comando" />
+  </form>
+</div>
+```
+`.consola` es auto-descubierto (cualquier cantidad en la página). Los `.ventana__dots` y `.consola__version` son chrome decorativo (reutiliza los dots de `.ventana`), opcionales para la funcionalidad. Lo obligatorio para que `ESCConsola` funcione: `.consola__pantalla` (vacía, se puebla sola), `.consola__form` y `.consola__input` dentro de él. Comandos incorporados: `help`, `whoami`, `version`, `clear`, `build`, `status`, `grimorio`, `ls`. Flechas ↑/↓ navegan el historial de comandos escritos.
+
 ---
 
 ## 6. Componentes JS (`js/grimorio.js`, vanilla, init en `DOMContentLoaded`)
 
-Cada init hace early-return si su nodo no existe → seguro de cargar en cualquier página.
+Cada init hace early-return si su nodo no existe → seguro de cargar en cualquier página. Todos auto-descubren sus componentes por clase (`querySelectorAll`) — podés tener cualquier cantidad de cada uno en la misma página, ninguno requiere un `id` específico.
 
 - `ESCCarrusel` (carrusel imágenes/tarjetas) · `ESCConsola` (terminal interactiva)
 - `iniciarSelectorTema()` (requiere `#tema-flash`) · `iniciarFormPasos()` · `iniciarTarjetaCredito()` · `iniciarCorreoInputs()` · `iniciarArchivos()` (`data-nombre-id`) · `iniciarPaginacion()` · `iniciarTextoMaquina()` · `iniciarAcordeon()` · `iniciarRangos()`

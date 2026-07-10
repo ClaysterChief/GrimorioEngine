@@ -84,6 +84,11 @@
   --z-modal:    8000;
   --z-toast:    9000;
   --z-flash:    9999;
+
+  /* Altura de la cabecera sticky (.cabecera) — usada por scroll-padding-top
+     global y por la utilidad .top-header para anclar sidebars/subnav debajo
+     del header sin que se solapen. */
+  --header-height: 5rem;
 }
 
 /* Paleta B — Dual Signal (explícita)
@@ -205,6 +210,9 @@
    ================================================ */
 html {
   font-size: 62.5%;
+  /* Las anclas (#seccion) se detienen debajo de la cabecera sticky en vez de
+     quedar tapadas por ella. Se puede afinar por elemento con .scroll-mt-*. */
+  scroll-padding-top: var(--header-height);
 }
 *,
 *::before,
@@ -535,6 +543,9 @@ footer .divisor {
 .pt-md { padding-top: var(--space-md); }
 .pt-lg { padding-top: var(--space-lg); }
 .pt-xl { padding-top: var(--space-xl); }
+.pt-2xl { padding-top: var(--space-2xl); }
+.pt-3xl { padding-top: var(--space-3xl); }
+.pt-4xl { padding-top: var(--space-4xl); }
 
 /* Relleno inferior */
 .pb-0  { padding-bottom: var(--space-0); }
@@ -543,6 +554,9 @@ footer .divisor {
 .pb-md { padding-bottom: var(--space-md); }
 .pb-lg { padding-bottom: var(--space-lg); }
 .pb-xl { padding-bottom: var(--space-xl); }
+.pb-2xl { padding-bottom: var(--space-2xl); }
+.pb-3xl { padding-bottom: var(--space-3xl); }
+.pb-4xl { padding-bottom: var(--space-4xl); }
 
 /* Relleno izquierdo / derecho */
 .pl-0  { padding-left: var(--space-0); }
@@ -551,12 +565,18 @@ footer .divisor {
 .pl-md { padding-left: var(--space-md); }
 .pl-lg { padding-left: var(--space-lg); }
 .pl-xl { padding-left: var(--space-xl); }
+.pl-2xl { padding-left: var(--space-2xl); }
+.pl-3xl { padding-left: var(--space-3xl); }
+.pl-4xl { padding-left: var(--space-4xl); }
 .pr-0  { padding-right: var(--space-0); }
 .pr-xs { padding-right: var(--space-xs); }
 .pr-sm { padding-right: var(--space-sm); }
 .pr-md { padding-right: var(--space-md); }
 .pr-lg { padding-right: var(--space-lg); }
 .pr-xl { padding-right: var(--space-xl); }
+.pr-2xl { padding-right: var(--space-2xl); }
+.pr-3xl { padding-right: var(--space-3xl); }
+.pr-4xl { padding-right: var(--space-4xl); }
 
 /* Relleno horizontal */
 .px-0  { padding-left: var(--space-0); padding-right: var(--space-0); }
@@ -565,6 +585,9 @@ footer .divisor {
 .px-md { padding-left: var(--space-md); padding-right: var(--space-md); }
 .px-lg { padding-left: var(--space-lg); padding-right: var(--space-lg); }
 .px-xl { padding-left: var(--space-xl); padding-right: var(--space-xl); }
+.px-2xl { padding-left: var(--space-2xl); padding-right: var(--space-2xl); }
+.px-3xl { padding-left: var(--space-3xl); padding-right: var(--space-3xl); }
+.px-4xl { padding-left: var(--space-4xl); padding-right: var(--space-4xl); }
 
 /* Relleno vertical */
 .py-0  { padding-top: var(--space-0); padding-bottom: var(--space-0); }
@@ -573,6 +596,9 @@ footer .divisor {
 .py-md { padding-top: var(--space-md); padding-bottom: var(--space-md); }
 .py-lg { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
 .py-xl { padding-top: var(--space-xl); padding-bottom: var(--space-xl); }
+.py-2xl { padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); }
+.py-3xl { padding-top: var(--space-3xl); padding-bottom: var(--space-3xl); }
+.py-4xl { padding-top: var(--space-4xl); padding-bottom: var(--space-4xl); }
 /* ================================================ */
 
 /* ================================================
@@ -669,6 +695,23 @@ footer .divisor {
 .bottom-0  { bottom: 0; }
 .left-0    { left: 0; }
 
+/* Offset superior por token — para sidebars/subnav sticky que deben quedar
+   DEBAJO de la cabecera. .top-header usa la altura real del header. */
+.top-header { top: var(--header-height); }
+.top-sm    { top: var(--space-sm); }
+.top-md    { top: var(--space-md); }
+.top-lg    { top: var(--space-lg); }
+.top-xl    { top: var(--space-xl); }
+
+/* Scroll-margin — afina el offset de un ancla concreta (el default global
+   ya es --header-height vía scroll-padding-top en html). */
+.scroll-mt-0      { scroll-margin-top: 0; }
+.scroll-mt-header { scroll-margin-top: var(--header-height); }
+.scroll-mt-sm     { scroll-margin-top: var(--space-sm); }
+.scroll-mt-md     { scroll-margin-top: var(--space-md); }
+.scroll-mt-lg     { scroll-margin-top: var(--space-lg); }
+.scroll-mt-xl     { scroll-margin-top: var(--space-xl); }
+
 /* Z-index — escala semántica (tokens --z-*) */
 .z-0        { z-index: 0; }
 .z-base     { z-index: var(--z-base); }
@@ -714,6 +757,15 @@ footer .divisor {
 .h-full   { height: 100%; }
 .h-auto   { height: auto; }
 .h-screen { height: 100vh; }
+
+/* Size — cuadrados de tamaño pequeño fijo (width = height). Rellenan el hueco
+   entre los íconos y w-xs (12rem): swatches de color, avatares, chips, dots.
+   flex-shrink:0 para que no se aplasten dentro de una fila flex. */
+.size-xs { width: 2rem; height: 2rem; flex-shrink: 0; }
+.size-sm { width: 3rem; height: 3rem; flex-shrink: 0; }
+.size-md { width: 4rem; height: 4rem; flex-shrink: 0; }
+.size-lg { width: 6rem; height: 6rem; flex-shrink: 0; }
+.size-xl { width: 8rem; height: 8rem; flex-shrink: 0; }
 
 /* Min-width — escala en rem (1rem = 10px) */
 .min-w-0   { min-width: 0; }
@@ -3432,6 +3484,14 @@ label {
 .alerta--error .alerta__titulo {
   color: var(--red-strike);
 }
+.alerta--info {
+  border-left-color: var(--acento);
+  background: color-mix(in srgb, var(--acento) 5%, var(--void-surface));
+}
+.alerta--info .alerta__prefijo,
+.alerta--info .alerta__titulo {
+  color: var(--acento);
+}
 @keyframes alerta-entrada {
   from {
     opacity: 0;
@@ -3635,6 +3695,65 @@ label {
 }
 .tabla-badge--inactivo {
   color: var(--text-muted);
+}
+/* ================================================ */
+
+/* ================================================
+   COMPONENTE — Insignia (badge / pill genérico)
+   Versión NO acoplada a tablas de .tabla-badge: úsala en cualquier lugar
+   (versión, estado, etiquetas de lenguaje, "nuevo"...).
+   Uso: <span class="insignia insignia--acento">v2.0.3</span>
+   ================================================ */
+.insignia {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--deep);
+  white-space: nowrap;
+}
+.insignia--acento      { color: var(--acento);        border-color: currentColor; }
+.insignia--ok          { color: var(--color-ok);      border-color: currentColor; }
+.insignia--advertencia { color: var(--color-warning); border-color: currentColor; }
+.insignia--error       { color: var(--red-strike);    border-color: currentColor; }
+/* ================================================ */
+
+/* ================================================
+   COMPONENTE — Migas de pan (breadcrumb)
+   El separador ◆ (motivo de marca) se inserta solo entre items.
+   Uso:
+   <nav class="migas" aria-label="Ruta">
+     <a href="/">Inicio</a>
+     <a href="/docs">Docs</a>
+     <span class="migas__actual" aria-current="page">Página</span>
+   </nav>
+   ================================================ */
+.migas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.04em;
+}
+.migas a {
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+}
+.migas a:hover { color: var(--acento); }
+.migas__actual { color: var(--acento); }
+.migas > * + *::before {
+  content: "\25C6"; /* ◆ */
+  color: var(--border);
+  margin: 0 0.6rem;
+  font-size: 0.7em;
 }
 /* ================================================ */
 

@@ -10,6 +10,20 @@ Grimorio Engine is a pure CSS UI framework by ESC Labs with a PS1/CRT retro aest
 
 **System requirements:** Node ≥18.0.0, npm ≥9.0.0
 
+### Repository documentation map
+
+Prose docs are in Spanish; this file is the developer entry point. When a task touches identity, tokens, or AI-generation, read the relevant doc rather than guessing:
+
+| Doc | Read it when |
+|---|---|
+| `COMPONENTES.md` | You need the full utility/component catalog with examples — the AI manifest and de-facto component reference. |
+| `ESC-LABS-PS1-FRAMEWORK.md` | The task touches brand identity, voice, typography, or the non-negotiable visual rules (source for "Identity constraints" below). |
+| `USO-CON-IA.md` | Explaining or wiring up how an external AI generator consumes the framework (system-prompt + verification loop that pairs with `COMPONENTES.md`). |
+| `PROYECTO.md` | You need the component/roadmap status board (what's done vs. partial). |
+| `CHANGELOG.md` | Cutting a release or checking what changed between versions. |
+| `README.md` / `packages/css/README.md` | Consumer-facing install/usage (GitHub-install + npm package page). |
+| `llms.txt` | Root discovery index (llmstxt.org) linking the above. |
+
 ## Running / Developing
 
 **Zero build step during development.** Edit `packages/css/grimorio.css` directly and see changes instantly with any static server. Choose one:
@@ -159,9 +173,10 @@ Additional token groups (the `:root` block in `grimorio.css` is the single sourc
 --space-0 / xs / sm / md / lg / xl / 2xl / 3xl / 4xl   (spacing — drives m-* / p-* / gap-*)
 --z-base / z-nav / z-dropdown / z-sticky / z-modal / z-toast / z-flash   (z-index layers)
 --font-size-xs / sm / base / md / lg / xl / 2xl / 3xl / 4xl   (+ --font-size-label/body aliases)
+--header-height (5rem)   (sticky .cabecera height — drives global scroll-padding-top + .top-header)
 ```
 
-**Token consistency is load-bearing** (the framework is meant to be AI-consumable — predictable scales prevent improvised values). All three spacing families (`m-*`, `p-*`, `gap-*`) share one **monotonic** `--space-*` scale; `fs-*` is monotonic by name. Never introduce a token whose value breaks the ordering.
+**Token consistency is load-bearing** (the framework is meant to be AI-consumable — predictable scales prevent improvised values). All three spacing families (`m-*`, `p-*`, `gap-*`) share one **monotonic** `--space-*` scale, and every family covers the full range through `4xl` (side/axis padding `pt/pb/pl/pr/px/py-*` included — do not let it drift back to a truncated scale); `fs-*` is monotonic by name. Never introduce a token whose value breaks the ordering.
 
 Do **not** tokenize: credit card internal colors (`#7a5f00`, `#0e0e0e`, `#f0f0f0`, etc.) — they simulate real card materials and must stay hardcoded.
 
@@ -187,19 +202,20 @@ Letter-spacing: `.tracking-md` (0.1em) · `.tracking-wide` (0.08em) · `.trackin
 
 Font family (family only): `.font-display` · `.font-body` · `.font-mono` (note: `.text-mono` also sets size + uppercase + tracking)
 
-Position: `.pos-relative/absolute/fixed/sticky/static` · `.inset-0` · `.top-0/right-0/bottom-0/left-0`
+Position: `.pos-relative/absolute/fixed/sticky/static` · `.inset-0` · `.top-0/right-0/bottom-0/left-0` · sticky offset below header: `.top-header` (= `--header-height`) · `.top-sm/md/lg/xl` · anchor offset: `.scroll-mt-header/sm/md/lg/xl` (global `scroll-padding-top` on `html` already = `--header-height`)
 Z-index: `.z-0/base/nav/dropdown/sticky/modal/toast` (map to `--z-*`)
 Overflow: `.overflow-hidden/auto/scroll/visible` · `.overflow-x/y-auto` · `.overflow-x/y-hidden`
 Opacity: `.opacity-0/25/50/60/75/100`
 Width: `.w-full/half/fit/auto/screen` · fixed rem `.w-xs/sm/md/lg/xl` (12/20/24/28/32rem)
 Height: `.h-full/auto/screen` · `.min-h-0/sm/md/lg/full/screen/vista` (vista = 100vh − 14rem)
+Size (square, width=height + `flex-shrink:0`): `.size-xs/sm/md/lg/xl` (2/3/4/6/8rem) — swatches, avatars, square chips, dots
 Min-width: `.min-w-0/xs/sm/md/lg/xl/full` (12/20/24/28/32rem)
 Max-width: `.max-w-2xs/xs/sm/md/lg/xl/full` (32/40/48/56/68/80rem) · legacy aliases `.mw-xs/sm/md`
 Aspect-ratio: `.aspect-square/video/4-3`
 Line-height: `.leading-tight/snug/normal/relaxed` · text: `.truncate` · `.break-words` · `.text-nowrap` · `.no-subrayado`
 Flex (added): `.jc-start/around/evenly` · `.ai-stretch/baseline`
 
-Semantic helper classes (reusable patterns — prefer these over re-deriving inline): `.etiqueta` (mono eyebrow label, `--acento` modifier available) · `.regla` (subtle `<hr>` divider) · `.enlace` (accent link, no underline)
+Semantic helper classes (reusable patterns — prefer these over re-deriving inline): `.etiqueta` (mono eyebrow label, `--acento` modifier available) · `.regla` (subtle `<hr>` divider) · `.enlace` (accent link, no underline) · `.insignia` (generic inline badge/pill for use outside tables — variants `--acento/ok/advertencia/error`; inside tables use `.tabla-badge`) · `.migas` (breadcrumb `<nav>`; auto ◆ separators between items, `.migas__actual` marks current page)
 
 Icon size modifiers: `.icono--sm` (1.2rem) · `.icono--md` (2rem) · `.icono--lg` (3rem) · `.icono--xl` (4.5rem)
 Button modifier: `.btn--peligro` (recolors any button to `--red-strike`)

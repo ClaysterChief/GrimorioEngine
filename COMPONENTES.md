@@ -82,6 +82,7 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` 
 
 **Transiciones**: `--transition-fast` .15 · `-base` .22 · `-moderate` .3 · `-slow` .45 · `-card` .72s.
 **Bordes**: `--border-thin` 1px · `--border-accent` 2px · `--border-thick` 3px.
+**Layout**: `--header-height` 5rem (alto de la cabecera sticky; alimenta `scroll-padding-top` global y `.top-header`).
 
 ---
 
@@ -90,12 +91,13 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` 
 **Espaciado** — `m-{t,b,l,r,x,y}-{token}`, `p-{t,b,l,r,x,y}-{token}`, `gap-{token}`, `gap-{x,y}-{token}`, `m-auto`/`mx-auto`/`ml-auto`/`mr-auto`/`mt-auto`.
 **Display** — `d-flex` · `flex-col` · `flex-wrap` · `flex-1` · `d-block` · `d-inline` · `d-inline-block` · `d-inline-flex` · `d-grid` · `d-none`. Responsive: `d-sm-none/flex/block` (≤560px), `d-md-none/flex/block` (≤768px), `d-sm-only`.
 **Flexbox** — `ai-center/start/end/stretch/baseline` · `jc-center/start/end/between/around/evenly`.
-**Posición** — `pos-relative/absolute/fixed/sticky/static` · `inset-0` · `top-0`/`right-0`/`bottom-0`/`left-0`.
+**Posición** — `pos-relative/absolute/fixed/sticky/static` · `inset-0` · `top-0`/`right-0`/`bottom-0`/`left-0`. Offset superior por token para sticky bajo la cabecera: `top-header` (= `--header-height`) · `top-sm/md/lg/xl`. Anclas: `scroll-mt-header`/`scroll-mt-sm/md/lg/xl` (el default global ya es `--header-height`, así que las anclas `#seccion` no quedan tapadas por el header).
 **Z-index** — `z-0/base/nav/dropdown/sticky/modal/toast`.
 **Overflow** — `overflow-hidden/auto/scroll/visible` · `overflow-x-auto`/`overflow-y-auto` · `overflow-x-hidden`/`overflow-y-hidden`.
 **Opacity** — `opacity-0/25/50/60/75/100`.
 **Ancho** — `w-full/half/fit/auto/screen` · fijo en rem `w-xs/sm/md/lg/xl` (12/20/24/28/32rem) · `min-w-0/xs/sm/md/lg/xl/full` · `max-w-2xs/xs/sm/md/lg/xl/full` (32/40/48/56/68/80rem) · alias `mw-xs/sm/md`.
 **Alto** — `h-full/auto/screen` · `min-h-0/sm/md/lg/full/screen/vista` (vista = 100vh − 14rem, para layouts centrados con header+footer).
+**Tamaño (cuadrado)** — `size-xs/sm/md/lg/xl` (2/3/4/6/8rem, width = height + `flex-shrink:0`). Para swatches de color, avatares, chips cuadrados, dots — el hueco entre los íconos y `w-xs` (12rem).
 **Aspect-ratio** — `aspect-square` · `aspect-video` (16:9) · `aspect-4-3`.
 **Texto** — `text-centro/derecha/izquierda` · `text-uppercase/lowercase/capitalize` · `leading-tight/snug/normal/relaxed` · `truncate` · `break-words` · `text-nowrap` · `no-subrayado`.
 **Tipografía** — color: `text-acento/acento-light/accion/primario/apagado/ok/advertencia`. Familia: `font-display/body/mono` (solo familia) · `text-mono` (mono + uppercase + tracking). Tamaño: `fs-*`. Tracking: `tracking-md/wide/wider`.
@@ -157,11 +159,18 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` 
 **Crítico:** `.tarjeta` en sí NO tiene padding — el texto/título deben ir **siempre** envueltos en `.tarjeta__cuerpo` (que sí trae `padding: 1rem`), nunca sueltos como hijos directos de `.tarjeta`. Sin `.tarjeta__cuerpo` el contenido queda pegado al borde. El botón inferior usa `.btn-tarjeta` (no `mt-md d-inline-block`) para heredar el margen lateral de 1rem correcto. Variante: `.tarjeta--accion` (rojo).
 
 ### Formularios
+`.grupo-formulario` es el wrapper del `<form>` completo (panel con borde superior de acento) — va **una sola vez** por formulario, nunca por campo. Cada campo individual va envuelto en `.campo-formulario` (anima el label al enfocar); el primero de la lista lleva `.campo-formulario mt-0` para no arrastrar el margen superior por defecto.
 ```html
-<div class="grupo-formulario">
-  <label for="x">Usuario</label>
-  <input id="x" type="text" class="formulario-estandar" placeholder="..." />
-</div>
+<form class="grupo-formulario">
+  <div class="campo-formulario mt-0">
+    <label for="x">Usuario</label>
+    <input id="x" type="text" class="formulario-estandar" placeholder="..." />
+  </div>
+  <div class="campo-formulario">
+    <label for="y">Correo</label>
+    <input id="y" type="email" class="formulario-estandar" placeholder="correo@esclabs.io" />
+  </div>
+</form>
 <textarea class="formulario-textarea" rows="5"></textarea>
 
 <label class="formulario-checkbox">
@@ -383,7 +392,31 @@ Estado crítico: `barra-hp__bloque--critico`.
 <div class="alerta alerta--ok">◆ Operación completada</div>
 <div class="alerta alerta--advertencia">…</div>
 <div class="alerta alerta--error">…</div>
+<div class="alerta alerta--info">◆ Nota informativa (neutral, usa --acento)</div>
 ```
+Variantes: `--ok` (verde) · `--advertencia` (amarillo) · `--error` (rojo) · `--info` (acento, para notas neutrales). Estructura interna opcional: `.alerta__prefijo` + `.alerta__cuerpo` (`.alerta__titulo` / `.alerta__texto`).
+
+### Insignia (badge / pill genérico)
+Chip en línea para versión, estado o etiquetas — **fuera de tablas** (dentro de tablas seguir usando `.tabla-badge`).
+```html
+<span class="insignia">CSS</span>
+<span class="insignia insignia--acento">v2.0.3</span>
+<span class="insignia insignia--ok">estable</span>
+<span class="insignia insignia--advertencia">beta</span>
+<span class="insignia insignia--error">deprecado</span>
+```
+Base neutral (borde `--border`, texto `--text-muted`, fondo `--deep`); los modificadores recolorean texto + borde.
+
+### Migas de pan (breadcrumb)
+El separador ◆ (motivo de marca) se inserta solo entre items — no agregar separadores a mano.
+```html
+<nav class="migas" aria-label="Ruta de navegación">
+  <a href="/">Inicio</a>
+  <a href="/docs">Docs</a>
+  <span class="migas__actual" aria-current="page">Página actual</span>
+</nav>
+```
+Los `<a>` son enlaces apagados con hover a `--acento`; `.migas__actual` marca la página actual (color acento).
 
 ### Modal
 ```html

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../../../packages/css/grimorio.css" />
+  <link rel="shortcut icon" href="../images/logo_VAFBF.svg" type="image/x-icon" />
+  <title>Documentación · Grimorio Engine · ESC Labs</title>
+</head>
+
+<body>
+
+  <!-- ── NAVEGACIÓN ──────────────────────────────── -->
+  <header class="cabecera">
+    <nav class="navegar">
+      <a href="../index.html">
+        <img src="../images/Logo Extended VFISF.svg" alt="ESC Labs" class="logo-cabecera" />
+      </a>
+      <ul class="menu-principal">
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="../index.html">Inicio</a>
+        </li>
+        <li class="menu-principal__item--active">
+          <a class="menu-principal__link" href="">Docs</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="servicios.html">Servicios</a>
+        </li>
+        <li class="menu-principal__item">
+          <a class="menu-principal__link" href="contacto.html">Contacto</a>
+        </li>
+      </ul>
+      <div class="nav-temas">
+        <button class="nav-temas__btn nav-temas__btn--activa" data-tema="default" title="Dual Signal"
+          aria-label="Tema Dual Signal">
+          <span class="nav-temas__diamante nav-temas__diamante--dual"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="cosmos" title="Cosmos Blue" aria-label="Tema Cosmos Blue">
+          <span class="nav-temas__diamante nav-temas__diamante--cosmos"></span>
+        </button>
+        <button class="nav-temas__btn" data-tema="crimson" title="Crimson Signal" aria-label="Tema Crimson Signal">
+          <span class="nav-temas__diamante nav-temas__diamante--crimson"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="tema-flash" class="tema-flash"></div>
+
+  <main class="contenedor px-sm">
+
+    <!-- ── MIGAS DE PAN (FIX#5: componente .migas) ─── -->
+    <nav class="migas py-md" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span class="migas__actual" aria-current="page">Documentación</span>
+    </nav>
+
+    <!-- ── HERO (FIX#1: py-2xl ya existe) ──────────── -->
+    <div class="pt-md pb-2xl">
+      <p class="etiqueta etiqueta--acento mb-sm">◆ Referencia técnica</p>
+      <h1 class="text-display fs-2xl text-acento mb-sm">Documentación</h1>
+      <p class="fs-lg text-apagado max-w-lg leading-relaxed">
+        Guía de uso de Grimorio Engine — el framework CSS de ESC Labs con estética
+        PS1/CRT. Cero dependencias JS externas, tres paletas theme-aware.
+      </p>
+      <!-- FIX#4: insignia genérica (antes se abusaba de .tabla-badge). -->
+      <div class="d-flex gap-sm mt-md flex-wrap">
+        <span class="insignia insignia--ok">v2.0.3</span>
+        <span class="insignia">CSS</span>
+        <span class="insignia">JS vanilla</span>
+        <span class="insignia insignia--acento">MIT</span>
+      </div>
+    </div>
+
+    <hr class="regla mb-xl" />
+
+    <!-- ── LAYOUT DOC: SIDEBAR + CONTENIDO ─────────── -->
+    <div class="d-flex gap-xl">
+
+      <!-- Índice lateral (FIX#2: top-header ancla debajo de la cabecera) -->
+      <aside class="w-sm min-w-sm d-sm-none">
+        <nav class="pos-sticky top-header pt-md" aria-label="En esta página">
+          <p class="etiqueta mb-sm">En esta página</p>
+          <ul class="d-flex flex-col gap-xs">
+            <li><a href="#introduccion" class="enlace">Introducción</a></li>
+            <li><a href="#instalacion" class="enlace">Instalación</a></li>
+            <li><a href="#paletas" class="enlace">Paletas</a></li>
+            <li><a href="#tokens" class="enlace">Tokens</a></li>
+            <li><a href="#utilidades" class="enlace">Utilidades</a></li>
+            <li><a href="#componentes" class="enlace">Componentes</a></li>
+            <li><a href="#js" class="enlace">API de JS</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenido -->
+      <!-- FIX#2: scroll-padding-top global (en html) ya evita que los headings -->
+      <!-- queden tapados por la cabecera al saltar a un ancla. -->
+      <div class="flex-1 min-w-0">
+
+        <!-- INTRODUCCIÓN -->
+        <section id="introduccion" class="mb-2xl">
+          <h2 class="text-display fs-xl text-primario mb-md">◆ Introducción</h2>
+          <p class="text-apagado leading-relaxed mb-md">
+            Grimorio Engine es un framework CSS puro. Todo el estilo vive en un
+            único archivo (<code>grimorio.css</code>) y las interacciones opcionales
+            en <code>grimorio.js</code>. No necesitas build para desarrollar.
+          </p>
+          <div class="alerta alerta--ok">
+            <span class="alerta__prefijo">◆</span>
+            <div class="alerta__cuerpo">
+              <p class="alerta__texto">Regla central: cero <code>style=""</code>. Todo se resuelve con utilidades o clases BEM.</p>
+            </div>
+          </div>
+
+          <!-- FIX#6: variante informativa neutral .alerta--info -->
+          <div class="alerta alerta--info mt-sm">
+            <span class="alerta__prefijo">i</span>
+            <div class="alerta__cuerpo">
+              <p class="alerta__texto">Nota: las fuentes se importan dentro del propio CSS vía Google Fonts.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- INSTALACIÓN -->
+        <section id="instalacion" class="mb-2xl">
+          <h2 class="text-display fs-xl text-primario mb-md">◆ Instalación</h2>
+          <p class="text-apagado leading-relaxed mb-md">Instala desde GitHub (sin publicar en npm):</p>
+          <div class="codigo mb-md">
+            <div class="codigo__barra">bash</div>
+            <pre class="codigo__cuerpo"><code>npm install github:ClaysterChief/GrimorioEngine</code></pre>
+          </div>
+          <p class="text-apagado leading-relaxed mb-md">Luego enlaza el CSS y el JS opcional:</p>
+          <div class="codigo">
+            <div class="codigo__barra">html</div>
+            <pre class="codigo__cuerpo"><code>&lt;link rel="stylesheet" href="css/grimorio.css" /&gt;
+&lt;script defer src="js/grimorio.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </section>
+
+        <!-- PALETAS -->
+        <section id="paletas" class="mb-2xl">
+          <h2 class="text-display fs-xl text-primario mb-md">◆ Paletas</h2>
+          <p class="text-apagado leading-relaxed mb-md">
+            Tres paletas theme-aware. Se aplican como clase en <code>&lt;body&gt;</code>
+            o cualquier contenedor.
+          </p>
+
+          <!-- FIX#3: swatch de color real con .size-md + bg-acento por paleta -->
+          <div class="grid grid--3">
+            <div class="superficie p-md dual d-flex ai-center gap-md">
+              <span class="size-md bg-acento"></span>
+              <div>
+                <p class="text-mono fs-base">Dual Signal</p>
+                <p class="fs-sm text-apagado">(sin clase / .dual)</p>
+              </div>
+            </div>
+            <div class="superficie p-md cosmos d-flex ai-center gap-md">
+              <span class="size-md bg-acento"></span>
+              <div>
+                <p class="text-mono fs-base">Cosmos Blue</p>
+                <p class="fs-sm text-apagado">.cosmos</p>
+              </div>
+            </div>
+            <div class="superficie p-md crimson d-flex ai-center gap-md">
+              <span class="size-md bg-acento"></span>
+              <div>
+                <p class="text-mono fs-base">Crimson Signal</p>
+                <p class="fs-sm text-apagado">.crimson</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOKENS -->
+        <section id="tokens" class="mb-2xl">
+          <h2 class="text-display fs-xl text-primario mb-md">◆ Tokens de spacing</h2>
+          <div class="tabla-contenedor">
+            <table class="tabla tabla--rayada">
+              <thead>
+                <tr><th>Token</th><th>Valor</th><th>Uso</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>xs</code></td><td>0.75rem</td><td><code>m-xs</code> · <code>p-xs</code> · <code>gap-xs</code></td></tr>
+                <tr><td><code>sm</code></td><td>1rem</td><td><code>m-sm</code> · <code>p-sm</code> · <code>gap-sm</code></td></tr>
+                <tr><td><code>md</code></td><td>1.5rem</td><td><code>m-md</code> · <code>p-md</code> · <code>gap-md</code></td></tr>
+                <tr><td><code>lg</code></td><td>2rem</td><td><code>m-lg</code> · <code>p-lg</code> · <code>gap-lg</code></td></tr>
+                <tr><td><code>xl</code></td><td>3rem</td><td><code>m-xl</code> · <code>p-xl</code> · <code>gap-xl</code></td></tr>
+                <tr><td><code>2xl</code></td><td>4rem</td><td><code>m-2xl</code> · <code>gap-2xl</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- UTILIDADES -->
+        <section id="utilidades" class="mb-2xl">
+          <h2 class="text-display fs-xl text-primario mb-md">◆ Utilidades</h2>
+          <div class="tabla-contenedor">
+            <table class="tabla tabla--rayada">
+              <thead>
+                <tr><th>Familia</th><th>Ejemplos</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Display</td><td><code>d-flex</code> · <code>flex-col</code> · <code>d-grid</code> · <code>d-none</code></td></tr>
+                <tr><td>Flexbox</td><td><code>ai-center</code> · <code>jc-between</code> · <code>flex-1</code></td></tr>
+                <tr><td>Texto</td><td><code>text-centro</code> · <code>fs-lg</code> · <code>text-acento</code></td></tr>
+                <tr><td>Fondo</td><td><code>bg-surface</code> · <code>bg-void-deep</code> · <code>bg-acento</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- COMPONENTES -->
+        <section id="componentes" class="mb-2xl">
+          <h2 class="text-display fs-xl text-primario mb-md">◆ Componentes</h2>
+          <p class="text-apagado leading-relaxed mb-md">Preguntas frecuentes sobre el catálogo:</p>
+          <div class="acordeon acordeon--exclusivo">
+            <div class="acordeon__item acordeon__item--abierto">
+              <button class="acordeon__titulo">◆ ¿Cuántos componentes hay?</button>
+              <div class="acordeon__contenido">
+                <div class="acordeon__cuerpo">
+                  Alrededor de 45 secciones de componentes: navegación, tarjetas,
+                  formularios, modal, tablas, consola, acordeón, toast y más.
+                </div>
+              </div>
+            </div>
+            <div class="acordeon__item">
+              <button class="acordeon__titulo">◆ ¿Necesito JavaScript?</button>
+              <div class="acordeon__contenido">
+                <div class="acordeon__cuerpo">
+                  Solo para componentes interactivos (carrusel, consola, acordeón,
+                  tema). El resto es CSS puro.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- API JS -->
+        <section id="js" class="mb-2xl">
+          <h2 class="text-display fs-xl text-primario mb-md">◆ API de JavaScript</h2>
+          <div class="tabla-contenedor">
+            <table class="tabla tabla--rayada">
+              <thead>
+                <tr><th>Función / Clase</th><th>Estado</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><code>ESCCarrusel</code></td><td><span class="tabla-badge tabla-badge--ok">auto</span></td></tr>
+                <tr><td><code>ESCConsola</code></td><td><span class="tabla-badge tabla-badge--ok">auto</span></td></tr>
+                <tr><td><code>iniciarSelectorTema()</code></td><td><span class="tabla-badge tabla-badge--pendiente">req. #tema-flash</span></td></tr>
+                <tr><td><code>ESCToast.mostrar()</code></td><td><span class="tabla-badge tabla-badge--ok">manual</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ──────────────────────────────────── -->
+  <footer>
+    <img src="../images/logo_VAFBF.svg" width="100" alt="ESC Labs" />
+    <br /><br />
+    <p>systemescsts@gmail.com</p>
+    <hr class="regla" />
+    <p>©2025 ESC Labs · Evolution in Science &amp; Computing · v2.0</p>
+  </footer>
+
+  <script defer src="../../../js/grimorio.js"></script>
+
+</body>
+
+</html>

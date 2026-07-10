@@ -1333,6 +1333,52 @@
         <button class="alerta__cerrar" onclick="this.closest('.alerta').remove()">&#10005;</button>
       </div>
 
+      <div class="alerta alerta--info">
+        <span class="alerta__prefijo">NOTA</span>
+        <div class="alerta__cuerpo">
+          <span class="alerta__titulo">Aviso informativo</span>
+          <p class="alerta__texto">Variante neutral en color de acento — para notas y contexto, sin connotación de éxito ni error.</p>
+        </div>
+        <button class="alerta__cerrar" onclick="this.closest('.alerta').remove()">&#10005;</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── INSIGNIA · MIGAS · SWATCH ─────────────────── -->
+  <section class="contenedor seccion">
+    <p class="separador">Insignia · Migas · Swatch de color</p>
+
+    <p class="etiqueta mb-sm">Insignia (badge/pill genérico, fuera de tablas)</p>
+    <div class="d-flex gap-sm flex-wrap mb-lg">
+      <span class="insignia">CSS</span>
+      <span class="insignia insignia--acento">v2.0.3</span>
+      <span class="insignia insignia--ok">estable</span>
+      <span class="insignia insignia--advertencia">beta</span>
+      <span class="insignia insignia--error">deprecado</span>
+    </div>
+
+    <p class="etiqueta mb-sm">Migas de pan (breadcrumb · separador ◆ automático)</p>
+    <nav class="migas mb-lg" aria-label="Ruta de navegación">
+      <a href="index.html">Inicio</a>
+      <a href="html/servicios.html">Servicios</a>
+      <span class="migas__actual" aria-current="page">Documentación</span>
+    </nav>
+
+    <p class="etiqueta mb-sm">Swatch de color (utilidad .size-* + bg-acento por paleta)</p>
+    <div class="d-flex gap-md flex-wrap">
+      <div class="d-flex ai-center gap-sm dual">
+        <span class="size-md bg-acento"></span>
+        <span class="font-mono fs-sm">Dual</span>
+      </div>
+      <div class="d-flex ai-center gap-sm cosmos">
+        <span class="size-md bg-acento"></span>
+        <span class="font-mono fs-sm">Cosmos</span>
+      </div>
+      <div class="d-flex ai-center gap-sm crimson">
+        <span class="size-md bg-acento"></span>
+        <span class="font-mono fs-sm">Crimson</span>
+      </div>
     </div>
   </section>
 

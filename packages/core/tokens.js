@@ -56,6 +56,9 @@ export const tokens = {
   borderWidths: { thin: '1px', accent: '2px', thick: '3px' },
 
   letterSpacing: { md: '0.1em', wide: '0.08em', wider: '0.18em' },
+
+  // Altura de la cabecera sticky — scroll-padding-top global + utilidad .top-header
+  layout: { headerHeight: '5rem' },
 }
 
 export default tokens

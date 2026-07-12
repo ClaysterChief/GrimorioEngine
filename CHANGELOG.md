@@ -6,6 +6,10 @@ versionado semántico.
 
 ## [Unreleased]
 
+### Added
+- **Script de validación** `npm run validate` (`scripts/validate.mjs`, sin deps, cross-platform): falla si hay atributos `style=""` en el HTML del showcase o si el espejo `css/` no coincide con `packages/css/` (olvido de `npm run build`). Apto para CI / pre-push.
+- **`apps/showcase` formalizado como workspace** (`@grimorio/showcase`, privado) — `apps/*` añadido a `workspaces`.
+
 ### Changed
 - **Responsive · grids fijos colapsan** (Fase B): `.grid--3`/`.grid--4` → 2 columnas en ≤740px y `.grid--2/3/4` → 1 columna en ≤560px; `.col-2`/`.col-3` resetean su span en móvil para no crear pistas implícitas vacías. Antes un grid de 4 columnas se mantenía en cualquier ancho (~90px/columna en teléfono).
 - **`tokens.js` deriva de `tokens.json`** (Fase A): re-export vía import attributes en vez de duplicar los valores a mano — fuente única de verdad, sin riesgo de drift.

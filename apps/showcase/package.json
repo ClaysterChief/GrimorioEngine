@@ -1,0 +1,14 @@
+{
+  "name": "@grimorio/showcase",
+  "version": "2.0.5",
+  "description": "Showcase canónico de GrimorioEngine — demo viva de todos los componentes y páginas secundarias.",
+  "private": true,
+  "scripts": {
+    "serve": "npx serve ../.."
+  },
+  "devDependencies": {
+    "@grimorio/css": "*"
+  },
+  "author": "ESC Labs",
+  "license": "MIT"
+}

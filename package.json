@@ -4,7 +4,8 @@
   "description": "ESC Labs PS1 UI Framework — pure CSS + vanilla JS",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "style": "css/grimorio.css",
   "main": "js/grimorio.js",
@@ -21,6 +22,7 @@
   ],
   "scripts": {
     "build": "cleancss -o packages/css/grimorio.min.css packages/css/grimorio.css && node -e \"const fs=require('fs');fs.mkdirSync('css',{recursive:true});fs.copyFileSync('packages/css/grimorio.css','css/grimorio.css');fs.copyFileSync('packages/css/grimorio.min.css','css/grimorio.min.css')\"",
+    "validate": "node scripts/validate.mjs",
     "serve": "npx serve ."
   },
   "devDependencies": {

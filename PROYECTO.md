@@ -1,112 +1,64 @@
-# Grimorio Engine — CSS UI Library
+# Grimorio Engine — Estado y Roadmap
 
-Framework de estilos CSS propio de ESC Labs.
-Se usa importando `packages/css/grimorio.css` (o el espejo `css/grimorio.css` en la raíz) y aplicando las clases en cualquier HTML.
+Tablero de estado y pendientes de ESC Labs. Para arquitectura, estructura de
+carpetas, convención de nombres BEM y tokens, ver **[`CLAUDE.md`](CLAUDE.md)**
+(entrada de desarrollo) y **[`COMPONENTES.md`](COMPONENTES.md)** (catálogo).
 
 ---
 
 ## Estado actual — v2.0.5
 
-| Componente            | Estado       |
-|-----------------------|--------------|
-| Variables / Tokens    | ✅ Listo      |
-| Reset / Base          | ✅ Listo      |
-| Layout                | ✅ Listo      |
-| Navegación            | ✅ Listo      |
-| Botones (9 variantes) | ✅ Listo      |
-| Formularios completos | ✅ Listo      |
-| Tarjetas (5 variantes)| ✅ Listo      |
-| Imágenes (8 efectos)  | ✅ Listo      |
-| Utilidades            | ✅ Listo      |
-| Responsive            | ✅ Parcial    |
-| Grid / Columnas       | ✅ Listo      |
-| Alertas / Modal       | ✅ Listo      |
-| Tablas                | ✅ Listo      |
-| Íconos CSS puros      | ✅ Listo      |
-| Acordeón              | ✅ Listo      |
-| Toast                 | ✅ Listo      |
-| Spinner / Loaders     | ✅ Listo      |
-| Tooltip               | ✅ Listo      |
-| Slider de rango       | ✅ Listo      |
-| Páginas secundarias   | ✅ Listo      |
-| Showcase (`apps/showcase/`) | ✅ Listo |
-| Estructura monorepo (`packages/`) | ✅ Listo |
-| npm workspaces        | ✅ Listo      |
-| `grimorio.min.css`    | ✅ Listo      |
-
----
-
-## Estructura del proyecto
-
-```
-grimorio-engine/
-  packages/
-    css/
-      grimorio.css        ← Framework completo (@grimorio/css) — fuente editable
-    core/
-      tokens.json         ← Design tokens (fuente de verdad) — @grimorio/core
-      tokens.js           ← Re-export ESM de los tokens
-    elements/             ← Stub — Web Components futuros
-    vue/                  ← Stub — Wrappers Vue 3
-    angular/              ← Stub — Wrappers Angular
-    react-native/         ← Stub — Componentes React Native
-  apps/
-    showcase/
-      index.html          ← Demo de todos los componentes
-      html/               ← Páginas secundarias
-      images/             ← Assets del showcase
-  css/
-    grimorio.css          ← Espejo generado (instalación GitHub/CDN) — no editar a mano
-  js/
-    grimorio.js           ← JS vanilla (futuro: mover a packages/core/)
-  CLAUDE.md
-  ESC-LABS-PS1-FRAMEWORK.md ← Guía de identidad visual
-  README.md
-  PROYECTO.md
-```
+| Área                              | Estado       |
+|-----------------------------------|--------------|
+| Variables / Tokens                | ✅ Listo      |
+| Reset / Base                      | ✅ Listo      |
+| Layout / Grid / Columnas          | ✅ Listo      |
+| Navegación                        | ✅ Listo      |
+| Botones (9 variantes)             | ✅ Listo      |
+| Formularios completos             | ✅ Listo      |
+| Tarjetas (5 variantes)            | ✅ Listo      |
+| Imágenes (8 efectos)              | ✅ Listo      |
+| Utilidades                        | ✅ Listo      |
+| Alertas / Modal                   | ✅ Listo      |
+| Tablas                            | ✅ Listo      |
+| Íconos CSS puros                  | ✅ Listo      |
+| Acordeón · Toast · Spinner        | ✅ Listo      |
+| Tooltip · Slider de rango         | ✅ Listo      |
+| Insignia · Migas · Código         | ✅ Listo      |
+| Páginas secundarias · Showcase    | ✅ Listo      |
+| Estructura monorepo · npm workspaces | ✅ Listo   |
+| `grimorio.min.css` + espejo `css/` | ✅ Listo     |
+| **Responsive**                    | ⏳ Parcial (Fase B) |
 
 ---
 
 ## Roadmap — Pendientes
 
-### Infraestructura
-- [x] Extraer variables CSS a `packages/core/tokens.json` (design tokens)
-- [x] Generar `packages/css/grimorio.min.css` via `npm run build`
-- [x] Renombrar `style.css`/`engine.js` → `grimorio.css`/`grimorio.js` + espejo `css/` a nivel raíz
-- [ ] Mover `js/grimorio.js` a `packages/core/`
-- [ ] Agregar `package.json` a `apps/showcase/` para formalizar como workspace app
-- [x] Decidir nombre del paquete CSS: `@grimorio/css`
+### Fase A · Higiene ✅
+- [x] Unificar versión en todo el repo (2.0.5)
+- [x] `tokens.js` deriva de `tokens.json` (fuente única, sin duplicar valores)
+- [x] Borrar asset huérfano (`Logo Extended VFISFT.svg`)
+- [x] Adelgazar `PROYECTO.md` (roadmap-only; estructura/naming viven en `CLAUDE.md`)
 
-### Web Components (`@grimorio/elements`)
-- [ ] `<esc-acordeon>` — primer Custom Element (14 líneas JS, bajo acoplamiento)
+### Fase B · Cerrar el CSS
+- [ ] Completar responsive: auditar cada componente en 560 / 768 / 1024 px
+- [ ] Check mínimo de validación (grep `style="` + `npm run build`)
+- [ ] Mover `js/grimorio.js` a `packages/core/`
+- [ ] `package.json` en `apps/showcase/` (formalizar como workspace app)
+- [ ] Publicar `@grimorio/css` en npm / GitHub Packages
+
+### Fase C · Web Components (`@grimorio/elements`)
+- [ ] `<esc-acordeon>` — primer Custom Element (bajo acoplamiento)
 - [ ] `<esc-toast>` — singleton convertido a CE
 - [ ] `<esc-tooltip>` — casi CSS-only, fácil de encapsular
 - [ ] `<esc-spinner>` — CSS-only, sin lógica
-- [ ] Carrusel, formulario multi-paso, tarjeta de crédito (mayor complejidad, después)
+- [ ] Carrusel, formulario multi-paso, tarjeta de crédito (mayor complejidad)
 
-### Adapters de framework
+### Fase D · Adapters de framework
 - [ ] `@grimorio/vue` — Wrappers Vue 3 (depende de `@grimorio/elements`)
 - [ ] `@grimorio/angular` — Wrappers Angular (depende de `@grimorio/elements`)
-- [ ] `@grimorio/react-native` — Reimplementación completa en RN primitives + tokens
-
-### Distribución
-- [ ] Publicar `@grimorio/css` en npm / GitHub Packages
-- [ ] Publicar `@grimorio/core` cuando tenga tokens reales
-
----
-
-## Convención de nombres de clases
-
-BEM simplificado, todo en **español, kebab-case**:
-
-```
-.bloque
-.bloque-modificador
-.bloque__elemento
-.bloque__elemento--modificador
-```
-
-Prefijos clave: `btn`, `campo-`, `formulario-`, `tarjeta-`, `grupo-`, `imagen-`, `alerta-`, `tabla-`, `modal-`, `carrusel-`, `ventana-`, `consola-`.
+- [ ] `@grimorio/react-native` — Reimplementación en RN primitives + tokens
+- [ ] Publicar `@grimorio/core` cuando lo consuman los adapters
 
 ---
 

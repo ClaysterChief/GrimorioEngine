@@ -49,7 +49,7 @@ carpetas, convención de nombres BEM y tokens, ver **[`CLAUDE.md`](CLAUDE.md)**
 - [ ] Publicar `@grimorio/css` en npm / GitHub Packages
 
 ### Fase C · Web Components (`@grimorio/elements`)
-- [ ] `<esc-acordeon>` — primer Custom Element (bajo acoplamiento)
+- [x] `<esc-acordeon>` — primer Custom Element (light DOM, `<esc-acordeon-item>`, `exclusivo`/`abierto`; demo verificada)
 - [ ] `<esc-toast>` — singleton convertido a CE
 - [ ] `<esc-tooltip>` — casi CSS-only, fácil de encapsular
 - [ ] `<esc-spinner>` — CSS-only, sin lógica

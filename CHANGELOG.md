@@ -4,6 +4,14 @@ Todas las versiones notables de GrimorioEngine. Formato basado en
 [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/); el proyecto sigue
 versionado semántico.
 
+## [Unreleased]
+
+### Added
+- **`@grimorio/elements` · primer Web Component `<esc-acordeon>`** (Fase C): Custom Element del acordeón en light DOM que usa el CSS global (sin shadow DOM, sin `grimorio.js` ni init manual). API declarativa con `<esc-acordeon-item titulo="…" abierto>` y `exclusivo` en el contenedor. Auto-registro idempotente. Incluye `demo.html` (verificada en navegador: render fiel, toggles y modo exclusivo correctos, sin errores) y `README.md`. El paquete pasa de stub a `v0.1.0`.
+
+### Fixed
+- **Doble `◆` en títulos de acordeón**: el CSS ya añade el diamante con `.acordeon__titulo::before`, pero el ejemplo del manifiesto (`COMPONENTES.md`) y `documentacion.html` lo repetían en el texto. Removido el `◆` manual (convención: el título no lo lleva).
+
 ## [2.0.6] — 2026-07-11
 
 ### Added

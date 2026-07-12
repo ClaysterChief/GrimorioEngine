@@ -1,11 +1,22 @@
 {
   "name": "@grimorio/elements",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "GrimorioEngine — Web Components (Custom Elements) universales",
   "private": true,
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./esc-acordeon": "./src/esc-acordeon.js"
+  },
+  "files": [
+    "index.js",
+    "src/",
+    "README.md"
+  ],
   "peerDependencies": {
-    "@grimorio/css": ">=2.0.0",
-    "@grimorio/core": ">=0.1.0"
+    "@grimorio/css": ">=2.0.0"
   },
   "author": "ESC Labs",
   "license": "MIT"

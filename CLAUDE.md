@@ -293,12 +293,12 @@ The repo uses npm workspaces (`"workspaces": ["packages/*"]`).
 | `llms.txt` | Discoverable root index (llmstxt.org convention) linking the manifest + key files. |
 | `packages/core/tokens.json` | Design tokens extracted from `:root` (single source: colors per palette, spacing, font-size, z-index, transitions, borders). `tokens.js` re-exports them as an ES module. |
 
-**Future frameworks (stubs — private, not to be published yet):**
+**In progress / future frameworks (private, not published yet):**
 
 | Package | Path | Purpose |
 |---|---|---|
 | `@grimorio/core` | `packages/core/` | Design tokens — `tokens.json` (source) + `tokens.js` (re-exports the JSON) — **and** `grimorio.js`, the vanilla-JS runtime source (mirrored to root `js/` by the build) |
-| `@grimorio/elements` | `packages/elements/` | Web Components layer (future) |
+| `@grimorio/elements` | `packages/elements/` | 🚧 Web Components (light DOM, use global `@grimorio/css`). First element live: `<esc-acordeon>` (`src/esc-acordeon.js`, self-registering ESM). `index.js` registers all; `demo.html` verifies. Elements render standard Grimorio markup — titles omit `◆` (CSS `::before` adds it). |
 | `@grimorio/vue` | `packages/vue/` | Vue 3 component wrappers (future) |
 | `@grimorio/angular` | `packages/angular/` | Angular component wrappers (future) |
 | `@grimorio/react-native` | `packages/react-native/` | React Native components (future) |

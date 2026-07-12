@@ -521,7 +521,7 @@ Lo maneja `grimorio.js` (`ESCCarrusel`), que auto-descubre **cualquier** `.carru
 ```html
 <div class="acordeon"> <!-- o .acordeon.acordeon--exclusivo: uno abierto a la vez -->
   <div class="acordeon__item acordeon__item--abierto"> <!-- --abierto opcional: empieza expandido -->
-    <button class="acordeon__titulo">◆ ¿Qué es GrimorioEngine?</button>
+    <button class="acordeon__titulo">¿Qué es GrimorioEngine?</button> <!-- NO poner ◆: el CSS lo añade con ::before -->
     <div class="acordeon__contenido">
       <div class="acordeon__cuerpo">
         Un framework CSS puro con estética PS1/CRT.
@@ -529,7 +529,7 @@ Lo maneja `grimorio.js` (`ESCCarrusel`), que auto-descubre **cualquier** `.carru
     </div>
   </div>
   <div class="acordeon__item">
-    <button class="acordeon__titulo">◆ ¿Tiene dependencias?</button>
+    <button class="acordeon__titulo">¿Tiene dependencias?</button>
     <div class="acordeon__contenido">
       <div class="acordeon__cuerpo">
         Ninguna dependencia de JS externo.

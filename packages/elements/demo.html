@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/grimorio.css" />
+  <title>@grimorio/elements · demo</title>
+</head>
+
+<body>
+  <main class="contenedor py-2xl px-sm">
+    <p class="etiqueta etiqueta--acento mb-sm">◆ @grimorio/elements</p>
+    <h1 class="text-display fs-2xl text-acento mb-sm">&lt;esc-acordeon&gt;</h1>
+    <p class="fs-lg text-apagado max-w-lg leading-relaxed mb-xl">
+      Custom Element del acordeón. Sin <code>grimorio.js</code> ni init manual —
+      solo el CSS global y el módulo de elementos.
+    </p>
+
+    <p class="separador">Acordeón · normal</p>
+    <esc-acordeon class="mb-xl">
+      <esc-acordeon-item titulo="¿Qué es GrimorioEngine?" abierto>
+        Un framework CSS puro con estética PS1/CRT de ESC Labs.
+      </esc-acordeon-item>
+      <esc-acordeon-item titulo="¿Tiene dependencias?">
+        Ninguna dependencia de JS externo.
+      </esc-acordeon-item>
+      <esc-acordeon-item titulo="¿Cómo se activa una paleta?">
+        Aplicando <code>.cosmos</code> o <code>.crimson</code> en el
+        <code>&lt;body&gt;</code> o cualquier contenedor.
+      </esc-acordeon-item>
+    </esc-acordeon>
+
+    <p class="separador">Acordeón · exclusivo (uno abierto a la vez)</p>
+    <esc-acordeon exclusivo>
+      <esc-acordeon-item titulo="Módulo 01" abierto>Primer panel del grupo exclusivo.</esc-acordeon-item>
+      <esc-acordeon-item titulo="Módulo 02">Al abrir este, el 01 se cierra solo.</esc-acordeon-item>
+      <esc-acordeon-item titulo="Módulo 03">Y este cierra al 02.</esc-acordeon-item>
+    </esc-acordeon>
+  </main>
+
+  <script type="module" src="./index.js"></script>
+</body>
+
+</html>

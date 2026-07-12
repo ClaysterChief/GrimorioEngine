@@ -41,10 +41,11 @@ carpetas, convención de nombres BEM y tokens, ver **[`CLAUDE.md`](CLAUDE.md)**
 - [x] Adelgazar `PROYECTO.md` (roadmap-only; estructura/naming viven en `CLAUDE.md`)
 
 ### Fase B · Cerrar el CSS
-- [ ] Completar responsive: auditar cada componente en 560 / 768 / 1024 px
-- [ ] Check mínimo de validación (grep `style="` + `npm run build`)
-- [ ] Mover `js/grimorio.js` a `packages/core/`
-- [ ] `package.json` en `apps/showcase/` (formalizar como workspace app)
+- [x] Auditoría responsive: grids fijos colapsan en tablet/móvil; 5 páginas sin overflow horizontal a 375px
+- [x] Check de validación (`npm run validate`: inline-styles + espejos `css/`·`js/`)
+- [x] Mover `js/grimorio.js` a `packages/core/` (fuente); `js/` queda como espejo del build
+- [x] `package.json` en `apps/showcase/` (`@grimorio/showcase`, workspace)
+- [ ] Barrido responsive fino por componente (768 / 1024 px) — pendiente
 - [ ] Publicar `@grimorio/css` en npm / GitHub Packages
 
 ### Fase C · Web Components (`@grimorio/elements`)

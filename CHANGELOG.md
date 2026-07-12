@@ -11,6 +11,7 @@ versionado semántico.
 - **`apps/showcase` formalizado como workspace** (`@grimorio/showcase`, privado) — `apps/*` añadido a `workspaces`.
 
 ### Changed
+- **`js/grimorio.js` movido a `packages/core/grimorio.js`** (Fase B): la fuente del runtime ahora vive en el paquete `@grimorio/core`, en paralelo exacto al CSS. El showcase enlaza la fuente directo (cero-build en dev) y `js/` a nivel raíz pasa a ser un espejo generado por `npm run build` (como `css/`). Los consumidores instalados lo siguen alcanzando vía `exports["./js"]`. `npm run validate` verifica que el espejo no quede desincronizado.
 - **Responsive · grids fijos colapsan** (Fase B): `.grid--3`/`.grid--4` → 2 columnas en ≤740px y `.grid--2/3/4` → 1 columna en ≤560px; `.col-2`/`.col-3` resetean su span en móvil para no crear pistas implícitas vacías. Antes un grid de 4 columnas se mantenía en cualquier ancho (~90px/columna en teléfono).
 - **`tokens.js` deriva de `tokens.json`** (Fase A): re-export vía import attributes en vez de duplicar los valores a mano — fuente única de verdad, sin riesgo de drift.
 - **`PROYECTO.md` adelgazado** a tablero de estado + roadmap por fases; la estructura de carpetas y la convención de nombres se remiten a `CLAUDE.md` (se eliminó la duplicación).

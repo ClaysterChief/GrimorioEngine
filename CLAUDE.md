@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Grimorio Engine is a pure CSS UI framework by ESC Labs with a PS1/CRT retro aesthetic. Zero external JS dependencies. Fonts are loaded from Google Fonts. The entire framework lives in one file: `packages/css/grimorio.css`.
 
-`apps/showcase/index.html` is the **canonical component showcase** — it demonstrates every component and is the source of truth for all design patterns and usage. All JavaScript lives in `js/grimorio.js`.
+`apps/showcase/index.html` is the **canonical component showcase** — it demonstrates every component and is the source of truth for all design patterns and usage. All JavaScript lives in `packages/core/grimorio.js` (the editable source; `js/grimorio.js` at repo root is a generated mirror for distribution — see "Two distribution channels").
 
 **System requirements:** Node ≥18.0.0, npm ≥9.0.0
 
@@ -43,7 +43,9 @@ npm run serve      # npx serve . (any port) — then navigate to /apps/showcase/
 ### Before publishing:
 ```bash
 npm run build      # minifies packages/css/grimorio.css -> packages/css/grimorio.min.css,
-                    # then mirrors both files to css/ at repo root (see "Two distribution channels" below)
+                    # mirrors both CSS files to css/ at repo root, and mirrors
+                    # packages/core/grimorio.js -> js/grimorio.js (see "Two distribution channels")
+npm run validate   # checks: zero inline styles in showcase + css//js/ mirrors in sync
 ```
 
 **Development workflow:** Open showcase in browser, edit CSS directly in `packages/css/grimorio.css`, refresh to see changes. No compilation or transpilation needed.
@@ -67,7 +69,7 @@ npm run build      # minifies packages/css/grimorio.css -> packages/css/grimorio
 **Create a new secondary page (like login.html, contacto.html):**
 - Copy boilerplate from existing secondary pages in `apps/showcase/html/`
 - Update `menu-principal__item--active` on current nav item
-- Secondary pages live at `apps/showcase/html/` (3 levels below repo root), so CSS and JS use a **`../../../` prefix** (`../../../packages/css/grimorio.css`, `../../../js/grimorio.js`). Images live at `apps/showcase/images/`, so they use `../images/`. Sibling pages use plain relative links (`contacto.html`).
+- Secondary pages live at `apps/showcase/html/` (3 levels below repo root), so CSS and JS use a **`../../../` prefix** (`../../../packages/css/grimorio.css`, `../../../packages/core/grimorio.js`) — both link the editable source directly (zero-build dev), not the root mirrors. Images live at `apps/showcase/images/`, so they use `../images/`. Sibling pages use plain relative links (`contacto.html`).
 - Paths to images use `../images/`
 
 **Publish a release:**
@@ -114,9 +116,9 @@ All component colors reference CSS custom properties (`--acento`, `--void-surfac
 
 **Nesting palettes**: `.cosmos`/`.crimson`/`.dual` all mirror the same structure (var overrides + background-color + background-image) so any of them can scope a nested element regardless of what palette an ancestor has. `.dual` exists specifically because Dual Signal has no class by default (it's just `:root`) — without it, a nested "no class" element would inherit an ancestor's `.cosmos`/`.crimson` variables instead of staying purple. Always use an explicit class (`.cosmos`, `.crimson`, or `.dual`) when showing one palette's look inside a container themed with another (e.g. theme-comparison cards) — never rely on "no class" to mean Dual Signal in that context.
 
-### JavaScript (`js/grimorio.js`)
+### JavaScript (`packages/core/grimorio.js`)
 
-All JS is vanilla ES6 in `js/grimorio.js`, no modules, no bundler — everything is global scope. Loaded via `<script defer src="js/grimorio.js">` at the bottom of each page. Initialized on `DOMContentLoaded`:
+All JS is vanilla ES6 in `packages/core/grimorio.js` (source), no modules, no bundler — everything is global scope. The showcase loads it directly via `<script defer src=".../packages/core/grimorio.js">`; installed consumers get the root mirror `js/grimorio.js` (via `exports["./js"]`). Initialized on `DOMContentLoaded`:
 
 - `ESCCarrusel` — class, handles image/card carousels
 - `ESCConsola` — class, interactive terminal with command history
@@ -255,7 +257,7 @@ The showcase (`apps/showcase/index.html`) is the **source of truth** for all com
 `apps/showcase/html/login.html`, `apps/showcase/html/contacto.html`, and `apps/showcase/html/servicios.html` are complete. All three share the same shell:
 
 - `<link rel="stylesheet" href="../../../packages/css/grimorio.css" />`
-- `<script defer src="../../../js/grimorio.js"></script>`
+- `<script defer src="../../../packages/core/grimorio.js"></script>`
 - Same nav with `menu-principal__item--active` on the current page's item
 - `<div id="tema-flash" class="tema-flash"></div>` — required for theme switcher
 - Same footer with `../images/` paths (images live at `apps/showcase/images/`)
@@ -295,18 +297,18 @@ The repo uses npm workspaces (`"workspaces": ["packages/*"]`).
 
 | Package | Path | Purpose |
 |---|---|---|
-| `@grimorio/core` | `packages/core/` | Design tokens — `tokens.json` (active) + `tokens.js` export; logic/extraction script (future) |
+| `@grimorio/core` | `packages/core/` | Design tokens — `tokens.json` (source) + `tokens.js` (re-exports the JSON) — **and** `grimorio.js`, the vanilla-JS runtime source (mirrored to root `js/` by the build) |
 | `@grimorio/elements` | `packages/elements/` | Web Components layer (future) |
 | `@grimorio/vue` | `packages/vue/` | Vue 3 component wrappers (future) |
 | `@grimorio/angular` | `packages/angular/` | Angular component wrappers (future) |
 | `@grimorio/react-native` | `packages/react-native/` | React Native components (future) |
 
-`js/grimorio.js` lives at root for now — it will move to `packages/core/` at some point (design tokens are already extracted to `packages/core/tokens.json`, so this is no longer blocked, just not yet done).
+`packages/core/grimorio.js` is the JS **source** (edited directly, linked by the showcase). `js/grimorio.js` at repo root is a **generated mirror** (produced by `npm run build`, committed) — this parallels the CSS channels exactly: `packages/css/grimorio.css` (source) → `css/grimorio.css` (mirror). **Never hand-edit `js/grimorio.js` at root.** Installed consumers reach the mirror via `exports["./js"]`.
 
 ### Two distribution channels (don't confuse them)
 
 1. **`@grimorio/css` (npm registry, scoped package)** — lives in `packages/css/` (unmoved). This is the **live-edited source** — the showcase links here directly (`packages/css/grimorio.css`), preserving the zero-build-step dev workflow. Files: `packages/css/grimorio.css` + `packages/css/grimorio.min.css`.
-2. **`grimorio-engine` (root package — GitHub install / CDN like jsDelivr)** — a **generated mirror** folder `css/` at repo root, parallel to `js/`. Produced by `npm run build` (which now does two things: minify `packages/css/grimorio.css` → `packages/css/grimorio.min.css`, then copy both into `css/` at root) and **committed to git**, same as `grimorio.min.css` always has been, so GitHub-install/CDN consumers don't need to run a build themselves. **Never hand-edit `css/` at the root** — it's regenerated by `npm run build`.
+2. **`grimorio-engine` (root package — GitHub install / CDN like jsDelivr)** — **generated mirrors** `css/` and `js/` at repo root. Produced by `npm run build` (minify `packages/css/grimorio.css` → `.min.css`, copy both CSS into `css/`, and copy `packages/core/grimorio.js` → `js/grimorio.js`) and **committed to git**, so GitHub-install/CDN consumers don't need to build. **Never hand-edit `css/` or `js/` at the root** — both are regenerated by `npm run build` (and `npm run validate` fails if they drift from source).
 
 The showcase lives at `apps/showcase/`: `index.html` is the component demo, `html/` has the secondary pages, `images/` has all demo assets. To open locally: `apps/showcase/index.html` in browser, or `npm run serve` and navigate to `/apps/showcase/`.
 

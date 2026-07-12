@@ -35,20 +35,24 @@ console.log('· Inline styles (showcase):');
 walk(join(root, 'apps', 'showcase'));
 if (errors === 0) ok('cero atributos style="" en el HTML del showcase');
 
-// ── 2. Espejo css/ == fuente packages/css/ ────────────────────────
-console.log('· Espejo de distribución css/:');
+// ── 2. Espejos de distribución == fuente ──────────────────────────
+// css/ ← packages/css/ y js/ ← packages/core/ (los genera `npm run build`).
+console.log('· Espejos de distribución (css/ y js/):');
 const before = errors;
-for (const file of ['grimorio.css', 'grimorio.min.css']) {
-  const src = join(root, 'packages', 'css', file);
-  const mirror = join(root, 'css', file);
+const mirrors = [
+  ['packages/css/grimorio.css', 'css/grimorio.css'],
+  ['packages/css/grimorio.min.css', 'css/grimorio.min.css'],
+  ['packages/core/grimorio.js', 'js/grimorio.js'],
+];
+for (const [srcRel, mirrorRel] of mirrors) {
   try {
-    if (readFileSync(src, 'utf8') !== readFileSync(mirror, 'utf8'))
-      fail(`css/${file} no coincide con packages/css/${file} — corré \`npm run build\``);
+    if (readFileSync(join(root, srcRel), 'utf8') !== readFileSync(join(root, mirrorRel), 'utf8'))
+      fail(`${mirrorRel} no coincide con ${srcRel} — corré \`npm run build\``);
   } catch (e) {
-    fail(`no se pudo comparar ${file}: ${e.message}`);
+    fail(`no se pudo comparar ${mirrorRel}: ${e.message}`);
   }
 }
-if (errors === before) ok('css/ está sincronizado con packages/css/');
+if (errors === before) ok('css/ y js/ sincronizados con sus fuentes');
 
 // ── Resultado ─────────────────────────────────────────────────────
 if (errors > 0) {

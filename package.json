@@ -21,7 +21,7 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "cleancss -o packages/css/grimorio.min.css packages/css/grimorio.css && node -e \"const fs=require('fs');fs.mkdirSync('css',{recursive:true});fs.copyFileSync('packages/css/grimorio.css','css/grimorio.css');fs.copyFileSync('packages/css/grimorio.min.css','css/grimorio.min.css')\"",
+    "build": "cleancss -o packages/css/grimorio.min.css packages/css/grimorio.css && node -e \"const fs=require('fs');fs.mkdirSync('css',{recursive:true});fs.copyFileSync('packages/css/grimorio.css','css/grimorio.css');fs.copyFileSync('packages/css/grimorio.min.css','css/grimorio.min.css');fs.mkdirSync('js',{recursive:true});fs.copyFileSync('packages/core/grimorio.js','js/grimorio.js')\"",
     "validate": "node scripts/validate.mjs",
     "serve": "npx serve ."
   },

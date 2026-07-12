@@ -1,6 +1,6 @@
 {
   "name": "@grimorio/showcase",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Showcase canónico de GrimorioEngine — demo viva de todos los componentes y páginas secundarias.",
   "private": true,
   "scripts": {

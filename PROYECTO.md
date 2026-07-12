@@ -6,7 +6,7 @@ carpetas, convención de nombres BEM y tokens, ver **[`CLAUDE.md`](CLAUDE.md)**
 
 ---
 
-## Estado actual — v2.0.5
+## Estado actual — v2.0.6
 
 | Área                              | Estado       |
 |-----------------------------------|--------------|
@@ -35,7 +35,7 @@ carpetas, convención de nombres BEM y tokens, ver **[`CLAUDE.md`](CLAUDE.md)**
 ## Roadmap — Pendientes
 
 ### Fase A · Higiene ✅
-- [x] Unificar versión en todo el repo (2.0.5)
+- [x] Unificar versión en todo el repo (2.0.6)
 - [x] `tokens.js` deriva de `tokens.json` (fuente única, sin duplicar valores)
 - [x] Borrar asset huérfano (`Logo Extended VFISFT.svg`)
 - [x] Adelgazar `PROYECTO.md` (roadmap-only; estructura/naming viven en `CLAUDE.md`)

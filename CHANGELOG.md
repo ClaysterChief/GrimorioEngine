@@ -4,7 +4,7 @@ Todas las versiones notables de GrimorioEngine. Formato basado en
 [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/); el proyecto sigue
 versionado semántico.
 
-## [Unreleased]
+## [2.0.6] — 2026-07-11
 
 ### Added
 - **Script de validación** `npm run validate` (`scripts/validate.mjs`, sin deps, cross-platform): falla si hay atributos `style=""` en el HTML del showcase o si el espejo `css/` no coincide con `packages/css/` (olvido de `npm run build`). Apto para CI / pre-push.
@@ -18,6 +18,8 @@ versionado semántico.
 
 ### Removed
 - Asset huérfano `apps/showcase/images/Logo Extended VFISFT.svg` (0 referencias).
+
+[2.0.6]: https://github.com/ClaysterChief/GrimorioEngine/releases/tag/v2.0.6
 
 ## [2.0.5]
 

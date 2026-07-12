@@ -400,7 +400,7 @@ Variantes: `--ok` (verde) · `--advertencia` (amarillo) · `--error` (rojo) · `
 Chip en línea para versión, estado o etiquetas — **fuera de tablas** (dentro de tablas seguir usando `.tabla-badge`).
 ```html
 <span class="insignia">CSS</span>
-<span class="insignia insignia--acento">v2.0.5</span>
+<span class="insignia insignia--acento">v2.0.6</span>
 <span class="insignia insignia--ok">estable</span>
 <span class="insignia insignia--advertencia">beta</span>
 <span class="insignia insignia--error">deprecado</span>
@@ -609,7 +609,7 @@ Modificadores: `texto-maquina--lento`, `texto-maquina--sin-cursor`.
       <span class="ventana__dot ventana__dot--verde"></span>
     </div>
     <span class="consola__titulo">ESC LABS · TERMINAL</span>
-    <span class="consola__version">v2.0.5</span>
+    <span class="consola__version">v2.0.6</span>
   </div>
   <div class="consola__pantalla" aria-label="Salida de consola" aria-live="polite"></div>
   <form class="consola__form" autocomplete="off">

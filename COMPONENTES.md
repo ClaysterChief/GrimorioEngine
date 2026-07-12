@@ -76,7 +76,7 @@ Cambio de tema: botones con `data-tema="default|cosmos|crimson"`; `grimorio.js` 
 |---|---|---|---|---|---|---|---|---|---|
 | valor | 0 | .75rem | 1rem | 1.5rem | 2rem | 3rem | 4rem | 5rem | 6rem |
 
-**Font-size** (`fs-*`): `xs` 1 · `sm` 1.1 · `base` 1.2 · `md` 1.3 · `lg` 1.6 · `xl` 1.8 · `2xl` 2.2 · `3xl` 3 · `4xl` 4.5rem. (`fs-label`=md, `fs-body`=xl son alias.) Mínimo legible: 10px (`fs-xs`); ningún texto del framework baja de 10px.
+**Font-size** (`fs-*`): `xs` 1.2 · `sm` 1.3 · `base` 1.4 · `md` 1.5 · `lg` 1.6 · `xl` 1.8 · `2xl` 2.2 · `3xl` 3 · `4xl` 4.5rem. (`fs-label`=md, `fs-body`=xl son alias.) **Piso de legibilidad: 12px (`fs-xs` = 1.2rem)**; ningún texto del framework baja de 12px (VT323/Share Tech Mono son fuentes de píxel y cuestan por debajo de 12px). Excepción: número interno de la tarjeta de crédito (simulación de material).
 
 **Z-index** (`z-*`): `base` 1 · `nav` 100 · `dropdown` 1000 · `sticky` 1100 · `modal` 8000 · `toast` 9000 · `flash` 9999.
 
@@ -400,7 +400,7 @@ Variantes: `--ok` (verde) · `--advertencia` (amarillo) · `--error` (rojo) · `
 Chip en línea para versión, estado o etiquetas — **fuera de tablas** (dentro de tablas seguir usando `.tabla-badge`).
 ```html
 <span class="insignia">CSS</span>
-<span class="insignia insignia--acento">v2.0.3</span>
+<span class="insignia insignia--acento">v2.0.4</span>
 <span class="insignia insignia--ok">estable</span>
 <span class="insignia insignia--advertencia">beta</span>
 <span class="insignia insignia--error">deprecado</span>
@@ -609,7 +609,7 @@ Modificadores: `texto-maquina--lento`, `texto-maquina--sin-cursor`.
       <span class="ventana__dot ventana__dot--verde"></span>
     </div>
     <span class="consola__titulo">ESC LABS · TERMINAL</span>
-    <span class="consola__version">v2.0.0</span>
+    <span class="consola__version">v2.0.4</span>
   </div>
   <div class="consola__pantalla" aria-label="Salida de consola" aria-live="polite"></div>
   <form class="consola__form" autocomplete="off">

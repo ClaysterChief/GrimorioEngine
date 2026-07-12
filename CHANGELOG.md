@@ -4,6 +4,23 @@ Todas las versiones notables de GrimorioEngine. Formato basado en
 [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/); el proyecto sigue
 versionado semántico.
 
+## [2.0.4]
+
+### Added
+- **Componente `.insignia`** (badge/pill genérico) — antes solo existía `.tabla-badge`, acoplado visualmente a celdas de tabla. Una ronda de test (IA generando una página de documentación en modo vanilla estricto) tuvo que abusar de `.tabla-badge` fuera de tablas para chips de versión/estado. `.insignia` + variantes `--acento/ok/advertencia/error` cubre el caso con semántica propia.
+- **Componente `.migas`** (breadcrumb) — inexistente; la IA lo reconstruía a mano con `.enlace` + separadores. Ahora es un `<nav>` con separador ◆ automático entre items (`.migas > * + *::before`) y `.migas__actual` para la página actual.
+- **Variante `.alerta--info`** — nota neutral en color de acento; antes solo había `--ok/--advertencia/--error`.
+- **Utilidades `.size-xs/sm/md/lg/xl`** (2/3/4/6/8rem, cuadrado + `flex-shrink:0`) — no había forma de dimensionar cajas pequeñas (swatches, avatares, chips); el `w-*` más chico era 12rem.
+- **Offset sticky bajo cabecera**: token `--header-height` (5rem), `scroll-padding-top` global en `html` (las anclas `#seccion` ya no quedan tapadas por el header), utilidades `.top-header` / `.top-sm/md/lg/xl` y `.scroll-mt-*`.
+- **Página de documentación** (`apps/showcase/html/documentacion.html`) generada como test vanilla del framework y ahora parte del showcase.
+
+### Fixed
+- **Padding por eje truncado en `xl`** — `pt/pb/pl/pr/px/py-*` no llegaban a `2xl/3xl/4xl` aunque `p-*`, `m-*` y `gap-*` sí, contradiciendo la escala documentada. `servicios.html` ya usaba `py-2xl` (no-op silencioso). Extendidas las seis familias de eje hasta `4xl`.
+- **Legibilidad, ronda 3**: el piso de tipografía subió de **10px a 12px**. VT323 y Share Tech Mono son fuentes de píxel y cuestan por debajo de 12px. Tokens del extremo bajo re-espaciados (`xs` 1→1.2, `sm` 1.1→1.3, `base` 1.2→1.4, `md` 1.3→1.5rem); `lg`+ y el cuerpo real (`body` = xl = 1.8rem) sin cambio, así la jerarquía no se altera. 32 `font-size:1rem` hardcodeados y `.separador` migrados al token del piso. Única excepción: número de la tarjeta de crédito (simulación de material).
+- **Deriva de versión** unificada a 2.0.4 en `package.json`, tokens, consola, README y PROYECTO (estaban mezclados 2.0.0/2.0.3).
+
+[2.0.4]: https://github.com/ClaysterChief/GrimorioEngine/releases/tag/v2.0.4
+
 ## [2.0.3]
 
 ### Added

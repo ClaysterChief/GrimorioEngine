@@ -196,7 +196,7 @@ Spacing scale (`--space-*`, used by `.m-*`, `.p-*` (incl. `t/b/l/r/x/y`), `.gap-
 | `3xl` | 5rem (50px) |
 | `4xl` | 6rem (60px) |
 
-Font-size utilities (monotonic): `.fs-xs` (1) · `.fs-sm` (1.1) · `.fs-base` (1.2) · `.fs-md` (1.3) · `.fs-lg` (1.6) · `.fs-xl` (1.8) · `.fs-2xl` (2.2) · `.fs-3xl` (3) · `.fs-4xl` (4.5rem). Aliases: `.fs-label` (=md), `.fs-body` (=xl). Min legible 1rem/10px — no hardcoded font-size in the framework goes below 1rem.
+Font-size utilities (monotonic): `.fs-xs` (1.2) · `.fs-sm` (1.3) · `.fs-base` (1.4) · `.fs-md` (1.5) · `.fs-lg` (1.6) · `.fs-xl` (1.8) · `.fs-2xl` (2.2) · `.fs-3xl` (3) · `.fs-4xl` (4.5rem). Aliases: `.fs-label` (=md), `.fs-body` (=xl). **Legibility floor 1.2rem/12px** — no framework text goes below 12px (VT323/Share Tech Mono are pixel fonts; sub-12px is hard to read). The low end was lifted from 10px; `lg`+ and body (`--font-size-body` = xl = 18px) are unchanged, so the type hierarchy is intact. Sole exception: the credit-card number (`1.05rem`, material simulation, like the card's hardcoded colors).
 
 Letter-spacing: `.tracking-md` (0.1em) · `.tracking-wide` (0.08em) · `.tracking-wider` (0.18em)
 

@@ -5,7 +5,7 @@
 // este módulo lo expone como objeto JS sin requerir import assertions.
 
 export const tokens = {
-  meta: { version: '2.0.0', rootFontSize: '62.5%', remBasis: '1rem = 10px' },
+  meta: { version: '2.0.4', rootFontSize: '62.5%', remBasis: '1rem = 10px' },
 
   fonts: {
     display: '"Orbitron", sans-serif',
@@ -46,8 +46,8 @@ export const tokens = {
   // Escala monótona única — alimenta m-* / p-* / gap-* vía var(--space-*)
   spacing: { 0: '0', xs: '0.75rem', sm: '1rem', md: '1.5rem', lg: '2rem', xl: '3rem', '2xl': '4rem', '3xl': '5rem', '4xl': '6rem' },
 
-  // Monótona por nombre; label = md, body = xl
-  fontSize: { xs: '1rem', sm: '1.1rem', base: '1.2rem', md: '1.3rem', lg: '1.6rem', xl: '1.8rem', '2xl': '2.2rem', '3xl': '3rem', '4xl': '4.5rem' },
+  // Monótona por nombre; label = md, body = xl. Piso de legibilidad 1.2rem (12px).
+  fontSize: { xs: '1.2rem', sm: '1.3rem', base: '1.4rem', md: '1.5rem', lg: '1.6rem', xl: '1.8rem', '2xl': '2.2rem', '3xl': '3rem', '4xl': '4.5rem' },
 
   transitions: { fast: '0.15s', base: '0.22s', moderate: '0.3s', slow: '0.45s', card: '0.72s' },
 

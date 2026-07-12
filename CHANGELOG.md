@@ -4,6 +4,14 @@ Todas las versiones notables de GrimorioEngine. Formato basado en
 [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/); el proyecto sigue
 versionado semántico.
 
+## [2.0.5]
+
+### Fixed
+- **Legibilidad, ronda 3**: el piso de tipografía subió de **10px a 12px**. VT323 y Share Tech Mono son fuentes de píxel y cuestan por debajo de 12px. Tokens del extremo bajo re-espaciados (`xs` 1→1.2, `sm` 1.1→1.3, `base` 1.2→1.4, `md` 1.3→1.5rem); `lg`+ y el cuerpo real (`body` = xl = 1.8rem) sin cambio, así la jerarquía no se altera. 32 `font-size:1rem` hardcodeados y `.separador` migrados al token del piso. Única excepción: número de la tarjeta de crédito (simulación de material).
+- **Deriva de versión** unificada a 2.0.5 en `package.json`, tokens, consola JS, showcase, README y PROYECTO (estaban mezclados 2.0.0/2.0.3, y v2.0.4 ya estaba publicado en el commit anterior).
+
+[2.0.5]: https://github.com/ClaysterChief/GrimorioEngine/releases/tag/v2.0.5
+
 ## [2.0.4]
 
 ### Added
@@ -16,8 +24,6 @@ versionado semántico.
 
 ### Fixed
 - **Padding por eje truncado en `xl`** — `pt/pb/pl/pr/px/py-*` no llegaban a `2xl/3xl/4xl` aunque `p-*`, `m-*` y `gap-*` sí, contradiciendo la escala documentada. `servicios.html` ya usaba `py-2xl` (no-op silencioso). Extendidas las seis familias de eje hasta `4xl`.
-- **Legibilidad, ronda 3**: el piso de tipografía subió de **10px a 12px**. VT323 y Share Tech Mono son fuentes de píxel y cuestan por debajo de 12px. Tokens del extremo bajo re-espaciados (`xs` 1→1.2, `sm` 1.1→1.3, `base` 1.2→1.4, `md` 1.3→1.5rem); `lg`+ y el cuerpo real (`body` = xl = 1.8rem) sin cambio, así la jerarquía no se altera. 32 `font-size:1rem` hardcodeados y `.separador` migrados al token del piso. Única excepción: número de la tarjeta de crédito (simulación de material).
-- **Deriva de versión** unificada a 2.0.4 en `package.json`, tokens, consola, README y PROYECTO (estaban mezclados 2.0.0/2.0.3).
 
 [2.0.4]: https://github.com/ClaysterChief/GrimorioEngine/releases/tag/v2.0.4
 

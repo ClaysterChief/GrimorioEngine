@@ -5,7 +5,7 @@
 // este módulo lo expone como objeto JS sin requerir import assertions.
 
 export const tokens = {
-  meta: { version: '2.0.4', rootFontSize: '62.5%', remBasis: '1rem = 10px' },
+  meta: { version: '2.0.5', rootFontSize: '62.5%', remBasis: '1rem = 10px' },
 
   fonts: {
     display: '"Orbitron", sans-serif',

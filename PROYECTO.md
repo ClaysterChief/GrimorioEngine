@@ -5,7 +5,7 @@ Se usa importando `packages/css/grimorio.css` (o el espejo `css/grimorio.css` en
 
 ---
 
-## Estado actual — v2.0.4
+## Estado actual — v2.0.5
 
 | Componente            | Estado       |
 |-----------------------|--------------|

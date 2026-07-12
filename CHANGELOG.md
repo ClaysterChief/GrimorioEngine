@@ -4,6 +4,16 @@ Todas las versiones notables de GrimorioEngine. Formato basado en
 [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/); el proyecto sigue
 versionado semántico.
 
+## [Unreleased]
+
+### Changed
+- **Responsive · grids fijos colapsan** (Fase B): `.grid--3`/`.grid--4` → 2 columnas en ≤740px y `.grid--2/3/4` → 1 columna en ≤560px; `.col-2`/`.col-3` resetean su span en móvil para no crear pistas implícitas vacías. Antes un grid de 4 columnas se mantenía en cualquier ancho (~90px/columna en teléfono).
+- **`tokens.js` deriva de `tokens.json`** (Fase A): re-export vía import attributes en vez de duplicar los valores a mano — fuente única de verdad, sin riesgo de drift.
+- **`PROYECTO.md` adelgazado** a tablero de estado + roadmap por fases; la estructura de carpetas y la convención de nombres se remiten a `CLAUDE.md` (se eliminó la duplicación).
+
+### Removed
+- Asset huérfano `apps/showcase/images/Logo Extended VFISFT.svg` (0 referencias).
+
 ## [2.0.5]
 
 ### Fixed

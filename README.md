@@ -119,7 +119,7 @@ import '@grimorio/css/min'
 ```bash
 npm install github:ClaysterChief/GrimorioEngine
 # o fijando una versión por tag:
-npm install github:ClaysterChief/GrimorioEngine#v2.0.0
+npm install github:ClaysterChief/GrimorioEngine#v2.0.4
 ```
 
 ```js
@@ -285,7 +285,7 @@ BEM simplificado, todo en **español, kebab-case**:
 grimorio-engine/
   packages/
     css/
-      grimorio.css        ← Framework completo (@grimorio/css v2.0.0) — fuente editable
+      grimorio.css        ← Framework completo (@grimorio/css v2.0.4) — fuente editable
     core/
       tokens.json         ← Design tokens (fuente de verdad) — @grimorio/core
       tokens.js           ← Re-export ESM de los tokens

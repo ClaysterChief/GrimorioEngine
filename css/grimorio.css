@@ -51,11 +51,15 @@
   --border-accent: 2px;
   --border-thick:  3px;
 
-  /* Core font sizes — escala monótona (xs < sm < base < md < lg < xl < 2xl < 3xl < 4xl) */
-  --font-size-xs:    1rem;
-  --font-size-sm:    1.1rem;
-  --font-size-base:  1.2rem;
-  --font-size-md:    1.3rem;
+  /* Core font sizes — escala monótona (xs < sm < base < md < lg < xl < 2xl < 3xl < 4xl).
+     Piso de legibilidad: 1.2rem (12px). El extremo bajo se subió desde 1rem/10px
+     (VT323 y Share Tech Mono son fuentes de píxel: por debajo de 12px cuesta leerlas).
+     Los tamaños grandes (lg y superiores) y el cuerpo real (--font-size-body = xl)
+     se mantienen: la jerarquía tipográfica no cambia, solo el piso. */
+  --font-size-xs:    1.2rem;
+  --font-size-sm:    1.3rem;
+  --font-size-base:  1.4rem;
+  --font-size-md:    1.5rem;
   --font-size-lg:    1.6rem;
   --font-size-xl:    1.8rem;
   --font-size-2xl:   2.2rem;
@@ -912,7 +916,7 @@ footer .divisor {
 .menu-principal__link {
   color: var(--acento);
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.4rem 0.75rem;
@@ -1475,7 +1479,7 @@ label {
   border-top: 1px solid var(--border);
   padding: 0.5rem 1rem;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.08em;
   color: var(--border);
   display: flex;
@@ -1549,7 +1553,7 @@ label {
 }
 .barra-hp__label {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.06em;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -1578,7 +1582,7 @@ label {
    ================================================ */
 .separador {
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -1592,7 +1596,7 @@ label {
 .separador::before {
   content: "◆";
   color: var(--acento);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   flex-shrink: 0;
 }
 /* ================================================ */
@@ -1634,7 +1638,7 @@ label {
 }
 .tagline-item__contexto {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.06em;
   color: var(--border);
   text-transform: uppercase;
@@ -1784,7 +1788,7 @@ label {
 }
 .cargando-bloques__label {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -1916,7 +1920,7 @@ label {
 }
 .cargando-scan__label {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--acento);
@@ -1926,7 +1930,7 @@ label {
 }
 .cargando-scan__ruta {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   color: var(--text-muted);
   letter-spacing: 0.06em;
   position: relative;
@@ -2526,7 +2530,7 @@ label {
   padding: 0.4rem 0.75rem;
   background: linear-gradient(0deg, rgba(3, 1, 8, 0.9) 0%, transparent 100%);
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--acento);
@@ -2615,7 +2619,7 @@ label {
 }
 .tarjeta-credito__marca {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.2em;
   color: var(--acento);
   line-height: 1.1;
@@ -2623,7 +2627,7 @@ label {
 .tarjeta-credito__marca small {
   display: block;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.6em;
   color: var(--text-muted);
   margin-top: 0.15rem;
@@ -2676,7 +2680,7 @@ label {
 }
 .tarjeta-credito__meta-label {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -2750,7 +2754,7 @@ label {
   background: white;
   color: #222;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.25em;
   padding: 0.25rem 0.5rem;
   border: 1px solid #bbb;
@@ -2760,7 +2764,7 @@ label {
 }
 .tarjeta-credito__cvv-etiqueta {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.12em;
   color: var(--text-muted);
   text-align: right;
@@ -2772,7 +2776,7 @@ label {
   bottom: 0.75rem;
   right: 1.1rem;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.2em;
   color: var(--acento);
   opacity: 0.6;
@@ -2840,7 +2844,7 @@ label {
   height: 100%;
   min-height: 48px;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.03em;
   color: var(--text-primary);
   background: var(--void-surface);
@@ -2857,7 +2861,7 @@ label {
   color: var(--acento);
 }
 .formulario-correo__flecha {
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   transition: transform var(--transition-base) cubic-bezier(0.23, 1, 0.32, 1);
   display: inline-block;
 }
@@ -2898,7 +2902,7 @@ label {
   width: 100%;
   padding: 0.6rem 1rem;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.03em;
   text-align: left;
   color: var(--text-primary);
@@ -2920,7 +2924,7 @@ label {
   padding-left: 1.35rem;
 }
 .formulario-correo__opcion-icono {
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   opacity: 0.6;
 }
 /* ================================================ */
@@ -3001,7 +3005,7 @@ label {
 }
 .selector-tema__nombre {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.35rem;
@@ -3017,7 +3021,7 @@ label {
   top: 0.5rem;
   right: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.15rem 0.45rem;
@@ -3411,7 +3415,7 @@ label {
 }
 .alerta__prefijo {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--acento);
@@ -3426,7 +3430,7 @@ label {
 }
 .alerta__titulo {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--acento);
@@ -3445,7 +3449,7 @@ label {
   border: 1px solid transparent;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   cursor: pointer;
   padding: 0.2rem 0.4rem;
   flex-shrink: 0;
@@ -3567,7 +3571,7 @@ label {
 }
 .modal__titulo-barra {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--acento);
@@ -3637,7 +3641,7 @@ label {
 .tabla th {
   padding: 0.65rem 1.1rem;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--acento);
@@ -3676,7 +3680,7 @@ label {
 /* Badge de estado para celdas */
 .tabla-badge {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 0.18rem 0.5rem;
@@ -3709,7 +3713,7 @@ label {
   align-items: center;
   gap: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   line-height: 1.2;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3836,7 +3840,7 @@ label {
 }
 .ventana__titulo {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--acento);
@@ -3845,7 +3849,7 @@ label {
 }
 .ventana__version {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   color: var(--text-muted);
   letter-spacing: 0.06em;
   flex-shrink: 0;
@@ -3950,7 +3954,7 @@ label {
 }
 .consola__version {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   color: var(--text-muted);
 }
 .consola__pantalla {
@@ -4078,7 +4082,7 @@ label {
 }
 .stat-hud__label {
   font-family: var(--font-mono);
-  font-size: 1rem;
+  font-size: var(--font-size-xs);
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--text-muted);

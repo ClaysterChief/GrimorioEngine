@@ -368,7 +368,7 @@ class ESCConsola {
   }
 
   _version() {
-    this._print('Grimorio Engine v2.0.0', 'consola__linea--ok');
+    this._print('Grimorio Engine v2.0.4', 'consola__linea--ok');
     this._print('Runtime: CSS3 + ES6 · Sin dependencias');
     this._print('Paletas: Dual Signal + Cosmos Blue');
   }

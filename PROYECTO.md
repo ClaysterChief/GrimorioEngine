@@ -5,7 +5,7 @@ Se usa importando `packages/css/grimorio.css` (o el espejo `css/grimorio.css` en
 
 ---
 
-## Estado actual — v2.0.0
+## Estado actual — v2.0.4
 
 | Componente            | Estado       |
 |-----------------------|--------------|
@@ -110,4 +110,4 @@ Prefijos clave: `btn`, `campo-`, `formulario-`, `tarjeta-`, `grupo-`, `imagen-`,
 
 ---
 
-*Última revisión: 2026-06-24*
+*Última revisión: 2026-07-11*

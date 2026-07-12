@@ -5131,6 +5131,12 @@ input[type="range"].formulario-rango::-moz-range-track {
   .grupo-formulario-columnas__2 {
     grid-template-columns: 1fr;
   }
+  /* Grids densos colapsan a 2 columnas en tablet para no aplastar el contenido.
+     .grid--2 se mantiene; .grid--auto ya es fluido (auto-fit/minmax). */
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 560px) {
   .navegar {
@@ -5143,6 +5149,18 @@ input[type="range"].formulario-rango::-moz-range-track {
   }
   h1 {
     font-size: 3.2rem;
+  }
+  /* En móvil todos los grids fijos pasan a una sola columna. */
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+  /* Con una sola columna, los spans no tienen sentido: si no se resetean,
+     .col-2/.col-3 crean pistas implícitas vacías (fantasma de 0px). */
+  .col-2,
+  .col-3 {
+    grid-column: auto;
   }
 }
 @media (min-width: 576px) {
